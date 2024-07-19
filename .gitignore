@@ -1,2 +1,3 @@
 dev_start_server.sh
 prod_start_server.sh
+private/
