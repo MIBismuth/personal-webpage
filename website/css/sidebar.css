@@ -7,7 +7,7 @@
     margin-top: max(70px, 7vh); /* Changed from 60px to 5vh for responsiveness */
     transform: translateX(-100%);
     transition: transform 200ms ease-in-out;
-    background: linear-gradient(180deg, var(--overlay), var(--subtle));
+    background: linear-gradient(135deg, var(--overlay) 60%, var(--highlightMed) 80%, var(--gold));
     z-index: 999; /* High z-index to make sure it is on top */
 }
 .sidebarMenuInner{
