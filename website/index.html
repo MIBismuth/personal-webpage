@@ -6,11 +6,34 @@
         <title>José Lopes' Cool Website</title>
         <link rel="stylesheet" href="css/styles.css">
         <link rel="stylesheet" href="css/themes.css">
+        <link rel="stylesheet" href="css/sidebar.css">
     </head>
     <body>
+        <script src="js/utils.js"></script>
+
+        <nav class="navbar">
+            <!-- <button class="menu-button" onclick="toggleMenu()">☰</button> -->
+            <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+            <label for="openSidebarMenu" class="sidebarIconToggle">
+                <div class="spinner diagonal part-1"></div>
+                <div class="spinner horizontal"></div>
+                <div class="spinner diagonal part-2"></div>
+            </label>
+
+            <div id="sidebarMenu">
+                <ul class="sidebarMenuInner">
+                    <li>José Duarte Lopes <span>Anarcho-Optimist</span></li>
+                    <li>This menu is still in development</li>
+                </ul>
+            </div>
+
+            <div class="window-title">Welcome to my Web Page!</div>
+            <button class="nightmode-button" onclick="toggleTheme()">🌙</button>
+        </nav>        
+
         <div class="container">
             <h1>Welcome to my personal website!</h1>
-            <p>My name is José Lopes and I'm currently building this web-page as my portfolio/blog (self hosted btw).</p>
+            <p>Hello! My name is José Lopes and I'm currently building this web-page as my portfolio/blog (self hosted btw).</p>
             <p>Meanwhile, check out my socials and CV below!</p>
             <div class="button-container">
                 <a href="https://www.linkedin.com/in/jose-duarte-lopes/" class="button" target="_blank">LinkedIn</a>
@@ -18,7 +41,7 @@
                 <a href="resources/CV_Jose_Lopes.pdf" class="button" target="_blank">CV</a>
             </div>
         </div>
-        <div class="github-card" data-github="mibismuth" data-width="400" data-height="" data-theme="default"></div>
+        <!-- <div class="github-card" data-github="mibismuth" data-width="400" data-height="" data-theme="default"></div> -->
     </body>
 </html>
 

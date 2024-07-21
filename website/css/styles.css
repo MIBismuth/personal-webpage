@@ -1,20 +1,59 @@
-
 body {
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
-    /* background: var(--base); */
-    background: linear-gradient(135deg, var(--base), var(--pine), var(--foam));
+    background: var(--base);
     font-family: 'Arial', sans-serif;
     color: var(--text);
+    position: relative;
+    overflow: hidden;
 }
 
-.container {
+.navbar {
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+   justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--base);
+    color: var(--text);
+    box-sizing: border-box; /* Ensure padding is included in total width */
+    /* z-index: 1000; /* Ensure navbar is above other content */ */
+}
+
+.menu-button, .nightmode-button {
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 1.5em;
+    border-radius: 10%;
+    /* align-items: center; */
+    padding: .25em .5em;
     text-align: center;
+}
+
+
+.window-title {
+    font-size: 1.5em;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.menu-button:hover, .nightmode-button:hover {
+    color: var(--love);
+    background-color: var(--highlightMed);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.container {
+    /* text-align: center; */
     padding: 20px;
     /* background: var(--surface); */
     border-radius: 10px;
@@ -68,10 +107,10 @@ p {
 }
 
 .button:nth-child(3) {
-    background-color: #4caf50; /* Green color for CV */
+    background-color: var(--foam);
 }
 
 .button:nth-child(3):hover {
-    background-color: #388e3c; /* Darker green color for hover */
+    background-color: var(--pine);
 }
 
