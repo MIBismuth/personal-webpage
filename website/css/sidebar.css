@@ -7,7 +7,8 @@
     margin-top: max(70px, 7vh); /* Changed from 60px to 5vh for responsiveness */
     transform: translateX(-100%);
     transition: transform 200ms ease-in-out;
-    background: linear-gradient(135deg, var(--overlay) 60%, var(--highlightMed) 80%, var(--gold));
+    /* background: linear-gradient(135deg, var(--overlay) 60%, var(--highlightMed) 80%, var(--gold)); */
+    background: var(--overlay);
     z-index: 999; /* High z-index to make sure it is on top */
     opacity: 95%;
 }
@@ -15,7 +16,6 @@
     margin: 0;
     padding: 0;
     border-top: 1px solid var(--text);
-    opacity(50%)
 }
 
 .sidebarMenuInner li{
@@ -26,6 +26,12 @@
     padding: 1.5em; /* Changed from 20px to 1.5em */
     cursor: pointer;
     border-bottom: 1px solid var(--text);
+}
+
+.sidebarMenuInner li:hover{
+    color:var(--love);
+    background:var(--highlightLow);
+    opacity: 100%;
 }
 
 .sidebarMenuInner li span{

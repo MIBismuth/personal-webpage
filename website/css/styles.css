@@ -85,6 +85,7 @@ p {
     width: min(100%, 600px);
     /*! position: ; */
     margin: 0 auto;
+    padding: 2em 0;
 }
 
 /* Button styles using theme colors */
