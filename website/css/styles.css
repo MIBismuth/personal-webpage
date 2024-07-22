@@ -6,11 +6,13 @@ body {
     justify-content: flex-start;
     align-items: center;
     height: 100vh;
+    width: 100vw;
     background: var(--base);
     font-family: 'Arial', sans-serif;
     color: var(--text);
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .navbar {
