@@ -36,7 +36,7 @@ body {
     font-size: 1.5em;
     border-radius: 10%;
     /* align-items: center; */
-    padding: .25em .5em;
+    padding: .5em .75em;
     text-align: center;
     z-index: 1000;
 }
