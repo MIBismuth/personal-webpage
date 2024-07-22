@@ -1,59 +1,53 @@
-/* themes.css */
-
-/* Rose Pine Theme */
 .rosePine {
-  --base: #191724;
-  --surface: #1f1d2e;
-  --overlay: #26233a;
-  --muted: #6e6a86;
-  --subtle: #908caa;
-  --text: #e0def4;
-  --love: #eb6f92;
-  --gold: #f6c177;
-  --rose: #ebbcba;
-  --pine: #31748f;
-  --foam: #9ccfd8;
-  --iris: #c4a7e7;
-  --highlightLow: #21202e;
-  --highlightMed: #403d52;
-  --highlightHigh: #524f67;
+	--base: rgb(25, 23, 36);
+	--surface: rgb(31, 29, 46);
+	--overlay: rgb(38, 35, 58);
+	--muted: rgb(110, 106, 134);
+	--subtle: rgb(144, 140, 170);
+	--text: rgb(224, 222, 244);
+	--love: rgb(235, 111, 146);
+	--gold: rgb(246, 193, 119);
+	--rose: rgb(235, 188, 186);
+	--pine: rgb(49, 116, 143);
+	--foam: rgb(156, 207, 216);
+	--iris: rgb(196, 167, 231);
+	--highlight-low: rgb(33, 32, 46);
+	--highlight-med: rgb(64, 61, 82);
+	--highlight-high: rgb(82, 79, 103);
 }
 
-/* Rose Pine Moon Theme */
 .rosePineMoon {
-  --base: #232136;
-  --surface: #2a273f;
-  --overlay: #393552;
-  --muted: #6e6a86;
-  --subtle: #908caa;
-  --text: #e0def4;
-  --love: #eb6f92;
-  --gold: #f6c177;
-  --rose: #ea9a97;
-  --pine: #3e8fb0;
-  --foam: #9ccfd8;
-  --iris: #c4a7e7;
-  --highlightLow: #2a283e;
-  --highlightMed: #44415a;
-  --highlightHigh: #56526e;
+	--base: rgb(35, 33, 54);
+	--surface: rgb(42, 39, 63);
+	--overlay: rgb(57, 53, 82);
+	--muted: rgb(110, 106, 134);
+	--subtle: rgb(144, 140, 170);
+	--text: rgb(224, 222, 244);
+	--love: rgb(235, 111, 146);
+	--gold: rgb(246, 193, 119);
+	--rose: rgb(234, 154, 151);
+	--pine: rgb(62, 143, 176);
+	--foam: rgb(156, 207, 216);
+	--iris: rgb(196, 167, 231);
+	--highlight-low: rgb(42, 40, 62);
+	--highlight-med: rgb(68, 65, 90);
+	--highlight-high: rgb(86, 82, 110);
 }
 
-/* Rose Pine Dawn Theme */
 .rosePineDawn {
-  --base: #faf4ed;
-  --surface: #fffaf3;
-  --overlay: #f2e9e1;
-  --muted: #9893a5;
-  --subtle: #797593;
-  --text: #575279;
-  --love: #b4637a;
-  --gold: #ea9d34;
-  --rose: #d7827e;
-  --pine: #286983;
-  --foam: #56949f;
-  --iris: #907aa9;
-  --highlightLow: #f4ede8;
-  --highlightMed: #dfdad9;
-  --highlightHigh: #cecacd;
+	--base: rgb(250, 244, 237);
+	--surface: rgb(255, 250, 243);
+	--overlay: rgb(242, 233, 222);
+	--muted: rgb(152, 147, 165);
+	--subtle: rgb(121, 117, 147);
+	--text: rgb(87, 82, 121);
+	--love: rgb(180, 99, 122);
+	--gold: rgb(234, 157, 52);
+	--rose: rgb(215, 130, 126);
+	--pine: rgb(40, 105, 131);
+	--foam: rgb(86, 148, 159);
+	--iris: rgb(144, 122, 169);
+	--highlight-low: rgb(244, 237, 232);
+	--highlight-med: rgb(223, 218, 217);
+	--highlight-high: rgb(206, 202, 205);
 }
-

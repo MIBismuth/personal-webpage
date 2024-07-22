@@ -60,7 +60,7 @@ input[type=checkbox] {
     box-sizing: border-box;
     cursor: pointer;
     z-index: 1000; /* Higher z-index than the sidebar */
-    height: 100%; /* Changed from 22px to 2.2vh */
+    height: 3em; /* Changed from 22px to 2.2vh */
     aspect-ratio: 1/1; /* Changed from 22px to 2.2vh */
     border-radius: 10%;
     /* align-items: center; */

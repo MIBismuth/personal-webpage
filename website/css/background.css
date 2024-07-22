@@ -38,7 +38,7 @@
     height: 20px;
     animation-delay: 2s;
     animation-duration: 12s;
-    background-color: var(--love);
+    background-color: var(--foam);
 }
 
 .circles li:nth-child(3){
@@ -105,6 +105,15 @@
     animation-duration: 50s;
     background-color: var(--iris);
 }
+.circles li:nth-child(11){
+    left: 5%;
+    width: 100px;
+    height: 100px;
+    animation-delay: 0s;
+    animation-duration: 25s;
+    background-color: var(--love);
+}
+
 
 
 
