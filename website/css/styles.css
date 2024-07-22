@@ -28,7 +28,7 @@ body {
     /* z-index: 1000; /* Ensure navbar is above other content */ */
 }
 
-.menu-button, .nightmode-button {
+.nightmode-button {
     background: none;
     border: none;
     color: var(--text);
@@ -38,6 +38,7 @@ body {
     /* align-items: center; */
     padding: .25em .5em;
     text-align: center;
+    z-index: 1000;
 }
 
 
@@ -47,7 +48,7 @@ body {
     flex-grow: 1;
 }
 
-.menu-button:hover, .nightmode-button:hover {
+.nightmode-button:hover {
     color: var(--love);
     background-color: var(--highlightMed);
     transition: background-color 0.3s ease, color 0.3s ease;

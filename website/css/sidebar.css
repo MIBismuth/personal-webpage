@@ -9,6 +9,7 @@
     transition: transform 200ms ease-in-out;
     background: linear-gradient(135deg, var(--overlay) 60%, var(--highlightMed) 80%, var(--gold));
     z-index: 999; /* High z-index to make sure it is on top */
+    opacity: 95%;
 }
 .sidebarMenuInner{
     margin: 0;
@@ -25,7 +26,6 @@
     padding: 1.5em; /* Changed from 20px to 1.5em */
     cursor: pointer;
     border-bottom: 1px solid var(--text);
-    border-opacity: 50%;
 }
 
 .sidebarMenuInner li span{
