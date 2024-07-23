@@ -19,7 +19,7 @@ mkdir -p $HTML_DIR
 for file in $MARKDOWN_DIR/*.md; do
     filename=$(basename -- "$file")
     filename="${filename%.*}"
-    pandoc -s "$MARKDOWN_DIR/$filename.md" -o "$HTML_DIR/$filename.html" --template=$TEMPLATE_FILE --toc --section-divs --number-sections 
+    pandoc -s "$MARKDOWN_DIR/$filename.md" -o "$HTML_DIR/$filename.html" --template=$TEMPLATE_FILE --toc --section-divs --number-sections
 done
 
 echo "Conversion complete!"
