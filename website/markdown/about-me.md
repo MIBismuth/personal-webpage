@@ -14,7 +14,7 @@ My name is José Duarte Lopes and I'm a 22 year old based in Lisbon, Portugal.
 
 I got a Bachelor's degree in Engineering Physics at Instituto Superior Técnico (IST), University of Lisbon. 
 
-Currently a graduate student of Eletrical and Computer Engineering also at IST.
+Currently a graduate student of Electrical and Computer Engineering also at IST.
 
 
 # My interests
