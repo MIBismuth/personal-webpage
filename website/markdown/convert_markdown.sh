@@ -19,7 +19,22 @@ mkdir -p $HTML_DIR
 for file in $MARKDOWN_DIR/*.md; do
     filename=$(basename -- "$file")
     filename="${filename%.*}"
-    pandoc -s "$MARKDOWN_DIR/$filename.md" -o "$HTML_DIR/$filename.html" --template=$TEMPLATE_FILE --toc --section-divs --number-sections
+
+    # Check for a meta tag to determine whether to use --number-sections
+    number_sections="false"
+    if grep -q "^numbering: true" "$file"; then
+        number_sections="true"
+    fi
+
+    # Build pandoc command
+    pandoc_cmd="pandoc -s \"$MARKDOWN_DIR/$filename.md\" -o \"$HTML_DIR/$filename.html\" --template=$TEMPLATE_FILE --toc --section-divs"
+    
+    if [ "$number_sections" = "true" ]; then
+        pandoc_cmd="$pandoc_cmd --number-sections"
+    fi
+
+    # Execute pandoc command
+    eval $pandoc_cmd
 done
 
 echo "Conversion complete!"

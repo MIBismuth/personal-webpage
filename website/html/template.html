@@ -37,26 +37,29 @@
 
             <div id="sidebarMenu">
                 <ul class="sidebarMenuInner">
-                    <li>José Duarte Lopes <span>Anarcho-Optimist</span></li>
+                    <a href="/about-me">
+                        <li>José Duarte Lopes<span>Anarcho-Optimist</span></li></a> 
                     <li>This menu is still in development</li>
                 </ul>
             </div>
 
             <div class="window-title">$title$</div>
             <button class="nightmode-button" onclick="toggleTheme()">🌙</button>
-        </nav>        
+        </nav>   
         <div class="content">
             <h1>$title$</h1>
             <h2>
 
                 $sub-title$
             </h2>
-            $if(toc_)$
+
+            $if(toc_on)$
             <div id="toc">
                 <h2>Table of Contents:</h2>
                 $toc$
             </div>
-$endif$
+            $endif$
+
             $body$
         </div>
         <footer class="footer">

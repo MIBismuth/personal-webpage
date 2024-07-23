@@ -18,9 +18,9 @@
     border-top: 1px solid var(--text);
 }
 
-.sidebarMenuInner li{
+.sidebarMenuInner li {
     list-style: none;
-    /* color: var(--text); */
+    color: var(--text);
     text-transform: uppercase;
     font-weight: bold;
     padding: 1.5em; /* Changed from 20px to 1.5em */

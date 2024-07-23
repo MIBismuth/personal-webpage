@@ -18,6 +18,26 @@ body {
     margin-top: 15vh;
 }
 
+/* Basic styling for anchor tags */
+a {
+    color: var(--pine); /* Default link color (blue) */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Styling for anchor tags when hovered over */
+a:hover {
+        text-decoration: underline; /* Add underline on hover */
+}
+
+/* Styling for anchor tags when clicked or active */
+a:active {
+    color: var(--gold); /* Change color to green when active */
+}
+
+/* Styling for visited anchor tags */
+a:visited {
+    color: var(--iris); /* Change color to purple for visited links */
+}
 .content{
     /* overflow-y: auto; */
     distplay:flex;
@@ -56,7 +76,6 @@ body {
     text-align: center;
     z-index: 1000;
 }
-
 
 .window-title {
     font-size: 1.5em;
@@ -121,6 +140,14 @@ p {
     text-align: center;
     /*! margin: 0 auto; */
     align-content: center;
+}
+
+/* the color of the buttons has to be whiteish because of the backgrounds */
+a.button:visited{
+    color: rgb(224, 222, 244);
+
+}a.button{
+    color: rgb(224, 222, 244);
 }
 
 .github-card {

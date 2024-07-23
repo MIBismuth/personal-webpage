@@ -3,6 +3,8 @@ sub-title: This can be like a subtitle or something
 title: "Sample Document for Styling Test"
 author: "Your Name"
 date: "`r format(Sys.Date(), '%B %d, %Y')`"
+numbering: true
+toc_on: true
 ---
 
 # Main Title

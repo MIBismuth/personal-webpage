@@ -37,7 +37,8 @@
 
             <div id="sidebarMenu">
                 <ul class="sidebarMenuInner">
-                    <li>José Duarte Lopes <span>Anarcho-Optimist</span></li>
+                    <a href="/about-me">
+                        <li>José Duarte Lopes<span>Anarcho-Optimist</span></li></a> 
                     <li>This menu is still in development</li>
                 </ul>
             </div>
@@ -45,125 +46,150 @@
             <div class="window-title">Sample Document for Styling
 Test</div>
             <button class="nightmode-button" onclick="toggleTheme()">🌙</button>
-        </nav>        
+        </nav>   
         <div class="content">
             <h1>Sample Document for Styling Test</h1>
             <h2>
 
                 This can be like a subtitle or something
             </h2>
-                        <section id="main-title" class="level1"
-                        data-number="1">
-                        <h1 data-number="1"><span
-                        class="header-section-number">1</span> Main
-                        Title</h1>
-                        <hr />
-                        <p>Welcome to this document. Below you will find
-                        various sections and subsections to test the
-                        styling.</p>
-                        </section>
-                        <section id="introduction" class="level1"
-                        data-number="2">
-                        <h1 data-number="2"><span
-                        class="header-section-number">2</span>
-                        Introduction</h1>
-                        <hr />
-                        <p>This is the introduction section where we
-                        provide an overview of the content.</p>
-                        <section id="purpose" class="level2"
-                        data-number="2.1">
-                        <h2 data-number="2.1"><span
-                        class="header-section-number">2.1</span>
-                        Purpose</h2>
-                        <p>The purpose of this document is to
-                        demonstrate the styling of headers and
-                        sections.</p>
-                        </section>
-                        <section id="scope" class="level2"
-                        data-number="2.2">
-                        <h2 data-number="2.2"><span
-                        class="header-section-number">2.2</span>
-                        Scope</h2>
-                        <p>This document covers various aspects of
-                        header styling in Markdown.</p>
-                        </section>
-                        </section>
-                        <section id="getting-started" class="level1"
-                        data-number="3">
-                        <h1 data-number="3"><span
-                        class="header-section-number">3</span> Getting
-                        Started</h1>
-                        <hr />
-                        <p>This section covers the basics of getting
-                        started.</p>
-                        <section id="installation" class="level2"
-                        data-number="3.1">
-                        <h2 data-number="3.1"><span
-                        class="header-section-number">3.1</span>
-                        Installation</h2>
-                        <p>Instructions on how to install the necessary
-                        software.</p>
-                        </section>
-                        <section id="configuration" class="level2"
-                        data-number="3.2">
-                        <h2 data-number="3.2"><span
-                        class="header-section-number">3.2</span>
-                        Configuration</h2>
-                        <p>Details on configuring the software to suit
-                        your needs.</p>
-                        </section>
-                        </section>
-                        <section id="advanced-topics" class="level1"
-                        data-number="4">
-                        <h1 data-number="4"><span
-                        class="header-section-number">4</span> Advanced
-                        Topics</h1>
-                        <hr />
-                        <p>In this section, we explore more advanced
-                        topics.</p>
-                        <section id="customization" class="level2"
-                        data-number="4.1">
-                        <h2 data-number="4.1"><span
-                        class="header-section-number">4.1</span>
-                        Customization</h2>
-                        <p>How to customize your setup for better
-                        results.</p>
-                        </section>
-                        <section id="troubleshooting" class="level2"
-                        data-number="4.2">
-                        <h2 data-number="4.2"><span
-                        class="header-section-number">4.2</span>
-                        Troubleshooting</h2>
-                        <p>Common issues and their solutions.</p>
-                        </section>
-                        </section>
-                        <section id="conclusion" class="level1"
-                        data-number="5">
-                        <h1 data-number="5"><span
-                        class="header-section-number">5</span>
-                        Conclusion</h1>
-                        <p>Here we summarize the main points discussed
-                        in the document.</p>
-                        <section id="next-steps" class="level2"
-                        data-number="5.1">
-                        <h2 data-number="5.1"><span
-                        class="header-section-number">5.1</span> Next
-                        Steps</h2>
-                        <p>Suggestions for what to do next after reading
-                        this document.</p>
-                        </section>
-                        <section id="feedback" class="level2"
-                        data-number="5.2">
-                        <h2 data-number="5.2"><span
-                        class="header-section-number">5.2</span>
-                        Feedback</h2>
-                        <p>How to provide feedback or report issues.</p>
-                        <hr />
-                        <p>Thank you for reading! For more information,
-                        please visit our <a
-                        href="https://example.com">website</a>.</p>
-                        </section>
-                        </section>
+
+                        <div id="toc">
+                <h2>Table of Contents:</h2>
+                <ul>
+                <li><a href="#main-title" id="toc-main-title"><span
+                class="toc-section-number">1</span> Main Title</a></li>
+                <li><a href="#introduction" id="toc-introduction"><span
+                class="toc-section-number">2</span> Introduction</a>
+                <ul>
+                <li><a href="#purpose" id="toc-purpose"><span
+                class="toc-section-number">2.1</span> Purpose</a></li>
+                <li><a href="#scope" id="toc-scope"><span
+                class="toc-section-number">2.2</span> Scope</a></li>
+                </ul></li>
+                <li><a href="#getting-started"
+                id="toc-getting-started"><span
+                class="toc-section-number">3</span> Getting Started</a>
+                <ul>
+                <li><a href="#installation" id="toc-installation"><span
+                class="toc-section-number">3.1</span>
+                Installation</a></li>
+                <li><a href="#configuration"
+                id="toc-configuration"><span
+                class="toc-section-number">3.2</span>
+                Configuration</a></li>
+                </ul></li>
+                <li><a href="#advanced-topics"
+                id="toc-advanced-topics"><span
+                class="toc-section-number">4</span> Advanced Topics</a>
+                <ul>
+                <li><a href="#customization"
+                id="toc-customization"><span
+                class="toc-section-number">4.1</span>
+                Customization</a></li>
+                <li><a href="#troubleshooting"
+                id="toc-troubleshooting"><span
+                class="toc-section-number">4.2</span>
+                Troubleshooting</a></li>
+                </ul></li>
+                <li><a href="#conclusion" id="toc-conclusion"><span
+                class="toc-section-number">5</span> Conclusion</a>
+                <ul>
+                <li><a href="#next-steps" id="toc-next-steps"><span
+                class="toc-section-number">5.1</span> Next
+                Steps</a></li>
+                <li><a href="#feedback" id="toc-feedback"><span
+                class="toc-section-number">5.2</span> Feedback</a></li>
+                </ul></li>
+                </ul>
+            </div>
+            
+            <section id="main-title" class="level1" data-number="1">
+            <h1 data-number="1"><span
+            class="header-section-number">1</span> Main Title</h1>
+            <hr />
+            <p>Welcome to this document. Below you will find various
+            sections and subsections to test the styling.</p>
+            </section>
+            <section id="introduction" class="level1" data-number="2">
+            <h1 data-number="2"><span
+            class="header-section-number">2</span> Introduction</h1>
+            <hr />
+            <p>This is the introduction section where we provide an
+            overview of the content.</p>
+            <section id="purpose" class="level2" data-number="2.1">
+            <h2 data-number="2.1"><span
+            class="header-section-number">2.1</span> Purpose</h2>
+            <p>The purpose of this document is to demonstrate the
+            styling of headers and sections.</p>
+            </section>
+            <section id="scope" class="level2" data-number="2.2">
+            <h2 data-number="2.2"><span
+            class="header-section-number">2.2</span> Scope</h2>
+            <p>This document covers various aspects of header styling in
+            Markdown.</p>
+            </section>
+            </section>
+            <section id="getting-started" class="level1"
+            data-number="3">
+            <h1 data-number="3"><span
+            class="header-section-number">3</span> Getting Started</h1>
+            <hr />
+            <p>This section covers the basics of getting started.</p>
+            <section id="installation" class="level2" data-number="3.1">
+            <h2 data-number="3.1"><span
+            class="header-section-number">3.1</span> Installation</h2>
+            <p>Instructions on how to install the necessary
+            software.</p>
+            </section>
+            <section id="configuration" class="level2"
+            data-number="3.2">
+            <h2 data-number="3.2"><span
+            class="header-section-number">3.2</span> Configuration</h2>
+            <p>Details on configuring the software to suit your
+            needs.</p>
+            </section>
+            </section>
+            <section id="advanced-topics" class="level1"
+            data-number="4">
+            <h1 data-number="4"><span
+            class="header-section-number">4</span> Advanced Topics</h1>
+            <hr />
+            <p>In this section, we explore more advanced topics.</p>
+            <section id="customization" class="level2"
+            data-number="4.1">
+            <h2 data-number="4.1"><span
+            class="header-section-number">4.1</span> Customization</h2>
+            <p>How to customize your setup for better results.</p>
+            </section>
+            <section id="troubleshooting" class="level2"
+            data-number="4.2">
+            <h2 data-number="4.2"><span
+            class="header-section-number">4.2</span>
+            Troubleshooting</h2>
+            <p>Common issues and their solutions.</p>
+            </section>
+            </section>
+            <section id="conclusion" class="level1" data-number="5">
+            <h1 data-number="5"><span
+            class="header-section-number">5</span> Conclusion</h1>
+            <p>Here we summarize the main points discussed in the
+            document.</p>
+            <section id="next-steps" class="level2" data-number="5.1">
+            <h2 data-number="5.1"><span
+            class="header-section-number">5.1</span> Next Steps</h2>
+            <p>Suggestions for what to do next after reading this
+            document.</p>
+            </section>
+            <section id="feedback" class="level2" data-number="5.2">
+            <h2 data-number="5.2"><span
+            class="header-section-number">5.2</span> Feedback</h2>
+            <p>How to provide feedback or report issues.</p>
+            <hr />
+            <p>Thank you for reading! For more information, please visit
+            our <a href="https://example.com">website</a>.</p>
+            </section>
+            </section>
         </div>
         <footer class="footer">
             <p>Thank you for visiting my website! ❤️</p>
