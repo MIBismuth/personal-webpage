@@ -1,6 +1,6 @@
 ---
 title: "About me"
-sub-title: Who I am, what I do and what I like.
+sub-title: Who I am, what I do and what I like, as they say.
 author: "José Duarte Lopes"
 date: "`r format(Sys.Date(), '%B %d, %Y')`"
 toc_: false
