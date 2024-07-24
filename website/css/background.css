@@ -8,6 +8,7 @@
     overflow: hidden;
     padding:0;
     margin:0;
+    z-index: -10;
 }
 
 .circles li{

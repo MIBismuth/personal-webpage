@@ -1,11 +1,13 @@
 ---
 title: "Self Hosting on a Budget"
-sub-title: This is the story of the development and deployment of this website
+sub-title: This is the story of the development and deployment of this website. You can find the whole website project on [GitHub](https://github.com/MIBismuth/personal-webpage).
 author: "José Duarte Lopes"
 date: "`r format(Sys.Date(), '%B %d, %Y')`"
 toc_on: true
 numbering: true
 ---
+
+
 
 # The Idea, but only on my self-imposed terms
 
@@ -212,11 +214,12 @@ This allows me flexibility when changing the overall style of my website (since 
 
 This whole process has been incredibly rewarding.
 
-I've learned quite a bit about Web developement and for sure honed in on my developement skills. I'm honestly looking forward to keep my little self-hosting journey going.
+I've learned quite a bit about Web-dev and for sure honed in on my developement skills. I'm honestly looking forward to keep my little self-hosting journey going. Make sure to checkout the whole website project on [GitHub](https://github.com/MIBismuth/personal-webpage).
 
 It has been great being able to share my small (yet frequent) updates with friends and family.
 
 And if feels even greater coming now to the end of my first post realizing I have so much more so share.
+
 
 Thank you for reading,
 
