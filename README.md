@@ -79,4 +79,4 @@ You can include the following headers in your Markdown files for additional meta
 
 ## License
 
-This project is licensed under the GNU General Public License V3. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.
