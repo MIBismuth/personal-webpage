@@ -7,7 +7,7 @@ toc_on: true
 numbering: true
 ---
 
-# The Idea (and the Constraints)
+# The Idea, but only on my self-imposed terms
 
 I've wanted to host my own website for a while now. 
 
@@ -212,13 +212,11 @@ This allows me flexibility when changing the overall style of my website (since 
 
 This whole process has been incredibly rewarding.
 
-I've learned quite a bit about Web developement and for sure honed in on my developement skills.
+I've learned quite a bit about Web developement and for sure honed in on my developement skills. I'm honestly looking forward to keep my little self-hosting journey going.
 
-It has been amazing being able to share my small (yet frequent) updates with friends and family.
+It has been great being able to share my small (yet frequent) updates with friends and family.
 
-And if feels great as I now come to the end of my first post realizing I have so much more so share.
-
-
+And if feels even greater coming now to the end of my first post realizing I have so much more so share.
 
 Thank you for reading,
 
