@@ -218,7 +218,7 @@ I've learned quite a bit about Web-dev and for sure honed in on my developement 
 
 It has been great being able to share my small (yet frequent) updates with friends and family.
 
-And if feels even greater coming now to the end of my first post realizing I have so much more so share.
+And if feels even greater coming now to the end of my first post realizing I have so much more to share.
 
 
 Thank you for reading,
