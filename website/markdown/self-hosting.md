@@ -32,7 +32,7 @@ Alright, with that out of the way, let's get into it!
 
 My initial plan was to repurpose my old laptop as a server. However, as fate would have it, it ended up passing away (R.I.P. Asus x550jk - gone too soon after 10 years of daily use). 
 
-Now, I was left looking at other *cheap* alternatives such as an old Raspberry Pi. This got me thinking: "hey, aren't smartphones small, compact and use Arm chips as well?".
+Now, I was left looking at other *cheap* alternatives such as an old Raspberry Pi. This got me thinking: "hey, aren't smartphones small, compact and use Arm chips anyway?".
 
 ## You can't be serious
 
