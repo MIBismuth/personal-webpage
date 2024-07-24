@@ -13,6 +13,8 @@ I've wanted to host my own website for a while now.
 
 It looked like a very fun project and the idea of actually **building** my own creative outlet seemed very rewarding. But mostly because I'm a nerd and having a website sounds cool and all the cool kids do it (I want to be a cool kid). 
 
+![Me and the cool kids - abstract by José Lopes © 2024](../images/coolkids.svg)
+
 
 Before we start, as a *FOSS enjoyer* that has once fallen into the trap of using all the latest web-frameworks and technologies on a previous project, I devised the following *guidelines*:
 
@@ -20,7 +22,7 @@ Before we start, as a *FOSS enjoyer* that has once fallen into the trap of using
 1. All the code and software fully open-source (apart from [GitHub](https://www.youtube.com/watch?v=Lp4C-x96XIo))
 1. Using vanilla HTML and CSS, with as little JS as possible
 
-Alright, with all that being said, let's get into it!
+Alright, with that out of the way, let's get into it!
 
 
 
