@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" class="rosePine">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>José Lopes' Cool Website</title>
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/themes.css">
+        <link rel="stylesheet" href="../css/sidebar.css">
+        <link rel="stylesheet" href="../css/background.css">
+        <link rel="stylesheet" href="../css/postcard.css">
+        <link rel="stylesheet" href="../css/post-styles.css">
+    </head>
+    <body>
+        <script src="../js/utils.js"></script>
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <nav class="navbar" id="navbar">
+            <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+            <label for="openSidebarMenu" class="sidebarIconToggle">
+                <div class="spinner diagonal part-1"></div>
+                <div class="spinner horizontal"></div>
+                <div class="spinner diagonal part-2"></div>
+            </label>
+
+            <div id="sidebarMenu">
+                <ul class="sidebarMenuInner">
+                    <a href="/about-me">
+                        <li>José Duarte Lopes<span>Anarcho-Optimist</span></li></a> 
+                    <li>This menu is still in development</li>
+                </ul>
+            </div>
+
+            <div class="window-title">Self Hosting on a Budget</div>
+            <button class="nightmode-button" onclick="toggleTheme()">🌙</button>
+        </nav>   
+        <div class="content">
+            <h1>Self Hosting on a Budget</h1>
+            <h2>
+
+                This is the story of the development and deployment of
+                this website
+            </h2>
+
+                        <div id="toc">
+                <h2>Table of Contents:</h2>
+                <ul>
+                <li><a href="#the-idea-and-the-constraints"
+                id="toc-the-idea-and-the-constraints"><span
+                class="toc-section-number">1</span> The Idea (and the
+                Constraints)</a></li>
+                <li><a href="#setting-up-the-server"
+                id="toc-setting-up-the-server"><span
+                class="toc-section-number">2</span> Setting up the
+                Server</a>
+                <ul>
+                <li><a href="#you-cant-be-serious"
+                id="toc-you-cant-be-serious"><span
+                class="toc-section-number">2.1</span> You can’t be
+                serious</a></li>
+                <li><a href="#setting-up-termux"
+                id="toc-setting-up-termux"><span
+                class="toc-section-number">2.2</span> Setting up
+                Termux</a>
+                <ul>
+                <li><a href="#ssh" id="toc-ssh"><span
+                class="toc-section-number">2.2.1</span> SSH</a></li>
+                <li><a href="#nginx" id="toc-nginx"><span
+                class="toc-section-number">2.2.2</span> NGINX</a></li>
+                </ul></li>
+                <li><a href="#connectig-to-the-internet"
+                id="toc-connectig-to-the-internet"><span
+                class="toc-section-number">2.3</span> Connectig to the
+                Internet</a>
+                <ul>
+                <li><a href="#port-forwarding"
+                id="toc-port-forwarding"><span
+                class="toc-section-number">2.3.1</span> Port
+                Forwarding</a></li>
+                <li><a href="#getting-a-domain-name"
+                id="toc-getting-a-domain-name"><span
+                class="toc-section-number">2.3.2</span> Getting a Domain
+                Name</a></li>
+                <li><a href="#https-with-nginx"
+                id="toc-https-with-nginx"><span
+                class="toc-section-number">2.3.3</span> HTTPS with
+                Nginx</a></li>
+                </ul></li>
+                </ul></li>
+                <li><a href="#building-the-website"
+                id="toc-building-the-website"><span
+                class="toc-section-number">3</span> Building the
+                Website</a>
+                <ul>
+                <li><a href="#workflow-and-devops"
+                id="toc-workflow-and-devops"><span
+                class="toc-section-number">3.1</span> Workflow and
+                DevOps</a>
+                <ul>
+                <li><a
+                href="#managing-development-and-production-nginx-configs"
+                id="toc-managing-development-and-production-nginx-configs"><span
+                class="toc-section-number">3.1.1</span> Managing
+                Development and Production nginx configs</a></li>
+                </ul></li>
+                <li><a href="#the-frontend-deserved-credits"
+                id="toc-the-frontend-deserved-credits"><span
+                class="toc-section-number">3.2</span> The frontend:
+                deserved credits</a></li>
+                <li><a href="#writing-in-markdown"
+                id="toc-writing-in-markdown"><span
+                class="toc-section-number">3.3</span> Writing in
+                Markdown</a></li>
+                </ul></li>
+                <li><a href="#final-remarks"
+                id="toc-final-remarks"><span
+                class="toc-section-number">4</span> Final
+                Remarks</a></li>
+                </ul>
+            </div>
+            
+            <section id="the-idea-and-the-constraints" class="level1"
+            data-number="1">
+            <h1 data-number="1"><span
+            class="header-section-number">1</span> The Idea (and the
+            Constraints)</h1>
+            <p>I’ve wanted to host my own website for a while now.</p>
+            <p>It looked like a very fun project and the idea of
+            actually <strong>building</strong> my own creative outlet
+            seemed very rewarding. But mostly because I’m a nerd and
+            having a website sounds cool and all the cool kids do it (I
+            want to be a cool kid).</p>
+            <p>Before we start, as a <em>FOSS enjoyer</em> that has once
+            fallen into the trap of using all the latest web-frameworks
+            and technologies on a previous project, I devised the
+            following <em>guidelines</em>:</p>
+            <ol type="1">
+            <li>The server needs to be self-hosted</li>
+            <li>All the code and software fully open-source (apart from
+            <a
+            href="https://www.youtube.com/watch?v=Lp4C-x96XIo">GitHub</a>)</li>
+            <li>Using vanilla HTML and CSS, with as little JS as
+            possible</li>
+            </ol>
+            <p>Alright, with all that being said, let’s get into it!</p>
+            </section>
+            <section id="setting-up-the-server" class="level1"
+            data-number="2">
+            <h1 data-number="2"><span
+            class="header-section-number">2</span> Setting up the
+            Server</h1>
+            <p>My initial plan was to repurpose my old laptop as a
+            server. However, as fate would have it, it ended up passing
+            away (R.I.P. Asus x550jk - gone too soon after 10 years of
+            daily use).</p>
+            <p>Now, I was left looking at other <em>cheap</em>
+            alternatives such as an old Raspberry Pi. This got me
+            thinking: “hey, aren’t smartphones small, compact and use
+            Arm chips as well?”.</p>
+            <section id="you-cant-be-serious" class="level2"
+            data-number="2.1">
+            <h2 data-number="2.1"><span
+            class="header-section-number">2.1</span> You can’t be
+            serious</h2>
+            <p>No, no, just hear me out. So I had this Android phone
+            laying around and it just makes perfect sense for this use
+            case:</p>
+            <ul>
+            <li>Cheap: it wasn’t being used, which makes it free</li>
+            <li>Low Power: the thing draws like 2.5W, that’s 0.25€ a
+            month</li>
+            <li>Has an internet connection</li>
+            <li>Can run Linux: sort of, not quite, but close enough</li>
+            <li>Built-in backup battery: the router would not be on in
+            that scenario, but still</li>
+            </ul>
+            <p>Now, I can hear you loud and clear: “What about
+            security?”, “How cheap can you be?”, “Isn’t that thing a
+            fire hazard?”. Yes. All of that will be discussed in the 1
+            year aniversary post when I find out.</p>
+            </section>
+            <section id="setting-up-termux" class="level2"
+            data-number="2.2">
+            <h2 data-number="2.2"><span
+            class="header-section-number">2.2</span> Setting up
+            Termux</h2>
+            <p>While I’m sure flashing a true native Linux OS is
+            possible, that skill transcends me yet.</p>
+            <p>I went for the easy approach and installed <a
+            href="https://termux.dev/en/">Termux</a>: “an Android
+            terminal emulator and Linux environment app”.</p>
+            <p>It comes with it’s own package manager which provides
+            tons of packages for usefull software. The ones I used can
+            be installed by running the following:</p>
+            <div class="sourceCode" id="cb1"><pre
+            class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ssh client</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pkg</span> install dropbear</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># server</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pkg</span> install nginx</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># for pulling the code from a GitHub reporitory</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">pkg</span> install git</span></code></pre></div>
+            <section id="ssh" class="level3" data-number="2.2.1">
+            <h3 data-number="2.2.1"><span
+            class="header-section-number">2.2.1</span> SSH</h3>
+            <p>The first thing I did was to get ssh up and running.
+            After that is done the rest of the setup could be done from
+            the confort of my computer.</p>
+            <p>We can use <em>dropbear</em> to start the ssh server on
+            the server (i.e. the phone):</p>
+            <div class="sourceCode" id="cb2"><pre
+            class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># with default port 22</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">dropbear</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># defining a custum port</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">dropbear</span> <span class="at">-p</span> <span class="st">&#39;port&#39;</span></span></code></pre></div>
+            <p>And on the client side (i.e. my laptop), we can connect
+            to it:</p>
+            <div class="sourceCode" id="cb3"><pre
+            class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># connect to the ssh server from the local network</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> user@server-local-ip <span class="at">-p</span> <span class="st">&#39;port&#39;</span></span></code></pre></div>
+            <p>Great, now we don’t need to touch the <del>phone</del>
+            server anymore!</p>
+            </section>
+            <section id="nginx" class="level3" data-number="2.2.2">
+            <h3 data-number="2.2.2"><span
+            class="header-section-number">2.2.2</span> NGINX</h3>
+            <p>I’m not gonna delve too deep on how to configure nginx,
+            but basically all the setup is done on a config file,
+            usually in <code>/etc/nginx/nginx.conf</code>. It will look
+            something like this:</p>
+            <div class="sourceCode" id="cb4"><pre
+            class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">http</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>   <span class="bu">.</span> . .</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">server</span> {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="ex">listen</span>       PORT<span class="kw">;</span> <span class="co">#ssl if https certificate is needed</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="ex">server_name</span>  www.example.com<span class="kw">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="ex">ssl_certificate</span> /path/to/certificate/location<span class="kw">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="ex">ssl_certificate_key</span>  /path/to/certificate/key/location<span class="kw">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="ex">ssl_protocols</span> TLSv1.2 TLSv1.3<span class="kw">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="ex">ssl_ciphers</span> HIGH:!aNULL:!MD5<span class="kw">;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="ex">location</span> / {</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>            <span class="ex">root</span>  /path/to/website/root<span class="kw">;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            <span class="ex">index</span>  index.html index.htm<span class="kw">;</span> <span class="co">#nginx will look for these files on the root</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="er">}</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">.</span> . .</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="er">}</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span></code></pre></div>
+            <p>For now, the important things to take care for are: the
+            PORT, which is conventionally 80 for http requests (443 for
+            https, but I’ll get there in a bit); the root location with
+            the path to our website directory.</p>
+            <p>After that we can start the server with:</p>
+            <div class="sourceCode" id="cb5"><pre
+            class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># start the nginx server</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">nginx</span></span></code></pre></div>
+            <p>Great, now the website should be accessible at
+            <code>server-local-ip:port</code> on the browser!</p>
+            </section>
+            </section>
+            <section id="connectig-to-the-internet" class="level2"
+            data-number="2.3">
+            <h2 data-number="2.3"><span
+            class="header-section-number">2.3</span> Connectig to the
+            Internet</h2>
+            <section id="port-forwarding" class="level3"
+            data-number="2.3.1">
+            <h3 data-number="2.3.1"><span
+            class="header-section-number">2.3.1</span> Port
+            Forwarding</h3>
+            <p>Up until now I’d only been using the local network.
+            However, since I wanted to access my server by ssh and for
+            my site to be accessible from anywhere in the world I needed
+            to configure port forwarding on my router.</p>
+            <p>This means <em>connecting</em> our internal ip adress
+            (our server-local-ip) and port number, which are only
+            accessible on the local network, with an external ip and
+            port number, connected to the whole internet. This can
+            usually be done on the router config page, and every
+            router’s page is special and unique in it’s own way, so it’s
+            no use trying to show the process.</p>
+            <p>Now the ssh server is available globally by:</p>
+            <div class="sourceCode" id="cb6"><pre
+            class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># connect to the ssh server from the local network</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> user@router-external-ip <span class="at">-p</span> <span class="st">&#39;port&#39;</span></span></code></pre></div>
+            <p>And the website can be viewed at
+            <code>router-external-ip:port</code> on the browser!</p>
+            </section>
+            <section id="getting-a-domain-name" class="level3"
+            data-number="2.3.2">
+            <h3 data-number="2.3.2"><span
+            class="header-section-number">2.3.2</span> Getting a Domain
+            Name</h3>
+            <p>Choosing a domain name took twice as long as all previous
+            steps combined. I wanted something with my name, but short
+            and with no initials. Unfortunately, joselopes.com was
+            already taken and they wanted 8888$ for it (lmao).</p>
+            <p>As you can see, ended up on <a
+            href="https://joselopes.dev">joselopes.dev</a> as it was
+            pretty hip and pretty cheap.</p>
+            </section>
+            <section id="https-with-nginx" class="level3"
+            data-number="2.3.3">
+            <h3 data-number="2.3.3"><span
+            class="header-section-number">2.3.3</span> HTTPS with
+            Nginx</h3>
+            <p>One of the quirks of the .dev domains is that it <a
+            href="https://get.dev/">requires https</a>. Luckily, my
+            domain name broker provides free SSL certificates, all that
+            is required is to download them and change the appropriate
+            fields on the nginx.conf file.</p>
+            <p>Also worth noting, the default port for https is 433, so
+            it is recommended to forward that port in the router
+            settings.</p>
+            </section>
+            </section>
+            </section>
+            <section id="building-the-website" class="level1"
+            data-number="3">
+            <h1 data-number="3"><span
+            class="header-section-number">3</span> Building the
+            Website</h1>
+            <p>It’s finally time to build the website!</p>
+            <section id="workflow-and-devops" class="level2"
+            data-number="3.1">
+            <h2 data-number="3.1"><span
+            class="header-section-number">3.1</span> Workflow and
+            DevOps</h2>
+            <p>It is a very simple workflow: make changes -&gt; upload
+            to GitHub -&gt; pull from GitHub on the server -&gt; reload
+            server.</p>
+            <p>I tried my best to make a visual diagram:
+            <!-- ![workflow diagram](../images/workflowdiagram.svg) --></p>
+            <figure>
+            <img src="../images/workflowdiagramdot.svg"
+            alt="workflow diagram" />
+            <figcaption aria-hidden="true">workflow diagram</figcaption>
+            </figure>
+            <p>I’d love to automate this process further by integrating
+            <a href="https://docs.github.com/en/actions">GitHub
+            actions</a> but couldn’t get it to work on Termux :|</p>
+            <section
+            id="managing-development-and-production-nginx-configs"
+            class="level3" data-number="3.1.1">
+            <h3 data-number="3.1.1"><span
+            class="header-section-number">3.1.1</span> Managing
+            Development and Production nginx configs</h3>
+            <p>A problem I encountered came down to managing the
+            nginx.conf files.</p>
+            <p>I wanted to be able to modify my config file on my
+            development environment and for those changes to be carried
+            over to the server automatically (or within my current
+            workflow).</p>
+            <p>However, this wasn’t so simple because the config files
+            on both ends were funcamentally different on: ports used,
+            server name, https configuration.</p>
+            <p>My solution came down to a template system where I inject
+            the variables I need using a script and <a
+            href="https://man.archlinux.org/man/core/gettext/envsubst.1.en#DESCRIPTION">envsubst</a>.</p>
+            <p>This way, I can just change the template and it will work
+            on both development and production sides! It also takes care
+            of handling any secrets I don’t want in my public GitHub
+            repository.</p>
+            </section>
+            </section>
+            <section id="the-frontend-deserved-credits" class="level2"
+            data-number="3.2">
+            <h2 data-number="3.2"><span
+            class="header-section-number">3.2</span> The frontend:
+            deserved credits</h2>
+            <p>As mentioned previously, I wanted something as simple and
+            as portable as possible, with standard HTML and CSS.</p>
+            <p>This allowed me to take a lot of inspiration from other
+            developers to build components for this website.</p>
+            <ul>
+            <li><a href="https://rosepinetheme.com/">The theme: Rosé
+            Pine</a> (my personal favourite, use it on everything)</li>
+            <li><a
+            href="https://codepen.io/tokyoweb/pen/ZjdYVj">Floating
+            Squares Background by TokioWeb</a></li>
+            <li><a
+            href="https://codepen.io/plavookac/pen/qomrMw">Sidebar Menu
+            by Jelena Jovanovic</a></li>
+            </ul>
+            </section>
+            <section id="writing-in-markdown" class="level2"
+            data-number="3.3">
+            <h2 data-number="3.3"><span
+            class="header-section-number">3.3</span> Writing in
+            Markdown</h2>
+            <p>Finally, html can be quite cumbersome for writing these
+            long, article style types of posts.</p>
+            <p>I’ve been using a combination of markdown and <a
+            href="https://pandoc.org/">pandoc</a> for notetaking during
+            my University lectures and found it to be quite an elegant
+            way to quickly produce clean and consistently styled
+            documents.</p>
+            <p>Inspired by this, I decided to adapt it to the context of
+            this website and I think works great! I keep all my common
+            elements like the header, side-bar, backgroud and footer on
+            an HTML template file and write all of the content in
+            markdown.</p>
+            <p>This allows me flexibility when changing the overall
+            style of my website (since I only need to modify one file)
+            while keeping the content in purely a text-based, human
+            friendly format.</p>
+            </section>
+            </section>
+            <section id="final-remarks" class="level1" data-number="4">
+            <h1 data-number="4"><span
+            class="header-section-number">4</span> Final Remarks</h1>
+            <hr />
+            <p>This whole process has been incredibly rewarding.</p>
+            <p>I’ve learned quite a bit about Web developement and for
+            sure honed in on my developement skills.</p>
+            <p>It has been amazing being able to share my small (yet
+            frequent) updates with friends and family.</p>
+            <p>And if feels great as I now come to the end of my first
+            post realizing I have so much more so share.</p>
+            <p>Thank you for reading,</p>
+            <p>— José Duarte Lopes</p>
+            <hr />
+            </section>
+        </div>
+        <footer class="footer">
+            <p>Thank you for visiting my website! ❤️</p>
+
+            <p>Feel free to reach out if you have any questions or just want to connect.</p>
+            <p>Created by José Duarte Lopes - 2024</p>
+        </footer>
+
+    </body>
+
+
+</html>
+

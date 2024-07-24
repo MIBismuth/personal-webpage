@@ -84,8 +84,9 @@ figure {
 }
 
 figure img {
-    width: 100%; /* Make the image take up the full width of the figure */
+    width: min(100%, 799px); /* Make the image take up the full width of the figure */
     height: auto; /* Maintain the aspect ratio of the image */
+    align: center;
 }
 
 
@@ -100,4 +101,41 @@ figure img {
     font-size: 1em;
 }
 
+code {
+    font-family: 'Fira Code', monospace;
+    background-color: var(--base);
+    border-radius: 10px;
+    padding: 5px 2px;
+}
+
+.sourceCode {
+    background-color: var(--base);
+    border-radius: 10px;
+    padding: 10px 10px;
+    margin-bottom: 15px;
+    font-family: 'Fira Code', monospace;
+    font-size: 2;
+    font-weight: bold;
+    line-height: 1.6;
+    overflow-x: auto;
+    color: var(--text);
+}
+
+.sourceCode pre {
+    margin: 0;
+}
+
+.sourceCode code {
+    display: block;
+    /* white-space: pre-wrap; */
+    /* word-wrap: break-word; */
+}
+
+.sourceCode .co { color: var(--muted); } /* comment */
+.sourceCode .ex { color: var(--gold); } /* example (commands) */
+
+/* Apply inversion to all SVG images */
+.rosePineDawn figure img[src$=".svg"] {
+    filter: invert(100%);
+}
 
