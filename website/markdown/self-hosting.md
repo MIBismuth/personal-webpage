@@ -2,7 +2,7 @@
 title: "Self Hosting on a Budget"
 sub-title: This is the story of the development and deployment of this website. You can find the whole website project on [GitHub](https://github.com/MIBismuth/personal-webpage).
 author: "José Duarte Lopes"
-date: "`r format(Sys.Date(), '%B %d, %Y')`"
+date: 24 July 2024
 toc_on: true
 numbering: true
 ---
@@ -44,7 +44,7 @@ No, no, just hear me out. So I had this Android phone laying around and it just 
 - Can run Linux: sort of, not quite, but close enough
 - Built-in backup battery: the router would not be on in that scenario, but still
 
-Now, I can hear you loud and clear: "What about security?", "How cheap can you be?", "Isn't that thing a fire hazard?". Yes. All of that will be discussed in the 1 year aniversary post when I find out.
+Now, I can hear you loud and clear: "What about security?", "How cheap can you be?", "Isn't that thing a fire hazard?". Yes. All of that will be discussed in the 1 year anniversary post when I find out.
 
 ## Setting up Termux
 
@@ -52,7 +52,7 @@ While I'm sure flashing a true native Linux OS is possible, that skill transcend
 
 I went for the easy approach and installed [Termux](https://termux.dev/en/): "an Android terminal emulator and Linux environment app". 
 
-It comes with it's own package manager which provides tons of packages for usefull software. The ones I used can be installed by running the following:
+It comes with it's own package manager which provides tons of packages for useful software. The ones I used can be installed by running the following:
 
 ```bash
 # ssh client
@@ -67,9 +67,9 @@ pkg install git
 
 ### SSH
 
-The first thing I did was to get ssh up and running. After that is done the rest of the setup could be done from the confort of my computer.
+The first thing I did was to get ssh up and running. After that, the rest of the setup could be done from the comfort of my computer.
 
-We can use *dropbear* to start the ssh server on the server (i.e. the phone):
+We can use *dropbear* to start the SSH server on the server side (i.e., the phone):
 
 ```bash
 # with default port 22
@@ -114,7 +114,7 @@ http {
 }
 ```
 
-For now, the important things to take care for are: the PORT, which is conventionally 80 for http requests (443 for https, but I'll get there in a bit); the root location with the path to our website directory.
+For now, the important things to take care of are: the PORT, which is conventionally 80 for HTTP requests (443 for HTTPS, but I'll get there in a bit); and the root location with the path to our website directory.
 
 After that we can start the server with:
 
@@ -125,13 +125,13 @@ nginx
 
 Great, now the website should be accessible at `server-local-ip:port` on the browser!
 
-## Connectig to the Internet
+## Connecting to the Internet
 
 ### Port Forwarding
 
 Up until now I'd only been using the local network. However, since I wanted to access my server by ssh and for my site to be accessible from anywhere in the world I needed to configure port forwarding on my router. 
 
-This means *connecting* our internal ip adress (our server-local-ip) and port number, which are only accessible on the local network, with an external ip and port number, connected to the whole internet. This can usually be done on the router config page, and every router's page is special and unique in it's own way, so it's no use trying to show the process.
+This means *connecting* our internal ip address (what I've been referring to as `server-local-ip`) and port number, which are only accessible on the local network, with an external ip and port number, connected to the whole internet. This can usually be done on the router config page, and every router's page is special and unique in it's own way, so it's no use trying to show the process.
 
 Now the ssh server is available globally by:
 
@@ -178,7 +178,7 @@ A problem I encountered came down to managing the nginx.conf files.
 
 I wanted to be able to modify my config file on my development environment and for those changes to be carried over to the server automatically (or within my current workflow).
 
-However, this wasn't so simple because the config files on both ends were funcamentally different on: ports used, server name, https configuration. 
+However, this wasn't so simple because the config files on both ends were fundamentally different on: ports used, server name, https configuration. 
 
 My solution came down to a template system where I inject the variables I need using a script and [envsubst](https://man.archlinux.org/man/core/gettext/envsubst.1.en#DESCRIPTION). 
 
@@ -201,9 +201,9 @@ This allowed me to take a lot of inspiration from other developers to build comp
 
 Finally, html can be quite cumbersome for writing these long, article style types of posts.
 
-I've been using a combination of markdown and [pandoc](https://pandoc.org/) for notetaking during my University lectures and found it to be quite an elegant way to quickly produce clean and consistently styled documents.
+I've been using a combination of markdown and [pandoc](https://pandoc.org/) for note taking during my University lectures and found it to be quite an elegant way to quickly produce clean and consistently styled documents.
 
-Inspired by this, I decided to adapt it to the context of this website and I think works great! I keep all my common elements like the header, side-bar, backgroud and footer on an HTML template file and write all of the content in markdown. 
+Inspired by this, I decided to adapt it to the context of this website and I think works great! I keep all my common elements like the header, side-bar, background and footer on an HTML template file and write all of the content in markdown. 
 
 This allows me flexibility when changing the overall style of my website (since I only need to modify one file) while keeping the content in purely a text-based, human friendly format.
 
@@ -214,7 +214,7 @@ This allows me flexibility when changing the overall style of my website (since 
 
 This whole process has been incredibly rewarding.
 
-I've learned quite a bit about Web-dev and for sure honed in on my developement skills. I'm honestly looking forward to keep my little self-hosting journey going. Make sure to checkout the whole website project on [GitHub](https://github.com/MIBismuth/personal-webpage).
+I've learned quite a bit about Web-dev and for sure honed in on my development skills. I'm honestly looking forward to keep my little self-hosting journey going. Make sure to checkout the whole website project on [GitHub](https://github.com/MIBismuth/personal-webpage).
 
 It has been great being able to share my small (yet frequent) updates with friends and family.
 

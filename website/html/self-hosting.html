@@ -84,9 +84,9 @@
                 <li><a href="#nginx" id="toc-nginx"><span
                 class="toc-section-number">2.2.2</span> NGINX</a></li>
                 </ul></li>
-                <li><a href="#connectig-to-the-internet"
-                id="toc-connectig-to-the-internet"><span
-                class="toc-section-number">2.3</span> Connectig to the
+                <li><a href="#connecting-to-the-internet"
+                id="toc-connecting-to-the-internet"><span
+                class="toc-section-number">2.3</span> Connecting to the
                 Internet</a>
                 <ul>
                 <li><a href="#port-forwarding"
@@ -199,7 +199,7 @@
             <p>Now, I can hear you loud and clear: “What about
             security?”, “How cheap can you be?”, “Isn’t that thing a
             fire hazard?”. Yes. All of that will be discussed in the 1
-            year aniversary post when I find out.</p>
+            year anniversary post when I find out.</p>
             </section>
             <section id="setting-up-termux" class="level2"
             data-number="2.2">
@@ -212,8 +212,8 @@
             href="https://termux.dev/en/">Termux</a>: “an Android
             terminal emulator and Linux environment app”.</p>
             <p>It comes with it’s own package manager which provides
-            tons of packages for usefull software. The ones I used can
-            be installed by running the following:</p>
+            tons of packages for useful software. The ones I used can be
+            installed by running the following:</p>
             <div class="sourceCode" id="cb1"><pre
             class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ssh client</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pkg</span> install dropbear</span>
@@ -227,10 +227,10 @@
             <h3 data-number="2.2.1"><span
             class="header-section-number">2.2.1</span> SSH</h3>
             <p>The first thing I did was to get ssh up and running.
-            After that is done the rest of the setup could be done from
-            the confort of my computer.</p>
-            <p>We can use <em>dropbear</em> to start the ssh server on
-            the server (i.e. the phone):</p>
+            After that, the rest of the setup could be done from the
+            comfort of my computer.</p>
+            <p>We can use <em>dropbear</em> to start the SSH server on
+            the server side (i.e., the phone):</p>
             <div class="sourceCode" id="cb2"><pre
             class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># with default port 22</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">dropbear</span></span>
@@ -272,10 +272,10 @@
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">.</span> . .</span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="er">}</span></span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span></code></pre></div>
-            <p>For now, the important things to take care for are: the
-            PORT, which is conventionally 80 for http requests (443 for
-            https, but I’ll get there in a bit); the root location with
-            the path to our website directory.</p>
+            <p>For now, the important things to take care of are: the
+            PORT, which is conventionally 80 for HTTP requests (443 for
+            HTTPS, but I’ll get there in a bit); and the root location
+            with the path to our website directory.</p>
             <p>After that we can start the server with:</p>
             <div class="sourceCode" id="cb5"><pre
             class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># start the nginx server</span></span>
@@ -284,10 +284,10 @@
             <code>server-local-ip:port</code> on the browser!</p>
             </section>
             </section>
-            <section id="connectig-to-the-internet" class="level2"
+            <section id="connecting-to-the-internet" class="level2"
             data-number="2.3">
             <h2 data-number="2.3"><span
-            class="header-section-number">2.3</span> Connectig to the
+            class="header-section-number">2.3</span> Connecting to the
             Internet</h2>
             <section id="port-forwarding" class="level3"
             data-number="2.3.1">
@@ -298,10 +298,11 @@
             However, since I wanted to access my server by ssh and for
             my site to be accessible from anywhere in the world I needed
             to configure port forwarding on my router.</p>
-            <p>This means <em>connecting</em> our internal ip adress
-            (our server-local-ip) and port number, which are only
-            accessible on the local network, with an external ip and
-            port number, connected to the whole internet. This can
+            <p>This means <em>connecting</em> our internal ip address
+            (what I’ve been referring to as
+            <code>server-local-ip</code>) and port number, which are
+            only accessible on the local network, with an external ip
+            and port number, connected to the whole internet. This can
             usually be done on the router config page, and every
             router’s page is special and unique in it’s own way, so it’s
             no use trying to show the process.</p>
@@ -378,7 +379,7 @@
             over to the server automatically (or within my current
             workflow).</p>
             <p>However, this wasn’t so simple because the config files
-            on both ends were funcamentally different on: ports used,
+            on both ends were fundamentally different on: ports used,
             server name, https configuration.</p>
             <p>My solution came down to a template system where I inject
             the variables I need using a script and <a
@@ -417,13 +418,13 @@
             <p>Finally, html can be quite cumbersome for writing these
             long, article style types of posts.</p>
             <p>I’ve been using a combination of markdown and <a
-            href="https://pandoc.org/">pandoc</a> for notetaking during
+            href="https://pandoc.org/">pandoc</a> for note taking during
             my University lectures and found it to be quite an elegant
             way to quickly produce clean and consistently styled
             documents.</p>
             <p>Inspired by this, I decided to adapt it to the context of
             this website and I think works great! I keep all my common
-            elements like the header, side-bar, backgroud and footer on
+            elements like the header, side-bar, background and footer on
             an HTML template file and write all of the content in
             markdown.</p>
             <p>This allows me flexibility when changing the overall
@@ -438,8 +439,8 @@
             <hr />
             <p>This whole process has been incredibly rewarding.</p>
             <p>I’ve learned quite a bit about Web-dev and for sure honed
-            in on my developement skills. I’m honestly looking forward
-            to keep my little self-hosting journey going. Make sure to
+            in on my development skills. I’m honestly looking forward to
+            keep my little self-hosting journey going. Make sure to
             checkout the whole website project on <a
             href="https://github.com/MIBismuth/personal-webpage">GitHub</a>.</p>
             <p>It has been great being able to share my small (yet
