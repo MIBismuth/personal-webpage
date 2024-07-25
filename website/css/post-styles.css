@@ -32,9 +32,6 @@
     padding-bottom: 8px; /* Add space between text and border */
 }
 
-li {
-font-size: 1.25em;
-}
 
 .header-section-number {
     font-weight: bold; /* Make the section number bold */

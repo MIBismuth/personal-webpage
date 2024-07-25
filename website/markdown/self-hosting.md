@@ -2,9 +2,10 @@
 title: "Self Hosting on a Budget"
 sub-title: This is the story of the development and deployment of this website. You can find the whole website project on [GitHub](https://github.com/MIBismuth/personal-webpage).
 author: "José Duarte Lopes"
-date: 24 July 2024
+date: 24th July 2024
 toc_on: true
 numbering: true
+credits: true
 ---
 
 
