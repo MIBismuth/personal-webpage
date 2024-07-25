@@ -18,6 +18,11 @@ body {
     margin-top: 15vh;
 }
 
+
+li {
+  font-size: 1.25em;
+}
+
 /* Basic styling for anchor tags */
 a {
     color: var(--pine); /* Default link color (blue) */
@@ -60,7 +65,7 @@ a:visited {
     box-sizing: border-box; /* Ensure padding is included in total width */
     z-index: 100; /* Ensure navbar is above other content */
     transition: all 0.2s ease;
-    opacity: 0.90;
+    opacity: 1;
     /* backdrop-filter: blur(20px); */
 }
 
@@ -85,7 +90,7 @@ a:visited {
 
 .nightmode-button:hover {
     color: var(--love);
-    background-color: var(--highlightMed);
+    background-color: var(--highlight-med);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 .container {
