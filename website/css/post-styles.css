@@ -109,9 +109,9 @@ code {
     background-color: var(--base);
     border-radius: 10px;
     padding: 10px 10px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-family: 'Fira Code', monospace;
-    font-size: 2;
+    font-size: 1.05em;
     font-weight: bold;
     line-height: 1.6;
     overflow-x: auto;
@@ -131,8 +131,44 @@ code {
 .sourceCode .co { color: var(--muted); } /* comment */
 .sourceCode .ex { color: var(--gold); } /* example (commands) */
 
+
+/* Highlight keywords */
+.sourceCode .cf {
+    color: var(--pine);
+    font-weight: bold;
+}
+
+/* Highlight variables */
+.sourceCode .kw {
+    color: var(--foam);
+}
+
+/* Highlight built-in functions */
+.sourceCode .bu {
+    color: var(--rose);
+}
+
+/* Highlight strings */
+.sourceCode .ss {
+    color: var(--gold);
+}
+
+/* Highlight operators */
+.sourceCode .op {
+    color: var(--love);
+}
+
+/* Highlight braces */
+.sourceCode .sc {
+    color: var(--text);
+}
+
 /* Apply inversion to all SVG images */
 .rosePineDawn figure img[src$=".svg"] {
     filter: invert(100%);
 }
 
+.katex-display{
+    overflow-x: auto;
+    overflow-y: hidden;
+}

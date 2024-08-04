@@ -1,10 +1,10 @@
 #!/bin/zsh
 
 # Define directories
-MARKDOWN_DIR="."
-HTML_DIR="../html"
-TEMPLATE_FILE="../html/template.html"
-LUA_FILTER="numbering.lua"
+MARKDOWN_DIR="$HOME/Documents/dev/portfolio-webpage/website/markdown"
+HTML_DIR="$HOME/Documents/dev/portfolio-webpage/website/html"
+TEMPLATE_FILE="$HOME/Documents/dev/portfolio-webpage/website/html/template.html"
+LUA_FILTER="$HOME/Documents/dev/portfolio-webpage/website/markdown/filter.lua"
 
 # Check if pandoc is installed
 if ! command -v pandoc &> /dev/null; then
@@ -32,7 +32,7 @@ for file in $MARKDOWN_DIR/*.md; do
         fi
 
         # Build pandoc command
-        pandoc_cmd="pandoc -s \"$MARKDOWN_DIR/$filename.md\" -o \"$html_file\" --template=$TEMPLATE_FILE --toc --section-divs"
+        pandoc_cmd="pandoc -s \"$MARKDOWN_DIR/$filename.md\" -o \"$html_file\" --template=$TEMPLATE_FILE --toc --section-divs --katex" 
         
         if [ "$number_sections" = "true" ]; then
             pandoc_cmd="$pandoc_cmd --number-sections"
