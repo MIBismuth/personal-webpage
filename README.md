@@ -1,11 +1,12 @@
 # Personal Webpage
 
-
-<table>
+<table style="border: none; background-color: transparent;">
   <tr>
-    <td><img src="./website/resources/icon/android-chrome-512x512.png" alt="Website Icon" width="300"></td>
-    <td>
-        <p>Welcome to the repository for my personal webpage! This project includes everything needed to set up and run my website, including scripts for automation and server configuration.</p>
+    <td style="border: none;">
+     <img src="./website/resources/icon/android-chrome-512x512.png" alt="Website Icon" width="300">
+    </td>
+    <td style="border: none;">
+      <p>Welcome to the repository for my personal webpage! This project includes everything needed to set up and run my website, including scripts for automation and server configuration.</p>
         <p>You can visit the live website here: <a href="https://joselopes.dev">joselopes.dev</a></p>
     </td>
   </tr>
