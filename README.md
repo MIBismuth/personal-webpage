@@ -1,8 +1,17 @@
 # Personal Webpage
 
-Welcome to the repository for my personal webpage! This project includes everything needed to set up and run my website, including scripts for automation and server configuration.
 
-You can visit the live website here: [joselopes.dev](https://joselopes.dev)
+<table>
+  <tr>
+    <td><img src="./website/resources/icon/android-chrome-512x512.png" alt="Website Icon" width="150"></td>
+    <td>
+        <p>Welcome to the repository for my personal webpage! This project includes everything needed to set up and run my website, including scripts for automation and server configuration.</p>
+        <p>You can visit the live website here: [joselopes.dev](https://joselopes.dev)</p>
+    </td>
+  </tr>
+</table>
+
+
 
 ## Table of Contents
 
