@@ -1,10 +1,10 @@
 #!/bin/zsh
 
 # Define directories
-MARKDOWN_DIR="$HOME/Documents/dev/portfolio-webpage/website/markdown"
-HTML_DIR="$HOME/Documents/dev/portfolio-webpage/website/html"
-TEMPLATE_FILE="$HOME/Documents/dev/portfolio-webpage/website/html/template.html"
-LUA_FILTER="$HOME/Documents/dev/portfolio-webpage/website/markdown/filter.lua"
+MARKDOWN_DIR="$HOME/Documents/dev/personal-webpage/website/markdown"
+HTML_DIR="$HOME/Documents/dev/personal-webpage/website/html"
+TEMPLATE_FILE="$HOME/Documents/dev/personal-webpage/website/html/template.html"
+LUA_FILTER="$HOME/Documents/dev/personal-webpage/website/markdown/filter.lua"
 
 # Check if pandoc is installed
 if ! command -v pandoc &> /dev/null; then

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en" class="rosePine">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>José Lopes' Cool Website</title>
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/themes.css">
+        <link rel="stylesheet" href="../css/sidebar.css">
+        <link rel="stylesheet" href="../css/background.css">
+        <link rel="stylesheet" href="../css/postcard.css">
+        <link rel="stylesheet" href="../css/post-styles.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="resources/icon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="resources/icon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="resources/icon/favicon-16x16.png">
+        <link rel="manifest" href="resources/icon/site.webmanifest">
+        <link rel="mask-icon" href="resources/icon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="resources/icon/favicon.ico">
+        <meta name="msapplication-TileColor" content="#00aba9">
+        <meta name="msapplication-config" content="resources/icon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    <body>
+        <script src="../js/utils.js"></script>
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <nav class="navbar" id="navbar">
+            <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+            <label for="openSidebarMenu" class="sidebarIconToggle">
+                <div class="spinner diagonal part-1"></div>
+                <div class="spinner horizontal"></div>
+                <div class="spinner diagonal part-2"></div>
+            </label>
+
+            <div id="sidebarMenu">
+                <ul class="sidebarMenuInner">
+                    <a href="/">
+                        <li>Home</li></a> 
+                    <a href="/about-me">
+                        <li>José Duarte Lopes<span>About me, the author</span></li></a> 
+                </ul>
+            </div>
+
+            <div class="window-title">Error Propagation Calculator</div>
+            <button class="nightmode-button" onclick="toggleTheme()">🌙</button>
+        </nav>   
+        <div class="content">
+            <h1>Error Propagation Calculator</h1>
+            <h2>
+
+                A reflection on the first time I realized I could. Check
+                out the <a
+                href="https://errorpropagation.com">website</a> and the
+                project on <a
+                href="https://github.com/MIBismuth/error-propagation-calculator">GitHub</a>.
+            </h2>
+                        <div class="author-info">
+                <p>Author: José Duarte Lopes</p>
+                <p>Date: 29th August 2024</p>
+            </div>
+            
+                        <div id="toc">
+                <h2>Table of Contents:</h2>
+                <ul>
+                <li><a href="#it-starts-with-why-not"
+                id="toc-it-starts-with-why-not"><span
+                class="toc-section-number">1</span> It starts with:
+                <em>why not?</em></a>
+                <ul>
+                <li><a href="#understanding-the-problem-why-it-sucks"
+                id="toc-understanding-the-problem-why-it-sucks"><span
+                class="toc-section-number">1.1</span> Understanding the
+                problem: why it sucks</a>
+                <ul>
+                <li><a href="#the-theory" id="toc-the-theory"><span
+                class="toc-section-number">1.1.1</span> The
+                theory</a></li>
+                <li><a href="#reality" id="toc-reality"><span
+                class="toc-section-number">1.1.2</span> Reality</a></li>
+                </ul></li>
+                <li><a href="#the-solution" id="toc-the-solution"><span
+                class="toc-section-number">1.2</span> The
+                solution</a></li>
+                </ul></li>
+                <li><a href="#theres-a-how-and-a-why-not"
+                id="toc-theres-a-how-and-a-why-not"><span
+                class="toc-section-number">2</span> There’s a
+                <em>how</em> (and a <em>why not</em>)</a>
+                <ul>
+                <li><a href="#simple-python-implementation"
+                id="toc-simple-python-implementation"><span
+                class="toc-section-number">2.1</span> Simple Python
+                implementation</a></li>
+                <li><a href="#or-is-it" id="toc-or-is-it"><span
+                class="toc-section-number">2.2</span> Or is it?</a>
+                <ul>
+                <li><a href="#processing-time"
+                id="toc-processing-time"><span
+                class="toc-section-number">2.2.1</span> Processing
+                time</a></li>
+                <li><a href="#the-reveal-evil-eval"
+                id="toc-the-reveal-evil-eval"><span
+                class="toc-section-number">2.2.2</span> The reveal: evil
+                eval</a></li>
+                </ul></li>
+                </ul></li>
+                <li><a href="#the-great-rewrite"
+                id="toc-the-great-rewrite"><span
+                class="toc-section-number">3</span> The great
+                rewrite</a>
+                <ul>
+                <li><a href="#wait-its-all-javascript"
+                id="toc-wait-its-all-javascript"><span
+                class="toc-section-number">3.1</span> Wait it’s all
+                JavaScript?</a></li>
+                <li><a href="#pros-and-cons"
+                id="toc-pros-and-cons"><span
+                class="toc-section-number">3.2</span> Pros and
+                Cons</a></li>
+                </ul></li>
+                <li><a href="#on-web-technologies-and-youtube-brainrot"
+                id="toc-on-web-technologies-and-youtube-brainrot"><span
+                class="toc-section-number">4</span> On Web technologies
+                and YouTube brainrot</a>
+                <ul>
+                <li><a href="#decisions" id="toc-decisions"><span
+                class="toc-section-number">4.1</span> Decisions</a></li>
+                <li><a href="#indecisions" id="toc-indecisions"><span
+                class="toc-section-number">4.2</span>
+                Indecisions</a></li>
+                <li><a href="#finding-peace-in-compromise"
+                id="toc-finding-peace-in-compromise"><span
+                class="toc-section-number">4.3</span> Finding peace in
+                compromise</a></li>
+                </ul></li>
+                <li><a href="#the-good-ending"
+                id="toc-the-good-ending"><span
+                class="toc-section-number">5</span> The good
+                ending</a></li>
+                </ul>
+            </div>
+            
+            <section id="it-starts-with-why-not" class="level1"
+            data-number="1">
+            <h1 data-number="1"><span
+            class="header-section-number">1</span> It starts with:
+            <em>why not?</em></h1>
+            <p>This whole project came about during one of the many
+            “dude, we need to get rich” conversations between me and my
+            good friend João Rei.</p>
+            <p>We knew we had to solve a <em>real world</em> problem.
+            Here’s why <strong>calculating error propagations</strong>
+            was one of the first things that popped up.</p>
+            <section id="understanding-the-problem-why-it-sucks"
+            class="level2" data-number="1.1">
+            <h2 data-number="1.1"><span
+            class="header-section-number">1.1</span> Understanding the
+            problem: why it sucks</h2>
+            <p>For context, calculating error propagations was a very
+            common task on our bachelor’s physics laboratories.</p>
+            <section id="the-theory" class="level3" data-number="1.1.1">
+            <h3 data-number="1.1.1"><span
+            class="header-section-number">1.1.1</span> The theory</h3>
+            <p>Imagine you are trying to experimentally estimate some
+            value <span class="math inline">F</span> from measurements
+            <span class="math inline">x</span>, <span
+            class="math inline">y</span>, <span
+            class="math inline">z</span>. You could write it as:</p>
+            <p><span class="math display">
+            F = F(x,y,z)
+            </span></p>
+            <p>Now, each of those measurements has an associated
+            experimental error (or uncertainty, whatever, I’ll leave the
+            correct terms for the physicists): <span
+            class="math inline">\delta x</span>, <span
+            class="math inline">\delta y</span>, <span
+            class="math inline">\delta z</span>. These will have an
+            impact on the error of <span
+            class="math inline">F</span>.</p>
+            <p>One way to quantify this impact is to take a first order
+            approach and sum the max error across all variables.
+            Basically saying “yeah, <span class="math inline">F</span>
+            is linear around <span class="math inline">x</span>, so if
+            we move <span class="math inline">F</span> by <span
+            class="math inline">\delta x</span> we should get a good
+            estimate of <span class="math inline">\delta F</span>”.</p>
+            <p>Mathematically:</p>
+            <p><span class="math display">
+            \delta F = \sum_{x_i} |\frac{d F}{d x_i}|\delta x_i
+            </span></p>
+            <p>In the example above:</p>
+            <p><span class="math display">
+            \delta F(x,y,z) = |\frac{d F}{d x}|\delta x + |\frac{d F}{d
+            y}|\delta y + |\frac{d F}{d z}|\delta z
+            </span></p>
+            </section>
+            <section id="reality" class="level3" data-number="1.1.2">
+            <h3 data-number="1.1.2"><span
+            class="header-section-number">1.1.2</span> Reality</h3>
+            <p>On the real world these error expressions can be huge and
+            messy.</p>
+            <p>To make matters worse, you’d often have your measurements
+            on an Excel spreadsheet, meaning you’d have to translate
+            this whole mess onto an Excel formula and replace all the
+            variables with their appropriate cells.</p>
+            <figure>
+            <img src="../images/excel-pain-cropped.gif"
+            alt="Excel Pain" />
+            <figcaption aria-hidden="true">Excel Pain</figcaption>
+            </figure>
+            <p>Plus, you had to repeat this process multiple times per
+            lab for different values, all with different expressions and
+            corresponding cells!</p>
+            <p>All of these factors combined made for a really
+            unpleasant experience, and being the one designated to do
+            this task was akin to drawing the shortest straw on doomed
+            mission.</p>
+            </section>
+            </section>
+            <section id="the-solution" class="level2" data-number="1.2">
+            <h2 data-number="1.2"><span
+            class="header-section-number">1.2</span> The solution</h2>
+            <p>To solve this problem efficiently, we needed a program to
+            do the following:</p>
+            <ol type="1">
+            <li>take in any math expression with common operators</li>
+            <li>automatically detect all the variables present</li>
+            <li>give the user a chance to mark differentiation variables
+            or constants</li>
+            <li>give the user the chance to change the name of a
+            variable and it’s error (for example, to excel cells)</li>
+            <li>return the error propagation expression, which could be
+            copy pasted into Python, Excel or Latex</li>
+            </ol>
+            <p>We also wanted to make it as accessible and portable as
+            possible, so a Web application was the perfect target!</p>
+            <p>Why not just do it?</p>
+            </section>
+            </section>
+            <section id="theres-a-how-and-a-why-not" class="level1"
+            data-number="2">
+            <h1 data-number="2"><span
+            class="header-section-number">2</span> There’s a
+            <em>how</em> (and a <em>why not</em>)</h1>
+            <section id="simple-python-implementation" class="level2"
+            data-number="2.1">
+            <h2 data-number="2.1"><span
+            class="header-section-number">2.1</span> Simple Python
+            implementation</h2>
+            <p>We quickly cooked together an implementation using <a
+            href="https://www.sympy.org/en/index.html">Python’s
+            SymPy</a> library.</p>
+            <p>First, we use SymPy’s <a
+            href="https://docs.sympy.org/latest/modules/parsing.html"><code>parse_expr</code></a>
+            to get the expression object.</p>
+            <div class="sourceCode" id="cb1"><pre
+            class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> sp.parsing.sympy_parser.parse_expr(expr_string)</span></code></pre></div>
+            <p>Next, we can get all the variables in the expression
+            with:</p>
+            <div class="sourceCode" id="cb2"><pre
+            class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>variable_set <span class="op">=</span> expr.free_symbols</span></code></pre></div>
+            <p>Finally, we can loop through all the (usable) variables
+            in the expression and construct the error propagation
+            string. The partial derivative can be calculated using <a
+            href="https://docs.sympy.org/latest/tutorials/intro-tutorial/calculus.html#derivatives"><code>diff()</code></a>
+            method.</p>
+            <div class="sourceCode" id="cb3"><pre
+            class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, var <span class="kw">in</span> <span class="bu">enumerate</span>(variable_set):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (usable_list[index]):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>            final <span class="op">=</span> final <span class="op">+</span> <span class="ss">f&quot; + abs(</span><span class="sc">{</span><span class="bu">str</span>(expr.diff(var))<span class="sc">}</span><span class="ss">)*δ</span><span class="sc">{</span>var<span class="sc">}</span><span class="ss">&quot;</span></span></code></pre></div>
+            <p>Great! Now we can just hook it up to a <a
+            href="https://fastapi.tiangolo.com/">FastAPI</a> backend and
+            be done with it. It’s just that simple!</p>
+            </section>
+            <section id="or-is-it" class="level2" data-number="2.2">
+            <h2 data-number="2.2"><span
+            class="header-section-number">2.2</span> Or is it?</h2>
+            <p><em>Narrator voice: “it wasn’t, in fact, that
+            simple”</em></p>
+            <p>As it turns out, this implementation was really not a
+            good idea for various performance and security reasons.</p>
+            <section id="processing-time" class="level3"
+            data-number="2.2.1">
+            <h3 data-number="2.2.1"><span
+            class="header-section-number">2.2.1</span> Processing
+            time</h3>
+            <p>The first issue that caught our attention was the
+            (possibility of) high processing times.</p>
+            <p>For <em>regular expected use™</em> this wasn’t a problem,
+            in only took a couple of seconds maximum. However, the user
+            is evil and could just input the most diabolical of
+            expressions and take the whole server hostage for minutes.
+            Really not ideal.</p>
+            <section id="limiting-number-of-characters" class="level4"
+            data-number="2.2.1.1">
+            <h4 data-number="2.2.1.1"><span
+            class="header-section-number">2.2.1.1</span> Limiting number
+            of characters</h4>
+            <p>We though about limiting the number of characters the
+            user could input.</p>
+            <p>However, this was not suitable and would end up
+            sacrificing the quality of our service too much, since
+            mundane expressions could be long due to long variable
+            names. Personally, I also hate this type of hard-coded
+            solutions.</p>
+            <p>Most importantly, as we would soon find out, it didn’t
+            take a lot of characters to stall (or kill for that matter)
+            our server.</p>
+            </section>
+            <section id="multi-threading" class="level4"
+            data-number="2.2.1.2">
+            <h4 data-number="2.2.1.2"><span
+            class="header-section-number">2.2.1.2</span>
+            Multi-threading</h4>
+            <p>To mitigate the possible long processing times, we tried
+            implementing a multi-threaded approach, where each error
+            propagation request was computed on a different Python
+            Thread with a maximum processing time, after wich the Thread
+            was killed.</p>
+            <p>This seemed like a nice solution, however we had neither
+            the time nor experience to make it work.</p>
+            <p>Said implementation ended up being extremely janky.
+            Particularly, if the input expression was something like
+            <code>1000^1000000000^1000000</code>, it would stall trying
+            to evaluate that expression and for <strong>some
+            reason</strong> the worker thread refused to die no matter
+            what.</p>
+            <p>Wait, it would <strong>evaluate</strong> the expression?
+            Oh no…</p>
+            </section>
+            </section>
+            <section id="the-reveal-evil-eval" class="level3"
+            data-number="2.2.2">
+            <h3 data-number="2.2.2"><span
+            class="header-section-number">2.2.2</span> The reveal: evil
+            eval</h3>
+            <p>If high processing time was potentially service breaking,
+            this was a whole other level of threat to the service
+            itself. Contraty to what <a
+            href="https://stackoverflow.com/a/61038846">this user said
+            on StackOverflow</a>, Sympy’s <a
+            href="https://docs.sympy.org/latest/modules/parsing.html#sympy.parsing.sympy_parser.parse_expr">parse_expr()</a>
+            method still seems to use python’s built-in eval() (<a
+            href="https://github.com/sympy/sympy/blob/2197797741156d9cb73a8d1462f7985598e9b1a9/sympy/parsing/sympy_parser.py#L903-L911">source
+            code</a>), even with <code>evaluate</code> parameter set to
+            <code>False</code>.</p>
+            <p>Python’s <a
+            href="https://docs.python.org/3/library/functions.html#eval">eval()</a>
+            is a very powerful tool that allows for the execution of
+            arbitrary code as a Python expression. I’m not gonna pretend
+            to be cybersecurity expert, but I had participated in a few
+            CTF events with Python Jailbreaks and knew better than to
+            try to fight against this security vulnerability.</p>
+            <p>Once I tried calculating the error propagation of
+            <code>__import__('os').system('reboot')</code> and the my
+            computer just, well, rebooted, I knew this was not gonna
+            work.</p>
+            <p>At the end of the day, we just didn’t have the necessary
+            skill or resources to implement a usable backend. The
+            potential processing complexity and security risks involved
+            made it just not worth it. If only there was a way to pass
+            this computational burden onto the users themselves.</p>
+            </section>
+            </section>
+            </section>
+            <section id="the-great-rewrite" class="level1"
+            data-number="3">
+            <h1 data-number="3"><span
+            class="header-section-number">3</span> The great
+            rewrite</h1>
+            <section id="wait-its-all-javascript" class="level2"
+            data-number="3.1">
+            <h2 data-number="3.1"><span
+            class="header-section-number">3.1</span> Wait it’s all
+            JavaScript?</h2>
+            <p>So yeah, we rewrote it all in JavaScript.</p>
+            <figure>
+            <img src="/images/itsalljs.jpg"
+            alt="It’s all a bunch of js" />
+            <figcaption aria-hidden="true">It’s all a bunch of
+            js</figcaption>
+            </figure>
+            <p>Luckily for us, it wasn’t even that complicated. The <a
+            href="https://mathjs.org">math.js</a> library is
+            surprisingly complete, and it even includes a <a
+            href="https://mathjs.org/docs/reference/functions/derivative.html">function
+            derivative method</a>. The only true adaptation that had to
+            be made was the way we get all the variables in the
+            expression, as there was no built-in support back then (<a
+            href="https://github.com/MIBismuth/error-propagation-calculator/blob/2b94738a865733d5af341aa6760b3c50af1629c8/src/lib/ErrorPropagation.js#L218-L230C1">source
+            code</a>):</p>
+            <div class="sourceCode" id="cb4"><pre
+            class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">function</span> <span class="fu">get_variables</span>(exp_string) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span> <span class="op">.</span> <span class="op">.</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> node <span class="op">=</span> <span class="fu">parse</span>(exp_string)<span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> variables <span class="op">=</span> node</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">filter</span>(<span class="kw">function</span> (node) {</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> node<span class="op">.</span><span class="at">isSymbolNode</span> <span class="op">&amp;&amp;</span> <span class="op">!</span>trigFunctions<span class="op">.</span><span class="fu">includes</span>(node<span class="op">.</span><span class="at">name</span>)<span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">map</span>(<span class="kw">function</span> (node) {</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> node<span class="op">.</span><span class="at">name</span><span class="op">;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> variables<span class="op">;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+            <p>All this does is filter all the nodes in the tree like
+            structure generated by <code>parse(exp_string)</code> and
+            extracts the name of the nodes that are not operators or
+            trigonometric functions, i.e. the variables.</p>
+            </section>
+            <section id="pros-and-cons" class="level2"
+            data-number="3.2">
+            <h2 data-number="3.2"><span
+            class="header-section-number">3.2</span> Pros and Cons</h2>
+            <p>We can compare the pros and cons of the JavaScript vs
+            Python implementations.</p>
+            <table>
+            <colgroup>
+            <col style="width: 49%" />
+            <col style="width: 50%" />
+            </colgroup>
+            <thead>
+            <tr class="header">
+            <th>Pros</th>
+            <th>Cons</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="odd">
+            <td>+ Reduced complexity</td>
+            <td>- Loss in performance</td>
+            </tr>
+            <tr class="even">
+            <td>+ Increased robustness</td>
+            <td>- Expression simplification not as good</td>
+            </tr>
+            <tr class="odd">
+            <td>+ No constraints on user input</td>
+            <td></td>
+            </tr>
+            <tr class="even">
+            <td>+ Easy to host</td>
+            <td></td>
+            </tr>
+            </tbody>
+            </table>
+            <p>In the end, moving all the processing to the front-end
+            was on overall a positive!</p>
+            <p>We gave up speed (the js implementation was anywhere from
+            2 to 5x slower) and better expression simplifications for a
+            simpler and a lot more robust alternative, with near
+            infinite scaling. As an added bonus, the fact that it did
+            not require a backend made it perfect to host on one of the
+            many static website free hosting platforms!</p>
+            </section>
+            </section>
+            <section id="on-web-technologies-and-youtube-brainrot"
+            class="level1" data-number="4">
+            <h1 data-number="4"><span
+            class="header-section-number">4</span> On Web technologies
+            and YouTube brainrot</h1>
+            <p>So far, this post has been mostly dedicated to the inner
+            workings of the error propagation algorithm itself. However,
+            I’d like to also briefly highlight one of the main issues I
+            faced as a first time web developer: there are (seemingly)
+            way too many options!</p>
+            <section id="decisions" class="level2" data-number="4.1">
+            <h2 data-number="4.1"><span
+            class="header-section-number">4.1</span> Decisions</h2>
+            <p>When starting out this project, the first thing I did was
+            look up what tools I should use on YouTube. I probably
+            clicked on one of the many “top 10 web/tech stacks of 202*”
+            and, just like that, I was hooked. I must have spent days
+            watching every single tier list, every review, every
+            <em>pros and cons</em> and reading every single comment on
+            all the YouTube, Reddit and Blog posts, agonizing over the
+            apparently <strong>life changing</strong> decision that was
+            choosing a front-end framework.</p>
+            <p>In the process, I ended up adding a lot of technologies
+            that were frankly useless for my use case, like TypeScript.
+            My brothers, even today I don’t really know the difference
+            between it and JavaScript! But I absolutely “had to have it”
+            according to all the experts.</p>
+            <p>It really isn’t all that.</p>
+            <p>I still think doing research is important, and don’t
+            regret (finally) choosing <a
+            href="https://svelte.dev/">Svelte</a> (quite like the
+            thing), but as a beginner that time was probably better
+            spent learning the fundamentals of HTML, CSS and maybe
+            JavaScript. After all, how can one really comprehend what a
+            modern framework brings to the table if they never really
+            <em>played with default settings</em>?</p>
+            </section>
+            <section id="indecisions" class="level2" data-number="4.2">
+            <h2 data-number="4.2"><span
+            class="header-section-number">4.2</span> Indecisions</h2>
+            <p>This second problem came as a direct consequence of the
+            first: I started second guessing the tools I chose.</p>
+            <p>After investing so much time analysing all the possible
+            options, everything had to be perfect. Every time I hit a
+            small road block the immediate reaction was to blame the
+            software and myself for choosing it, when in reality I
+            should have just been blaming myself for being bad at
+            programming.</p>
+            <p>For example, when the CSS style sheets got “messy” (it
+            wasn’t even that bad), I introduced <a
+            href="https://tailwindcss.com/">Tailwind CSS</a>, which is
+            great, I like it, but now it’s the middle of development and
+            I’m in a call with my partner being like “no, no, you don’t
+            understand this is so much better, this is the future,
+            totally worth learning trust me bro™”</p>
+            </section>
+            <section id="finding-peace-in-compromise" class="level2"
+            data-number="4.3">
+            <h2 data-number="4.3"><span
+            class="header-section-number">4.3</span> Finding peace in
+            compromise</h2>
+            <p>It can be quite easy to find yourself obsessing over
+            everything that is new.</p>
+            <p>When starting, it might be a good idea to focus on the
+            basics first. Only by using something is it possible to
+            understand it’s strengths and pitfalls.</p>
+            <p>Further, it is important to understand when to try a
+            different approach, like when we had to rewrite the Python
+            backend and move it to the frontend. But perhaps equally as
+            important is to realize when it is not worth the time to do
+            it.</p>
+            <p>In the end, you might end up finding that the defaults
+            are all you need.</p>
+            </section>
+            </section>
+            <section id="the-good-ending" class="level1"
+            data-number="5">
+            <h1 data-number="5"><span
+            class="header-section-number">5</span> The good ending</h1>
+            <p>Doing this project was <em>really cool</em>. I learned a
+            lot and it’s great to see the website still in use by my
+            fellow colleagues to this day. We even won an award for
+            it!</p>
+            <p>Most of all I learned that I had what it took find
+            problems and offer a solution for the betterment of the
+            community.</p>
+            <p>— José Duarte Lopes</p>
+            <script defer=""
+            src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+            <script>document.addEventListener("DOMContentLoaded", function () {
+                var mathElements = document.getElementsByClassName("math");
+                var macros = [];
+                for (var i = 0; i < mathElements.length; i++) {
+                    var texText = mathElements[i].firstChild;
+                    if (mathElements[i].tagName == "SPAN") {
+                        katex.render(texText.data, mathElements[i], {
+                            displayMode: mathElements[i].classList.contains('display'),
+                            throwOnError: false,
+                            macros: macros,
+                            fleqn: false
+                        });
+                    }}});
+            </script>
+            <p><link rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" /></p>
+            </section>
+        </div>
+        <footer class="footer">
+            <p>Thank you for visiting my website! ❤️</p>
+
+            <p>Feel free to reach out if you have any questions or just want to connect.</p>
+            <p>Created by José Duarte Lopes - 2024</p>
+        </footer>
+
+    </body>
+
+
+</html>
+

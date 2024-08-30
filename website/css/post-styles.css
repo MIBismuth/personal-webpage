@@ -172,3 +172,54 @@ code {
     overflow-x: auto;
     overflow-y: hidden;
 }
+
+/* Table Styles */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-size: 18px;
+    text-align: left;
+}
+
+/* Column Widths */
+colgroup col:nth-child(1) {
+    width: 49%;
+}
+
+colgroup col:nth-child(2) {
+    width: 50%;
+}
+
+/* Header Styles */
+thead th {
+    background-color: var(--base);
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Row Styles */
+tbody td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+/* Odd and Even Row Background Colors */
+tbody tr.odd {
+    background-color: var(--overlay);
+}
+
+tbody tr.even {
+    background-color: var(--highlight-low);
+}
+
+/* Hover Effect */
+tbody tr:hover {
+    background-color: var(--base);
+}
+
+/* Optional: Alignment of Cons column */
+tbody td:last-child {
+    text-align: left;
+}
