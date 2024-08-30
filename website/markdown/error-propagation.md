@@ -118,7 +118,7 @@ For *regular expected use™* this wasn't a problem, in only took a couple of se
 
 #### Limiting number of characters
 
-We though about limiting the number of characters the user could input. 
+We thought about limiting the number of characters the user could input. 
 
 However, this was not suitable and would end up sacrificing the quality of our service too much, since mundane expressions could be long due to long variable names. Personally, I also hate this type of hard-coded solutions.
 
@@ -126,7 +126,7 @@ Most importantly, as we would soon find out, it didn't take a lot of characters 
 
 #### Multi-threading
 
-To mitigate the possible long processing times, we tried implementing a multi-threaded approach, where each error propagation request was computed on a different Python Thread with a maximum processing time, after wich the Thread was killed. 
+To mitigate the possible long processing times, we tried implementing a multi-threaded approach, where each error propagation request was computed on a different Python Thread with a maximum processing time, after which the Thread was killed. 
 
 This seemed like a nice solution, however we had neither the time nor experience to make it work.
 
@@ -136,7 +136,7 @@ Wait, it would **evaluate** the expression? Oh no...
 
 ### The reveal: evil eval
 
-If high processing time was potentially service breaking, this was a whole other level of threat to the service itself. Contraty to what [this user said on StackOverflow](https://stackoverflow.com/a/61038846), Sympy's [parse_expr()](https://docs.sympy.org/latest/modules/parsing.html#sympy.parsing.sympy_parser.parse_expr) method still seems to use python's built-in eval() ([source code](https://github.com/sympy/sympy/blob/2197797741156d9cb73a8d1462f7985598e9b1a9/sympy/parsing/sympy_parser.py#L903-L911)), even with `evaluate` parameter set to `False`.
+If high processing time was potentially service breaking, this was a whole other level of threat to the service itself. Contrary to what [this user said on StackOverflow](https://stackoverflow.com/a/61038846), Sympy's [parse_expr()](https://docs.sympy.org/latest/modules/parsing.html#sympy.parsing.sympy_parser.parse_expr) method still seems to use python's built-in eval() ([source code](https://github.com/sympy/sympy/blob/2197797741156d9cb73a8d1462f7985598e9b1a9/sympy/parsing/sympy_parser.py#L903-L911)), even with `evaluate` parameter set to `False`.
 
 Python's [eval()](https://docs.python.org/3/library/functions.html#eval) is a very powerful tool that allows for the execution of arbitrary code as a Python expression. I'm not gonna pretend to be cybersecurity expert, but I had participated in a few CTF events with Python Jailbreaks and knew better than to try to fight against this security vulnerability. 
 
@@ -229,7 +229,7 @@ In the end, you might end up finding that the defaults are all you need.
 
 Doing this project was *really cool*. I learned a lot and it's great to see the website still in use by my fellow colleagues to this day. We even won an award for it!
 
-Most of all I learned that I had what it took find problems and offer a solution for the betterment of the community.
+Most of all I learned that I had what it took to find problems and offer a solution for the betterment of the community.
 
 --- José Duarte Lopes
 
