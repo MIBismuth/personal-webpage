@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home Page on José Lopes&#39; Cool Website</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content in Home Page on José Lopes&#39; Cool Website</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 29 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Error Propagation Calculator</title>
+      <link>http://localhost:1313/posts/error-propagation/</link>
+      <pubDate>Thu, 29 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/error-propagation/</guid>
+      <description>&lt;h1 id=&#34;it-starts-with-why-not&#34;&gt;It starts with: &lt;em&gt;why not?&lt;/em&gt;&lt;/h1&gt;&#xA;&lt;p&gt;This whole project came about during one of the many &amp;ldquo;dude, we need to get rich&amp;rdquo; conversations between me and my good friend João Rei.&lt;/p&gt;&#xA;&lt;p&gt;We knew we had to solve a &lt;em&gt;real world&lt;/em&gt; problem. Here&amp;rsquo;s why &lt;strong&gt;calculating error propagations&lt;/strong&gt; was one of the first things that popped up.&lt;/p&gt;&#xA;&lt;h2 id=&#34;understanding-the-problem-why-it-sucks&#34;&gt;Understanding the problem: why it sucks&lt;/h2&gt;&#xA;&lt;p&gt;For context, calculating error propagations was a very common task on our bachelor&amp;rsquo;s physics laboratories.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Sample Document for Styling Test</title>
+      <link>http://localhost:1313/posts/test-page/</link>
+      <pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/test-page/</guid>
+      <description>&lt;h1 id=&#34;main-title&#34;&gt;Main Title&lt;/h1&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Welcome to this document. Below you will find various sections and subsections to test the styling.&lt;/p&gt;&#xA;&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;This is the introduction section where we provide an overview of the content.&lt;/p&gt;&#xA;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;&#xA;&lt;p&gt;The purpose of this document is to demonstrate the styling of headers and sections.&lt;/p&gt;&#xA;&lt;h2 id=&#34;scope&#34;&gt;Scope&lt;/h2&gt;&#xA;&lt;p&gt;This document covers various aspects of header styling in Markdown.&lt;/p&gt;&#xA;&lt;h1 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h1&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;This section covers the basics of getting started.&lt;/p&gt;&#xA;&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;&#xA;&lt;p&gt;Instructions on how to install the necessary software.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Self Hosting on a Budget</title>
+      <link>http://localhost:1313/posts/self-hosting/</link>
+      <pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/self-hosting/</guid>
+      <description>&lt;h1 id=&#34;the-idea-but-only-on-my-self-imposed-terms&#34;&gt;The Idea, but only on my self-imposed terms&lt;/h1&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve wanted to host my own website for a while now.&lt;/p&gt;&#xA;&lt;p&gt;It looked like a very fun project and the idea of actually &lt;strong&gt;building&lt;/strong&gt; my own creative outlet seemed very rewarding. But mostly because I&amp;rsquo;m a nerd and having a website sounds cool and all the cool kids do it (I want to be a cool kid).&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/coolkids.svg&#34; alt=&#34;Me and the cool kids - abstract by José Lopes © 2024&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About me</title>
+      <link>http://localhost:1313/about-me/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about-me/</guid>
+      <description>&lt;h1 id=&#34;who&#34;&gt;Who?&lt;/h1&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/me_looking_cool.jpeg&#34; alt=&#34;Me looking cool in Vilnius&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;My name is José Duarte Lopes and I&amp;rsquo;m a 22 year old based in Lisbon, Portugal.&lt;/p&gt;&#xA;&lt;p&gt;I got a Bachelor&amp;rsquo;s degree in Engineering Physics at Instituto Superior Técnico (IST), University of Lisbon.&lt;/p&gt;&#xA;&lt;p&gt;Currently a graduate student of Electrical and Computer Engineering also at IST.&lt;/p&gt;&#xA;&lt;h1 id=&#34;my-interests&#34;&gt;My interests&lt;/h1&gt;&#xA;&lt;h2 id=&#34;the-academic--professional&#34;&gt;The Academic / Professional&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Parallel Computing, particularly GPU acceleration&lt;/li&gt;&#xA;&lt;li&gt;Computer Vision and Computer Graphics&lt;/li&gt;&#xA;&lt;li&gt;Autonomous Systems&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;the-trully-important-ones&#34;&gt;The Trully Important Ones&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Linux and open-source software enthusiast&lt;/li&gt;&#xA;&lt;li&gt;I also play Bass (if you&amp;rsquo;re looking for a bass player in Lisbon let me know!)&lt;/li&gt;&#xA;&lt;li&gt;I go bouldering and to the gym, but it&amp;rsquo;s not my whole personality yet&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;my-socials&#34;&gt;My Socials&lt;/h1&gt;&#xA;&lt;p&gt;Thank you for checking out this personal website!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

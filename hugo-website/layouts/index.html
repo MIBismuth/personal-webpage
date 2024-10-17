@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" class="rosePine">
+        {{partial "head"}}
+
+
+    <body>
+
+        {{partial "circles" }}
+
+        {{partial "navbar"}}         
+        <div class="content">
+
+            <div class="container">
+                <h2>Welcome to my personal website!</h2>
+                <p>Hello! My name is <a href="/about-me">José Duarte Lopes</a> and I'm currently building this web-page as a place to share some of my projects and ideas!</p>
+                <p>Meanwhile, check out my socials and CV below!</p>
+                {{partial "socials"}}
+            </div>
+
+            <h2>Posts:</h2>
+
+            <details class="post-card">
+                <summary class = "post-header">
+                    <h2 class="post-title"> <a href="/self-hosting">Self-hosting on a budget: the story of this website</a></h2>
+                    <p class="post-date">July 2024</p>
+                </summary>
+                <div post-content>
+                    <p>In this post I describe the development and deployment of my self-hosted website (you're looking at it right now!).</p>
+                    <p>Trigger warnings: web development, DevOps and potential fire hazards.</p>
+                </div>
+                <a href="/self-hosting" class="read-more">Read Full Post</a>
+            </details>
+            <details class="post-card">
+                <summary class = "post-header">
+                    <h2 class="post-title"><a href="/error-propagation">Error propagation: a reflection on my first time</a>
+                    </h2>
+                    <p class="post-date">August 2024</p>
+                </summary>
+                <div post-content>
+                    <p>A retrospect on my first real web project back in 2023. </p>
+                </div>
+                <a href="/error-propagation" class="read-more">Read Full Post</a>
+                <!-- <a href="post2.html" class="read-more">Read Full Post</a> -->
+            </details><details class="post-card">
+                <summary class = "post-header">
+                    <h2 class="post-title">On hating MATLAB enough to configure Neovim</h2>
+                    <p class="post-date">Coming Soon</p>
+                </summary>
+                <div post-content>
+                    <p>Coming Soon...</p>
+                </div>
+                <!-- <a href="post2.html" class="read-more">Read Full Post</a> -->
+            </details>
+
+            </details><details class="post-card">
+                <summary class = "post-header">
+                    <h2 class="post-title">Colemak after a year: a typed-out review</h2>
+                    <p class="post-date">Coming Soon</p>
+                </summary>
+                <div post-content>
+                    <p>Coming Soon...</p>
+                </div>
+                <!-- <a href="post2.html" class="read-more">Read Full Post</a> -->
+            </details>
+        </div>
+
+        {{partial "footer"}}
+    </body>
+</html>
+
