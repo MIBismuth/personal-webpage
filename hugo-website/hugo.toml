@@ -1,3 +1,14 @@
 baseURL = 'https://joselopes.dev/'
 languageCode = 'en-us'
 title = "José Lopes' Cool Website"
+
+
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+
+

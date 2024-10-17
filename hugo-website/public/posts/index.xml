@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on José Lopes&#39; Cool Website</title>
+    <title>José Lopes&#39; Cool Website</title>
     <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on José Lopes&#39; Cool Website</description>
+    <description>Recent content on José Lopes&#39; Cool Website</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 29 Aug 2024 00:00:00 +0000</lastBuildDate>
@@ -27,7 +27,7 @@
       <link>http://localhost:1313/posts/self-hosting/</link>
       <pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/self-hosting/</guid>
-      <description>&lt;h1 id=&#34;the-idea-but-only-on-my-self-imposed-terms&#34;&gt;The Idea, but only on my self-imposed terms&lt;/h1&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve wanted to host my own website for a while now.&lt;/p&gt;&#xA;&lt;p&gt;It looked like a very fun project and the idea of actually &lt;strong&gt;building&lt;/strong&gt; my own creative outlet seemed very rewarding. But mostly because I&amp;rsquo;m a nerd and having a website sounds cool and all the cool kids do it (I want to be a cool kid).&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/coolkids.svg&#34; alt=&#34;Me and the cool kids - abstract by José Lopes © 2024&#34;&gt;&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;the-idea-but-only-on-my-self-imposed-terms&#34;&gt;The Idea, but only on my self-imposed terms&lt;/h1&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve wanted to host my own website for a while now.&lt;/p&gt;&#xA;&lt;p&gt;It looked like a very fun project and the idea of actually &lt;strong&gt;building&lt;/strong&gt; my own creative outlet seemed very rewarding. But mostly because I&amp;rsquo;m a nerd and having a website sounds cool and all the cool kids do it (I want to be a cool kid).&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;coolkids.svg&#34; alt=&#34;Me and the cool kids - abstract by José Lopes © 2024&#34;&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

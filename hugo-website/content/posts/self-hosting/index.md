@@ -1,6 +1,6 @@
 ---
 title: "Self Hosting on a Budget"
-sub-title: This is the story of the development and deployment of this website. You can find the whole website project on [GitHub](https://github.com/MIBismuth/personal-webpage).
+subtitle: This is the story of the development and deployment of this website. You can find the whole website project on [GitHub](https://github.com/MIBismuth/personal-webpage).
 author: "José Duarte Lopes"
 date: 2024-07-24
 toc_on: true
@@ -16,7 +16,7 @@ I've wanted to host my own website for a while now.
 
 It looked like a very fun project and the idea of actually **building** my own creative outlet seemed very rewarding. But mostly because I'm a nerd and having a website sounds cool and all the cool kids do it (I want to be a cool kid). 
 
-![Me and the cool kids - abstract by José Lopes © 2024](../images/coolkids.svg)
+![Me and the cool kids - abstract by José Lopes © 2024](coolkids.svg)
 
 
 Before we start, as a *FOSS enjoyer* that has once fallen into the trap of using all the latest web-frameworks and technologies on a previous project, I devised the following *guidelines*:
@@ -29,13 +29,13 @@ Alright, with that out of the way, let's get into it!
 
 
 
-# Setting up the Server
+## Setting up the Server
 
 My initial plan was to repurpose my old laptop as a server. However, as fate would have it, it ended up passing away (R.I.P. Asus x550jk - gone too soon after 10 years of daily use). 
 
 Now, I was left looking at other *cheap* alternatives such as an old Raspberry Pi. This got me thinking: "hey, aren't smartphones small, compact and use Arm chips anyway?".
 
-## You can't be serious
+### You can't be serious
 
 No, no, just hear me out. So I had this Android phone laying around and it just makes perfect sense for this use case:
 
@@ -47,7 +47,7 @@ No, no, just hear me out. So I had this Android phone laying around and it just 
 
 Now, I can hear you loud and clear: "What about security?", "How cheap can you be?", "Isn't that thing a fire hazard?". Yes. All of that will be discussed in the 1 year anniversary post when I find out.
 
-## Setting up Termux
+### Setting up Termux
 
 While I'm sure flashing a true native Linux OS is possible, that skill transcends me yet. 
 
@@ -66,7 +66,7 @@ pkg install nginx
 pkg install git
 ```
 
-### SSH
+#### SSH
 
 The first thing I did was to get ssh up and running. After that, the rest of the setup could be done from the comfort of my computer.
 
@@ -89,7 +89,7 @@ ssh user@server-local-ip -p 'port'
 
 Great, now we don't need to touch the ~~phone~~ server anymore!
 
-### NGINX
+#### NGINX
 
 I'm not gonna delve too deep on how to configure nginx, but basically all the setup is done on a config file, usually in `/etc/nginx/nginx.conf`. It will look something like this:
 
@@ -126,9 +126,9 @@ nginx
 
 Great, now the website should be accessible at `server-local-ip:port` on the browser!
 
-## Connecting to the Internet
+### Connecting to the Internet
 
-### Port Forwarding
+#### Port Forwarding
 
 Up until now I'd only been using the local network. However, since I wanted to access my server by ssh and for my site to be accessible from anywhere in the world I needed to configure port forwarding on my router. 
 
@@ -142,14 +142,14 @@ ssh user@router-external-ip -p 'port'
 ```
 And the website can be viewed at `router-external-ip:port` on the browser!
 
-### Getting a Domain Name
+#### Getting a Domain Name
 
 Choosing a domain name took twice as long as all previous steps combined. I wanted something with my name, but short and with no initials. Unfortunately, joselopes.com was already taken and they wanted 8888$ for it (lmao). 
 
 As you can see, ended up on [joselopes.dev](https://joselopes.dev) as it was pretty hip and pretty cheap.
 
 
-### HTTPS with Nginx
+#### HTTPS with Nginx
 
 One of the quirks of the .dev domains is that it [requires https](https://get.dev/). Luckily, my domain name broker provides free SSL certificates, all that is required is to download them and change the appropriate fields on the nginx.conf file. 
 
@@ -158,22 +158,22 @@ Also worth noting, the default port for https is 433, so it is recommended to fo
 
 
 
-# Building the Website
+## Building the Website
 
 It's finally time to build the website!
 
-## Workflow and DevOps
+### Workflow and DevOps
 
 It is a very simple workflow: make changes -> upload to GitHub -> pull from GitHub on the server -> reload server.
 
 I tried my best to make a visual diagram:
 <!-- ![workflow diagram](../images/workflowdiagram.svg) -->
 
-![workflow diagram](../images/workflowdiagramdot.svg)
+![workflow diagram](workflowdiagramdot.svg)
 
 I'd love to automate this process further by integrating [GitHub actions](https://docs.github.com/en/actions) but couldn't get it to work on Termux :|
 
-### Managing Development and Production nginx configs
+#### Managing Development and Production nginx configs
 
 A problem I encountered came down to managing the nginx.conf files.
 
@@ -186,7 +186,7 @@ My solution came down to a template system where I inject the variables I need u
 This way, I can just change the template and it will work on both development and production sides! It also takes care of handling any secrets I don't want in my public GitHub repository.
 
 
-## The frontend: deserved credits
+### The frontend: deserved credits
  
 As mentioned previously, I wanted something as simple and as portable as possible, with standard HTML and CSS. 
 
@@ -198,7 +198,7 @@ This allowed me to take a lot of inspiration from other developers to build comp
 - [Sidebar Menu by Jelena Jovanovic](https://codepen.io/plavookac/pen/qomrMw)
 
 
-## Writing in Markdown
+### Writing in Markdown
 
 Finally, html can be quite cumbersome for writing these long, article style types of posts.
 
@@ -209,7 +209,7 @@ Inspired by this, I decided to adapt it to the context of this website and I thi
 This allows me flexibility when changing the overall style of my website (since I only need to modify one file) while keeping the content in purely a text-based, human friendly format.
 
 
-# Final Remarks
+## Final Remarks
 
 ---
 
