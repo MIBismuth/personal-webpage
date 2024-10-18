@@ -102,9 +102,17 @@ code {
     font-family: 'Fira Code', monospace;
     background-color: var(--base);
     border-radius: 10px;
-    padding: 2px 2px;
-    white-space: pre-wrap;
-    word-break: break-word;
+    /* padding: 1px 1px; */
+    /* white-space: pre-wrap; */
+    /* word-break: break-word; */
+    /* overflow-x: scroll; */
+}
+
+.highlight pre
+{
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 10px;
 }
 
 .sourceCode {
@@ -171,6 +179,11 @@ code {
 }
 
 .katex-display{
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+mjx-container{
     overflow-x: auto;
     overflow-y: hidden;
 }

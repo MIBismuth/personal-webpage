@@ -9,6 +9,19 @@ title = "José Lopes' Cool Website"
     [markup.goldmark.extensions]
       [markup.goldmark.extensions.passthrough]
         [markup.goldmark.extensions.passthrough.delimiters]
-          block = [['\[', '\]'], ['$$', '$$']]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ''
+    hl_inline = false
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = false
+    noClasses = true
+    noHl = false
+    style = 'rose-pine'
+    tabWidth = 4
 
 

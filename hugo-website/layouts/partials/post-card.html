@@ -1,0 +1,13 @@
+<details class="post-card">
+    <summary class="post-header">
+        <h2 class="post-title">
+            <a href="{{ .Permalink }}">{{ .Params.post_title }}</a>
+        </h2>
+        <p class="post-date">{{ .Date.Format "January 2006" }}</p>
+    </summary>
+    <div class="post-content">
+        {{ .Params.post_summary | markdownify}}
+    </div>
+    <a href="{{ .Permalink }}" class="read-more">Read Full Post</a>
+</details>
+

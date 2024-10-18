@@ -7,7 +7,7 @@
 
         {{partial "circles" }}
 
-        {{partial "navbar"}}         
+        {{partial "navbar" .}}         
         <div class="content">
 
             <div class="container">
@@ -19,28 +19,10 @@
 
             <h2>Posts:</h2>
 
-            <details class="post-card">
-                <summary class = "post-header">
-                    <h2 class="post-title"> <a href="/self-hosting">Self-hosting on a budget: the story of this website</a></h2>
-                    <p class="post-date">July 2024</p>
-                </summary>
-                <div post-content>
-                    <p>In this post I describe the development and deployment of my self-hosted website (you're looking at it right now!).</p>
-                    <p>Trigger warnings: web development, DevOps and potential fire hazards.</p>
-                </div>
-                <a href="/self-hosting" class="read-more">Read Full Post</a>
-            </details>
-            <details class="post-card">
-                <summary class = "post-header">
-                    <h2 class="post-title"><a href="/error-propagation">Error propagation: a reflection on my first time</a>
-                    </h2>
-                    <p class="post-date">August 2024</p>
-                </summary>
-                <div post-content>
-                    <p>A retrospect on my first real web project back in 2023. </p>
-                </div>
-                <a href="/error-propagation" class="read-more">Read Full Post</a>
-                <!-- <a href="post2.html" class="read-more">Read Full Post</a> -->
+            {{ range where .Site.RegularPages "Section" "posts" }}
+                {{ partial "post-card.html" . }}
+            {{ end }}
+
             </details><details class="post-card">
                 <summary class = "post-header">
                     <h2 class="post-title">On hating MATLAB enough to configure Neovim</h2>
@@ -49,7 +31,6 @@
                 <div post-content>
                     <p>Coming Soon...</p>
                 </div>
-                <!-- <a href="post2.html" class="read-more">Read Full Post</a> -->
             </details>
 
             </details><details class="post-card">
@@ -60,7 +41,6 @@
                 <div post-content>
                     <p>Coming Soon...</p>
                 </div>
-                <!-- <a href="post2.html" class="read-more">Read Full Post</a> -->
             </details>
         </div>
 

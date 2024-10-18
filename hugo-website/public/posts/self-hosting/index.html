@@ -90,6 +90,7 @@
                 <h2>Table of Contents:</h2>
                 <nav id="TableOfContents">
   <ul>
+    <li><a href="#the-idea-but-only-on-my-self-imposed-terms">The Idea, but only on my self-imposed terms</a></li>
     <li><a href="#setting-up-the-server">Setting up the Server</a>
       <ul>
         <li><a href="#you-cant-be-serious">You can&rsquo;t be serious</a></li>
@@ -117,10 +118,15 @@
 
         
         
-<h1 id="the-idea-but-only-on-my-self-imposed-terms">The Idea, but only on my self-imposed terms</h1>
+
+<section class="level1"><h2 id="the-idea-but-only-on-my-self-imposed-terms">The Idea, but only on my self-imposed terms</h2>
 <p>I&rsquo;ve wanted to host my own website for a while now.</p>
 <p>It looked like a very fun project and the idea of actually <strong>building</strong> my own creative outlet seemed very rewarding. But mostly because I&rsquo;m a nerd and having a website sounds cool and all the cool kids do it (I want to be a cool kid).</p>
-<p><img src="coolkids.svg" alt="Me and the cool kids - abstract by José Lopes © 2024"></p>
+<figure><img src="/posts/self-hosting/coolkids.svg"><figcaption>
+      <h4>Me and the cool kids - abstract by José Lopes © 2024</h4>
+    </figcaption>
+</figure>
+
 <p>Before we start, as a <em>FOSS enjoyer</em> that has once fallen into the trap of using all the latest web-frameworks and technologies on a previous project, I devised the following <em>guidelines</em>:</p>
 <ol>
 <li>The server needs to be self-hosted</li>
@@ -128,6 +134,7 @@
 <li>Using vanilla HTML and CSS, with as little JS as possible</li>
 </ol>
 <p>Alright, with that out of the way, let&rsquo;s get into it!</p>
+</section>
 <section class="level1"><h2 id="setting-up-the-server">Setting up the Server</h2>
 <p>My initial plan was to repurpose my old laptop as a server. However, as fate would have it, it ended up passing away (R.I.P. Asus x550jk - gone too soon after 10 years of daily use).</p>
 <p>Now, I was left looking at other <em>cheap</em> alternatives such as an old Raspberry Pi. This got me thinking: &ldquo;hey, aren&rsquo;t smartphones small, compact and use Arm chips anyway?&rdquo;.</p>
@@ -145,50 +152,50 @@
 <p>While I&rsquo;m sure flashing a true native Linux OS is possible, that skill transcends me yet.</p>
 <p>I went for the easy approach and installed <a href="https://termux.dev/en/">Termux</a>: &ldquo;an Android terminal emulator and Linux environment app&rdquo;.</p>
 <p>It comes with it&rsquo;s own package manager which provides tons of packages for useful software. The ones I used can be installed by running the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># ssh client</span>
+<div class="highlight"><pre tabindex="0" style="color:#e0def4;background-color:#191724;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6e6a86"># ssh client</span>
 </span></span><span style="display:flex;"><span>pkg install dropbear
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># server</span>
+</span></span><span style="display:flex;"><span><span style="color:#6e6a86"># server</span>
 </span></span><span style="display:flex;"><span>pkg install nginx
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># for pulling the code from a GitHub reporitory</span>
+</span></span><span style="display:flex;"><span><span style="color:#6e6a86"># for pulling the code from a GitHub reporitory</span>
 </span></span><span style="display:flex;"><span>pkg install git
 </span></span></code></pre></div><h4 id="ssh">SSH</h4>
 <p>The first thing I did was to get ssh up and running. After that, the rest of the setup could be done from the comfort of my computer.</p>
 <p>We can use <em>dropbear</em> to start the SSH server on the server side (i.e., the phone):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># with default port 22</span>
+<div class="highlight"><pre tabindex="0" style="color:#e0def4;background-color:#191724;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6e6a86"># with default port 22</span>
 </span></span><span style="display:flex;"><span>dropbear
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># defining a custum port</span>
-</span></span><span style="display:flex;"><span>dropbear -p <span style="color:#e6db74">&#39;port&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6e6a86"># defining a custum port</span>
+</span></span><span style="display:flex;"><span>dropbear -p <span style="color:#f6c177">&#39;port&#39;</span>
 </span></span></code></pre></div><p>And on the client side (i.e. my laptop), we can connect to it:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># connect to the ssh server from the local network</span>
-</span></span><span style="display:flex;"><span>ssh user@server-local-ip -p <span style="color:#e6db74">&#39;port&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e0def4;background-color:#191724;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6e6a86"># connect to the ssh server from the local network</span>
+</span></span><span style="display:flex;"><span>ssh user@server-local-ip -p <span style="color:#f6c177">&#39;port&#39;</span>
 </span></span></code></pre></div><p>Great, now we don&rsquo;t need to touch the <del>phone</del> server anymore!</p>
 <h4 id="nginx">NGINX</h4>
 <p>I&rsquo;m not gonna delve too deep on how to configure nginx, but basically all the setup is done on a config file, usually in <code>/etc/nginx/nginx.conf</code>. It will look something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>http <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#e0def4;background-color:#191724;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>http <span style="color:#908caa">{</span>
 </span></span><span style="display:flex;"><span>   . . .
-</span></span><span style="display:flex;"><span>    server <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        listen       PORT; <span style="color:#75715e">#ssl if https certificate is needed</span>
-</span></span><span style="display:flex;"><span>        server_name  www.example.com;
+</span></span><span style="display:flex;"><span>    server <span style="color:#908caa">{</span>
+</span></span><span style="display:flex;"><span>        listen       PORT<span style="color:#908caa">;</span> <span style="color:#6e6a86">#ssl if https certificate is needed</span>
+</span></span><span style="display:flex;"><span>        server_name  www.example.com<span style="color:#908caa">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        ssl_certificate /path/to/certificate/location;
-</span></span><span style="display:flex;"><span>        ssl_certificate_key  /path/to/certificate/key/location;
+</span></span><span style="display:flex;"><span>        ssl_certificate /path/to/certificate/location<span style="color:#908caa">;</span>
+</span></span><span style="display:flex;"><span>        ssl_certificate_key  /path/to/certificate/key/location<span style="color:#908caa">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        ssl_protocols TLSv1.2 TLSv1.3;
-</span></span><span style="display:flex;"><span>        ssl_ciphers HIGH:!aNULL:!MD5;
+</span></span><span style="display:flex;"><span>        ssl_protocols TLSv1.2 TLSv1.3<span style="color:#908caa">;</span>
+</span></span><span style="display:flex;"><span>        ssl_ciphers HIGH:!aNULL:!MD5<span style="color:#908caa">;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        location / <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>            root  /path/to/website/root;
-</span></span><span style="display:flex;"><span>            index  index.html index.htm; <span style="color:#75715e">#nginx will look for these files on the root</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        location / <span style="color:#908caa">{</span>
+</span></span><span style="display:flex;"><span>            root  /path/to/website/root<span style="color:#908caa">;</span>
+</span></span><span style="display:flex;"><span>            index  index.html index.htm<span style="color:#908caa">;</span> <span style="color:#6e6a86">#nginx will look for these files on the root</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#908caa">}</span>
 </span></span><span style="display:flex;"><span>        . . .
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#908caa">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#908caa">}</span>
 </span></span></code></pre></div><p>For now, the important things to take care of are: the PORT, which is conventionally 80 for HTTP requests (443 for HTTPS, but I&rsquo;ll get there in a bit); and the root location with the path to our website directory.</p>
 <p>After that we can start the server with:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># start the nginx server</span>
+<div class="highlight"><pre tabindex="0" style="color:#e0def4;background-color:#191724;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6e6a86"># start the nginx server</span>
 </span></span><span style="display:flex;"><span>nginx
 </span></span></code></pre></div><p>Great, now the website should be accessible at <code>server-local-ip:port</code> on the browser!</p>
 <h3 id="connecting-to-the-internet">Connecting to the Internet</h3>
@@ -196,8 +203,8 @@
 <p>Up until now I&rsquo;d only been using the local network. However, since I wanted to access my server by ssh and for my site to be accessible from anywhere in the world I needed to configure port forwarding on my router.</p>
 <p>This means <em>connecting</em> our internal ip address (what I&rsquo;ve been referring to as <code>server-local-ip</code>) and port number, which are only accessible on the local network, with an external ip and port number, connected to the whole internet. This can usually be done on the router config page, and every router&rsquo;s page is special and unique in it&rsquo;s own way, so it&rsquo;s no use trying to show the process.</p>
 <p>Now the ssh server is available globally by:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># connect to the ssh server from the local network</span>
-</span></span><span style="display:flex;"><span>ssh user@router-external-ip -p <span style="color:#e6db74">&#39;port&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e0def4;background-color:#191724;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6e6a86"># connect to the ssh server from the local network</span>
+</span></span><span style="display:flex;"><span>ssh user@router-external-ip -p <span style="color:#f6c177">&#39;port&#39;</span>
 </span></span></code></pre></div><p>And the website can be viewed at <code>router-external-ip:port</code> on the browser!</p>
 <h4 id="getting-a-domain-name">Getting a Domain Name</h4>
 <p>Choosing a domain name took twice as long as all previous steps combined. I wanted something with my name, but short and with no initials. Unfortunately, joselopes.com was already taken and they wanted 8888$ for it (lmao).</p>
@@ -212,7 +219,11 @@
 <p>It is a very simple workflow: make changes -&gt; upload to GitHub -&gt; pull from GitHub on the server -&gt; reload server.</p>
 <p>I tried my best to make a visual diagram:</p>
 <!-- raw HTML omitted -->
-<p><img src="workflowdiagramdot.svg" alt="workflow diagram"></p>
+<figure><img src="/posts/self-hosting/workflowdiagram.svg"><figcaption>
+      <h4>Workflow Diagram</h4>
+    </figcaption>
+</figure>
+
 <p>I&rsquo;d love to automate this process further by integrating <a href="https://docs.github.com/en/actions">GitHub actions</a> but couldn&rsquo;t get it to work on Termux :|</p>
 <h4 id="managing-development-and-production-nginx-configs">Managing Development and Production nginx configs</h4>
 <p>A problem I encountered came down to managing the nginx.conf files.</p>

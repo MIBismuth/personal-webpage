@@ -76,7 +76,7 @@
         <div class="content">
             <h1>Error Propagation Calculator</h1>
             <h2>
-                
+                A reflection on the first time I realized I could. Check out the <a href="https://errorpropagation.com">website</a> and the project on <a href="https://github.com/MIBismuth/error-propagation-calculator">GitHub</a>.
             </h2>
             
             <div class="author-info">
@@ -153,7 +153,12 @@ $$</p>
 <h4 id="reality">Reality</h4>
 <p>On the real world these error expressions can be huge and messy.</p>
 <p>To make matters worse, you&rsquo;d often have your measurements on an Excel spreadsheet, meaning you&rsquo;d have to translate this whole mess onto an Excel formula and replace all the variables with their appropriate cells.</p>
-<p><img src="../images/excel-pain-cropped.gif" alt="Excel Pain"></p>
+<!-- raw HTML omitted -->
+<figure><img src="/posts/error-propagation/excel-pain-cropped.gif"><figcaption>
+      <h4>Excel Pain</h4>
+    </figcaption>
+</figure>
+
 <p>Plus, you had to repeat this process multiple times per lab for different values, all with different expressions and corresponding cells!</p>
 <p>All of these factors combined made for a really unpleasant experience, and being the one designated to do this task was akin to drawing the shortest straw on doomed mission.</p>
 <h3 id="the-solution">The solution</h3>
@@ -172,14 +177,14 @@ $$</p>
 <h3 id="simple-python-implementation">Simple Python implementation</h3>
 <p>We quickly cooked together an implementation using <a href="https://www.sympy.org/en/index.html">Python&rsquo;s SymPy</a> library.</p>
 <p>First, we use SymPy&rsquo;s <a href="https://docs.sympy.org/latest/modules/parsing.html"><code>parse_expr</code></a> to get the expression object.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> sympy <span style="color:#66d9ef">as</span> sp
-</span></span><span style="display:flex;"><span>expr <span style="color:#f92672">=</span> sp<span style="color:#f92672">.</span>parsing<span style="color:#f92672">.</span>sympy_parser<span style="color:#f92672">.</span>parse_expr(expr_string)
+<div class="highlight"><pre tabindex="0" style="color:#e0def4;background-color:#191724;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#c4a7e7">import</span> <span style="color:#ebbcba">sympy</span> <span style="color:#31748f">as</span> <span style="color:#ebbcba">sp</span>
+</span></span><span style="display:flex;"><span><span style="color:#ebbcba">expr</span> <span style="color:#908caa">=</span> <span style="color:#ebbcba">sp</span><span style="color:#908caa">.</span><span style="color:#ebbcba">parsing</span><span style="color:#908caa">.</span><span style="color:#ebbcba">sympy_parser</span><span style="color:#908caa">.</span><span style="color:#ebbcba">parse_expr</span><span style="color:#908caa">(</span><span style="color:#ebbcba">expr_string</span><span style="color:#908caa">)</span>
 </span></span></code></pre></div><p>Next, we can get all the variables in the expression with:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>variable_set <span style="color:#f92672">=</span> expr<span style="color:#f92672">.</span>free_symbols
+<div class="highlight"><pre tabindex="0" style="color:#e0def4;background-color:#191724;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#ebbcba">variable_set</span> <span style="color:#908caa">=</span> <span style="color:#ebbcba">expr</span><span style="color:#908caa">.</span><span style="color:#ebbcba">free_symbols</span>
 </span></span></code></pre></div><p>Finally, we can loop through all the (usable) variables in the expression and construct the error propagation string. The partial derivative can be calculated using <a href="https://docs.sympy.org/latest/tutorials/intro-tutorial/calculus.html#derivatives"><code>diff()</code></a> method.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> index, var <span style="color:#f92672">in</span> enumerate(variable_set):
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (usable_list[index]):
-</span></span><span style="display:flex;"><span>            final <span style="color:#f92672">=</span> final <span style="color:#f92672">+</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34; + abs(</span><span style="color:#e6db74">{</span>str(expr<span style="color:#f92672">.</span>diff(var))<span style="color:#e6db74">}</span><span style="color:#e6db74">)*δ</span><span style="color:#e6db74">{</span>var<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e0def4;background-color:#191724;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#31748f">for</span> <span style="color:#ebbcba">index</span><span style="color:#908caa">,</span> <span style="color:#ebbcba">var</span> <span style="color:#908caa">in</span> <span style="color:#ebbcba">enumerate</span><span style="color:#908caa">(</span><span style="color:#ebbcba">variable_set</span><span style="color:#908caa">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#31748f">if</span> <span style="color:#908caa">(</span><span style="color:#ebbcba">usable_list</span><span style="color:#908caa">[</span><span style="color:#ebbcba">index</span><span style="color:#908caa">]):</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ebbcba">final</span> <span style="color:#908caa">=</span> <span style="color:#ebbcba">final</span> <span style="color:#908caa">+</span> <span style="color:#f6c177">f</span><span style="color:#f6c177">&#34; + abs(</span><span style="color:#f6c177">{</span><span style="color:#ebbcba">str</span><span style="color:#908caa">(</span><span style="color:#ebbcba">expr</span><span style="color:#908caa">.</span><span style="color:#ebbcba">diff</span><span style="color:#908caa">(</span><span style="color:#ebbcba">var</span><span style="color:#908caa">))</span><span style="color:#f6c177">}</span><span style="color:#f6c177">)*δ</span><span style="color:#f6c177">{</span><span style="color:#ebbcba">var</span><span style="color:#f6c177">}</span><span style="color:#f6c177">&#34;</span>
 </span></span></code></pre></div><p>Great! Now we can just hook it up to a <a href="https://fastapi.tiangolo.com/">FastAPI</a> backend and be done with it. It&rsquo;s just that simple!</p>
 <h3 id="or-is-it">Or is it?</h3>
 <p><em>Narrator voice: &ldquo;it wasn&rsquo;t, in fact, that simple&rdquo;</em></p>
@@ -205,22 +210,26 @@ $$</p>
 <section class="level1"><h2 id="the-great-rewrite">The great rewrite</h2>
 <h3 id="wait-its-all-javascript">Wait it&rsquo;s all JavaScript?</h3>
 <p>So yeah, we rewrote it all in JavaScript.</p>
-<p><img src="/images/itsalljs.jpg" alt="It&rsquo;s all a bunch of js"></p>
+<figure><img src="/posts/error-propagation/itsalljs.jpg"><figcaption>
+      <h4>It&#39;s all a bunch of js</h4>
+    </figcaption>
+</figure>
+
 <p>Luckily for us, it wasn&rsquo;t even that complicated. The <a href="https://mathjs.org">math.js</a> library is surprisingly complete, and it even includes a <a href="https://mathjs.org/docs/reference/functions/derivative.html">function derivative method</a>. The only true adaptation that had to be made was the way we get all the variables in the expression, as there was no built-in support back then (<a href="https://github.com/MIBismuth/error-propagation-calculator/blob/2b94738a865733d5af341aa6760b3c50af1629c8/src/lib/ErrorPropagation.js#L218-L230C1">source code</a>):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">get_variables</span>(<span style="color:#a6e22e">exp_string</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#e0def4;background-color:#191724;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#31748f">export</span> <span style="color:#31748f">function</span> <span style="color:#ebbcba">get_variables</span><span style="color:#908caa">(</span><span style="color:#ebbcba">exp_string</span><span style="color:#908caa">)</span> <span style="color:#908caa">{</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    . . .
+</span></span><span style="display:flex;"><span>    <span style="color:#908caa">.</span> <span style="color:#908caa">.</span> <span style="color:#908caa">.</span>
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">node</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">exp_string</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">variables</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node</span>
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">filter</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">node</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">isSymbolNode</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">trigFunctions</span>.<span style="color:#a6e22e">includes</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">name</span>);
-</span></span><span style="display:flex;"><span>    })
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">node</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">name</span>;
-</span></span><span style="display:flex;"><span>    });
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">variables</span>;
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>  <span style="color:#31748f">const</span> <span style="color:#ebbcba">node</span> <span style="color:#908caa">=</span> <span style="color:#ebbcba">parse</span><span style="color:#908caa">(</span><span style="color:#ebbcba">exp_string</span><span style="color:#908caa">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#31748f">let</span> <span style="color:#ebbcba">variables</span> <span style="color:#908caa">=</span> <span style="color:#ebbcba">node</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#908caa">.</span><span style="color:#ebbcba">filter</span><span style="color:#908caa">(</span><span style="color:#31748f">function</span> <span style="color:#908caa">(</span><span style="color:#ebbcba">node</span><span style="color:#908caa">)</span> <span style="color:#908caa">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#31748f">return</span> <span style="color:#ebbcba">node</span><span style="color:#908caa">.</span><span style="color:#ebbcba">isSymbolNode</span> <span style="color:#908caa">&amp;&amp;</span> <span style="color:#908caa">!</span><span style="color:#ebbcba">trigFunctions</span><span style="color:#908caa">.</span><span style="color:#ebbcba">includes</span><span style="color:#908caa">(</span><span style="color:#ebbcba">node</span><span style="color:#908caa">.</span><span style="color:#ebbcba">name</span><span style="color:#908caa">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#908caa">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#908caa">.</span><span style="color:#ebbcba">map</span><span style="color:#908caa">(</span><span style="color:#31748f">function</span> <span style="color:#908caa">(</span><span style="color:#ebbcba">node</span><span style="color:#908caa">)</span> <span style="color:#908caa">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#31748f">return</span> <span style="color:#ebbcba">node</span><span style="color:#908caa">.</span><span style="color:#ebbcba">name</span><span style="color:#908caa">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#908caa">});</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#31748f">return</span> <span style="color:#ebbcba">variables</span><span style="color:#908caa">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#908caa">}</span>
 </span></span></code></pre></div><p>All this does is filter all the nodes in the tree like structure generated by <code>parse(exp_string)</code> and extracts the name of the nodes that are not operators or trigonometric functions, i.e. the variables.</p>
 <h3 id="pros-and-cons">Pros and Cons</h3>
 <p>We can compare the pros and cons of the new JavaScript implementation (vs the old Python one).</p>

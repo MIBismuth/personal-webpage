@@ -1,8 +1,18 @@
 ---
 title: "Error Propagation Calculator"
-sub-title: "A reflection on the first time I realized I could. Check out the [website](https://errorpropagation.com) and the project on [GitHub](https://github.com/MIBismuth/error-propagation-calculator)."
+subtitle: "A reflection on the first time I realized I could. Check out the [website](https://errorpropagation.com) and the project on [GitHub](https://github.com/MIBismuth/error-propagation-calculator)."
 author: "José Duarte Lopes"
 date: 2024-08-29
+
+post_title: "Error propagation: a reflection on my first time"
+post_summary: |
+    A retrospect on my first *real* web project back in 2023.
+
+    We failed to implement a backend (and why that was ok).
+    
+
+
+    
 toc_on: true
 numbering: true
 credits: true
@@ -53,7 +63,8 @@ On the real world these error expressions can be huge and messy.
 To make matters worse, you'd often have your measurements on an Excel spreadsheet, meaning you'd have to translate this whole mess onto an Excel formula and replace all the variables with their appropriate cells.
 
 
-![Excel Pain](../images/excel-pain-cropped.gif)
+<!-- ![Excel Pain]() -->
+{{<figure src="excel-pain-cropped.gif" title="Excel Pain">}}
 
 Plus, you had to repeat this process multiple times per lab for different values, all with different expressions and corresponding cells!
 
@@ -152,7 +163,7 @@ At the end of the day, we just didn't have the necessary skill or resources to i
 
 So yeah, we rewrote it all in JavaScript.
 
-![It's all a bunch of js](/images/itsalljs.jpg) 
+{{< figure src="itsalljs.jpg" title="It's all a bunch of js" >}}
 
 Luckily for us, it wasn't even that complicated. The [math.js](https://mathjs.org) library is surprisingly complete, and it even includes a [function derivative method](https://mathjs.org/docs/reference/functions/derivative.html). The only true adaptation that had to be made was the way we get all the variables in the expression, as there was no built-in support back then ([source code](https://github.com/MIBismuth/error-propagation-calculator/blob/2b94738a865733d5af341aa6760b3c50af1629c8/src/lib/ErrorPropagation.js#L218-L230C1)):
 

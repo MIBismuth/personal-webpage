@@ -3,6 +3,16 @@ title: "Self Hosting on a Budget"
 subtitle: This is the story of the development and deployment of this website. You can find the whole website project on [GitHub](https://github.com/MIBismuth/personal-webpage).
 author: "José Duarte Lopes"
 date: 2024-07-24
+
+post_title: "Self-hosting on a budget: the story of this website"
+post_summary: |
+  In this post I describe the development and deployment of my self-hosted website (you're looking at it right now!).
+
+  **Trigger warnings:**
+  - Web development
+  - DevOps
+  - Potential fire hazards.
+
 toc_on: true
 numbering: true
 credits: true
@@ -10,13 +20,13 @@ credits: true
 
 
 
-# The Idea, but only on my self-imposed terms
+## The Idea, but only on my self-imposed terms
 
 I've wanted to host my own website for a while now. 
 
 It looked like a very fun project and the idea of actually **building** my own creative outlet seemed very rewarding. But mostly because I'm a nerd and having a website sounds cool and all the cool kids do it (I want to be a cool kid). 
 
-![Me and the cool kids - abstract by José Lopes © 2024](coolkids.svg)
+{{<figure src="coolkids.svg" title="Me and the cool kids - abstract by José Lopes © 2024">}}
 
 
 Before we start, as a *FOSS enjoyer* that has once fallen into the trap of using all the latest web-frameworks and technologies on a previous project, I devised the following *guidelines*:
@@ -169,7 +179,7 @@ It is a very simple workflow: make changes -> upload to GitHub -> pull from GitH
 I tried my best to make a visual diagram:
 <!-- ![workflow diagram](../images/workflowdiagram.svg) -->
 
-![workflow diagram](workflowdiagramdot.svg)
+{{<figure src="workflowdiagram.svg" title="Workflow Diagram">}}
 
 I'd love to automate this process further by integrating [GitHub actions](https://docs.github.com/en/actions) but couldn't get it to work on Termux :|
 
