@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" class="rosePine">
+        {{partial "head"}}
+
+
+    <body>
+
+        {{partial "circles" }}
+
+        {{partial "navbar" .}}         
+        <div class="content">
+
+            <div class="container">
+                <h2>Welcome to my personal website!</h2>
+                <p>Hello! My name is <a href="/about-me">José Duarte Lopes</a> and I'm currently building this web-page as a place to share some of my projects and ideas!</p>
+                <p>Meanwhile, check out my socials and CV below!</p>
+                {{partial "socials"}}
+            </div>
+
+            <h2>Posts:</h2>
+
+            {{ range where .Site.RegularPages "Section" "posts" }}
+                {{ partial "post-card.html" . }}
+            {{ end }}
+
+            </details><details class="post-card">
+                <summary class = "post-header">
+                    <h2 class="post-title">On hating MATLAB enough to configure Neovim</h2>
+                    <p class="post-date">Coming Soon</p>
+                </summary>
+                <div post-content>
+                    <p>Coming Soon...</p>
+                </div>
+            </details>
+
+            </details><details class="post-card">
+                <summary class = "post-header">
+                    <h2 class="post-title">Colemak after a year: a typed-out review</h2>
+                    <p class="post-date">Coming Soon</p>
+                </summary>
+                <div post-content>
+                    <p>Coming Soon...</p>
+                </div>
+            </details>
+        </div>
+
+        {{partial "footer"}}
+    </body>
+</html>
+

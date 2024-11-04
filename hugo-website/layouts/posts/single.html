@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="rosePine">
+    {{partial "head"}}
+    {{ partialCached "math.html" . }}
+       <body>
+        {{partial "navbar" .}}
+        {{partial "circles"}}
+        <div class="content">
+            <h1>{{.Title}}</h1>
+            <h2>
+                {{.Params.subtitle | markdownify}}
+            </h2>
+            {{if .Params.credits}}
+            <div class="author-info">
+                <p>Author: {{.Params.author}}</p>
+                <p>Date: {{.Date | time.Format ":date_medium"}}</p>
+            </div>
+            {{end}}
+
+            {{if .Params.toc_on}}
+            <div id="toc">
+                <h2>Table of Contents:</h2>
+                {{.TableOfContents}}
+            </div>
+            {{end}}
+             
+        {{ $content := .Content }}  <!-- Get the page content -->
+
+        <!-- First, process the <h2> headings -->
+        {{ $content = partial "wrapHeading.html" (dict "content" $content "headingLevel" "h2" "divClass" "level1") }}
+
+        <!-- Output the final processed content -->
+        {{ $content | safeHTML }}
+
+        {{partial "footer"}}
+    </body>
+
+
+</html>
+
+

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="rosePine">
+    <script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José Lopes' Cool Website</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/themes.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/background.css">
+    <link rel="stylesheet" href="/css/postcard.css">
+    <link rel="stylesheet" href="/css/post-styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/resources/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/resources/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/resources/icon/favicon-16x16.png">
+    <link rel="manifest" href="/resources/icon/site.webmanifest">
+    <link rel="mask-icon" href="/resources/icon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/resources/icon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="msapplication-config" content="/resources/icon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <script src="/js/utils.js"></script>
+</head>
+
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],  
+      inlineMath: [['$', '$']]                  
+    }
+  };
+</script>
+
+
+
+       <body>
+        <nav class="navbar" id="navbar">
+            <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+            <label for="openSidebarMenu" class="sidebarIconToggle">
+                <div class="spinner diagonal part-1"></div>
+                <div class="spinner horizontal"></div>
+                <div class="spinner diagonal part-2"></div>
+            </label>
+
+            <div id="sidebarMenu">
+                <ul class="sidebarMenuInner">
+                    <a href="/">
+                        <li>Home</li></a> 
+                    <a href="/about-me">
+                        <li>José Duarte Lopes<span>About me, the author</span></li></a> 
+                </ul>
+            </div>
+
+    <div class="window-title">Error Propagation Calculator</div>
+            <button class="nightmode-button" onclick="toggleTheme()">🌙</button>
+        </nav>      
+
+        <ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+
+        <div class="content">
+            <h1>Error Propagation Calculator</h1>
+            <h2>
+                A reflection on the first time I realized I could. Check out the <a href="https://errorpropagation.com">website</a> and the project on <a href="https://github.com/MIBismuth/error-propagation-calculator">GitHub</a>.
+            </h2>
+            
+            <div class="author-info">
+                <p>Author: José Duarte Lopes</p>
+                <p>Date: Aug 29, 2024</p>
+            </div>
+            
+
+            
+            <div id="toc">
+                <h2>Table of Contents:</h2>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#it-starts-with-why-not">It starts with: <em>why not?</em></a>
+      <ul>
+        <li><a href="#understanding-the-problem-why-it-sucks">Understanding the problem: why it sucks</a></li>
+        <li><a href="#the-solution">The solution</a></li>
+      </ul>
+    </li>
+    <li><a href="#theres-a-how-and-a-why-not">There&rsquo;s a <em>how</em> (and a <em>why not</em>)</a>
+      <ul>
+        <li><a href="#simple-python-implementation">Simple Python implementation</a></li>
+        <li><a href="#or-is-it">Or is it?</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-great-rewrite">The great rewrite</a>
+      <ul>
+        <li><a href="#wait-its-all-javascript">Wait it&rsquo;s all JavaScript?</a></li>
+        <li><a href="#pros-and-cons">Pros and Cons</a></li>
+      </ul>
+    </li>
+    <li><a href="#on-web-technologies-and-youtube-brainrot">On Web technologies and YouTube brainrot</a>
+      <ul>
+        <li><a href="#decisions">Decisions</a></li>
+        <li><a href="#indecisions">Indecisions</a></li>
+        <li><a href="#finding-peace-in-compromise">Finding peace in compromise</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-good-ending">The good ending</a></li>
+  </ul>
+</nav>
+            </div>
+            
+             
+          
+
+        
+        
+
+        
+        
+
+<section class="level1"><h2 id="it-starts-with-why-not">It starts with: <em>why not?</em></h2>
+<p>This whole project came about during one of the many &ldquo;dude, we need to get rich&rdquo; conversations between me and my good friend João Rei.</p>
+<p>We knew we had to solve a <em>real world</em> problem. Here&rsquo;s why <strong>calculating error propagations</strong> was one of the first things that popped up.</p>
+<h3 id="understanding-the-problem-why-it-sucks">Understanding the problem: why it sucks</h3>
+<p>For context, calculating error propagations was a very common task on our bachelor&rsquo;s physics laboratories.</p>
+<h4 id="the-theory">The theory</h4>
+<p>Imagine you are trying to experimentally estimate some value $F$ from measurements $x$, $y$, $z$. You could write it as:</p>
+<p>$$
+F = F(x,y,z)
+$$</p>
+<p>Now, each of those measurements has an associated experimental error (or uncertainty, whatever, I&rsquo;ll leave the correct terms for the physicists): $\delta x$, $\delta y$, $\delta z$. These will have an impact on the error of $F$.</p>
+<p>One way to quantify this impact is to take a first order approach and sum the max error across all variables. Basically saying &ldquo;yeah, $F$ is linear around $x$, so if we  move
+$F$ by $\delta x$ we should get a good estimate of $\delta F$&rdquo;.</p>
+<p>Mathematically:</p>
+<p>$$
+\delta F = \sum_{x_i} |\frac{d F}{d x_i}|\delta x_i
+$$</p>
+<p>In the example above:</p>
+<p>$$
+\delta F(x,y,z) = |\frac{d F}{d x}|\delta x + |\frac{d F}{d y}|\delta y + |\frac{d F}{d z}|\delta z
+$$</p>
+<h4 id="reality">Reality</h4>
+<p>On the real world these error expressions can be huge and messy.</p>
+<p>To make matters worse, you&rsquo;d often have your measurements on an Excel spreadsheet, meaning you&rsquo;d have to translate this whole mess onto an Excel formula and replace all the variables with their appropriate cells.</p>
+<!-- raw HTML omitted -->
+<figure><img src="/posts/error-propagation/excel-pain-cropped.gif"><figcaption>
+      <h4>Excel Pain</h4>
+    </figcaption>
+</figure>
+
+<p>Plus, you had to repeat this process multiple times per lab for different values, all with different expressions and corresponding cells!</p>
+<p>All of these factors combined made for a really unpleasant experience, and being the one designated to do this task was akin to drawing the shortest straw on doomed mission.</p>
+<h3 id="the-solution">The solution</h3>
+<p>To solve this problem efficiently, we needed a program to do the following:</p>
+<ol>
+<li>take in any math expression with common operators</li>
+<li>automatically detect all the variables present</li>
+<li>give the user a chance to mark differentiation variables or constants</li>
+<li>give the user the chance to change the name of a variable and it&rsquo;s error (for example, to excel cells)</li>
+<li>return the error propagation expression, which could be copy pasted into Python, Excel or Latex</li>
+</ol>
+<p>We also wanted to make it as accessible and portable as possible, so a Web application was the perfect target!</p>
+<p>Why not just do it?</p>
+</section>
+<section class="level1"><h2 id="theres-a-how-and-a-why-not">There&rsquo;s a <em>how</em> (and a <em>why not</em>)</h2>
+<h3 id="simple-python-implementation">Simple Python implementation</h3>
+<p>We quickly cooked together an implementation using <a href="https://www.sympy.org/en/index.html">Python&rsquo;s SymPy</a> library.</p>
+<p>First, we use SymPy&rsquo;s <a href="https://docs.sympy.org/latest/modules/parsing.html"><code>parse_expr</code></a> to get the expression object.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e0def4;background-color:#191724;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#c4a7e7">import</span> <span style="color:#ebbcba">sympy</span> <span style="color:#31748f">as</span> <span style="color:#ebbcba">sp</span>
+</span></span><span style="display:flex;"><span><span style="color:#ebbcba">expr</span> <span style="color:#908caa">=</span> <span style="color:#ebbcba">sp</span><span style="color:#908caa">.</span><span style="color:#ebbcba">parsing</span><span style="color:#908caa">.</span><span style="color:#ebbcba">sympy_parser</span><span style="color:#908caa">.</span><span style="color:#ebbcba">parse_expr</span><span style="color:#908caa">(</span><span style="color:#ebbcba">expr_string</span><span style="color:#908caa">)</span>
+</span></span></code></pre></div><p>Next, we can get all the variables in the expression with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e0def4;background-color:#191724;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#ebbcba">variable_set</span> <span style="color:#908caa">=</span> <span style="color:#ebbcba">expr</span><span style="color:#908caa">.</span><span style="color:#ebbcba">free_symbols</span>
+</span></span></code></pre></div><p>Finally, we can loop through all the (usable) variables in the expression and construct the error propagation string. The partial derivative can be calculated using <a href="https://docs.sympy.org/latest/tutorials/intro-tutorial/calculus.html#derivatives"><code>diff()</code></a> method.</p>
+<div class="highlight"><pre tabindex="0" style="color:#e0def4;background-color:#191724;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#31748f">for</span> <span style="color:#ebbcba">index</span><span style="color:#908caa">,</span> <span style="color:#ebbcba">var</span> <span style="color:#908caa">in</span> <span style="color:#ebbcba">enumerate</span><span style="color:#908caa">(</span><span style="color:#ebbcba">variable_set</span><span style="color:#908caa">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#31748f">if</span> <span style="color:#908caa">(</span><span style="color:#ebbcba">usable_list</span><span style="color:#908caa">[</span><span style="color:#ebbcba">index</span><span style="color:#908caa">]):</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ebbcba">final</span> <span style="color:#908caa">=</span> <span style="color:#ebbcba">final</span> <span style="color:#908caa">+</span> <span style="color:#f6c177">f</span><span style="color:#f6c177">&#34; + abs(</span><span style="color:#f6c177">{</span><span style="color:#ebbcba">str</span><span style="color:#908caa">(</span><span style="color:#ebbcba">expr</span><span style="color:#908caa">.</span><span style="color:#ebbcba">diff</span><span style="color:#908caa">(</span><span style="color:#ebbcba">var</span><span style="color:#908caa">))</span><span style="color:#f6c177">}</span><span style="color:#f6c177">)*δ</span><span style="color:#f6c177">{</span><span style="color:#ebbcba">var</span><span style="color:#f6c177">}</span><span style="color:#f6c177">&#34;</span>
+</span></span></code></pre></div><p>Great! Now we can just hook it up to a <a href="https://fastapi.tiangolo.com/">FastAPI</a> backend and be done with it. It&rsquo;s just that simple!</p>
+<h3 id="or-is-it">Or is it?</h3>
+<p><em>Narrator voice: &ldquo;it wasn&rsquo;t, in fact, that simple&rdquo;</em></p>
+<p>As it turns out, this implementation was really not a good idea for various performance and security reasons.</p>
+<h4 id="processing-time">Processing time</h4>
+<p>The first issue that caught our attention was the (possibility of) high processing times.</p>
+<p>For <em>regular expected use™</em> this wasn&rsquo;t a problem, in only took a couple of seconds maximum. However, the user is evil and could just input the most diabolical of expressions and take the whole server hostage for minutes. Really not ideal.</p>
+<h5 id="limiting-number-of-characters">Limiting number of characters</h5>
+<p>We thought about limiting the number of characters the user could input.</p>
+<p>However, this was not suitable and would end up sacrificing the quality of our service too much, since mundane expressions could be long due to long variable names. Personally, I also hate this type of hard-coded solutions.</p>
+<p>Most importantly, as we would soon find out, it didn&rsquo;t take a lot of characters to stall (or kill for that matter) our server.</p>
+<h5 id="multi-threading">Multi-threading</h5>
+<p>To mitigate the possible long processing times, we tried implementing a multi-threaded approach, where each error propagation request was computed on a different Python Thread with a maximum processing time, after which the Thread was killed.</p>
+<p>This seemed like a nice solution, however we had neither the time nor experience to make it work.</p>
+<p>Said implementation ended up being extremely janky. Particularly, if the input expression was something like <code>1000^1000000000^1000000</code>, it would stall trying to evaluate that expression and for <strong>some reason</strong> the worker thread refused to die no matter what.</p>
+<p>Wait, it would <strong>evaluate</strong> the expression? Oh no&hellip;</p>
+<h4 id="the-reveal-evil-eval">The reveal: evil eval</h4>
+<p>If high processing time was potentially service breaking, this was a whole other level of threat to the service itself. Contrary to what <a href="https://stackoverflow.com/a/61038846">this user said on StackOverflow</a>, Sympy&rsquo;s <a href="https://docs.sympy.org/latest/modules/parsing.html#sympy.parsing.sympy_parser.parse_expr">parse_expr()</a> method still seems to use python&rsquo;s built-in eval() (<a href="https://github.com/sympy/sympy/blob/2197797741156d9cb73a8d1462f7985598e9b1a9/sympy/parsing/sympy_parser.py#L903-L911">source code</a>), even with <code>evaluate</code> parameter set to <code>False</code>.</p>
+<p>Python&rsquo;s <a href="https://docs.python.org/3/library/functions.html#eval">eval()</a> is a very powerful tool that allows for the execution of arbitrary code as a Python expression. I&rsquo;m not gonna pretend to be cybersecurity expert, but I had participated in a few CTF events with Python Jailbreaks and knew better than to try to fight against this security vulnerability.</p>
+<p>Once I tried calculating the error propagation of <code>__import__('os').system('reboot')</code> and the my computer just, well, rebooted, I knew this was not gonna work.</p>
+<p>At the end of the day, we just didn&rsquo;t have the necessary skill or resources to implement a usable backend. The potential processing complexity and security risks involved made it just not worth it. If only there was a way to pass this computational burden onto the users themselves.</p>
+</section>
+<section class="level1"><h2 id="the-great-rewrite">The great rewrite</h2>
+<h3 id="wait-its-all-javascript">Wait it&rsquo;s all JavaScript?</h3>
+<p>So yeah, we rewrote it all in JavaScript.</p>
+<figure><img src="/posts/error-propagation/itsalljs.jpg"><figcaption>
+      <h4>It&#39;s all a bunch of js</h4>
+    </figcaption>
+</figure>
+
+<p>Luckily for us, it wasn&rsquo;t even that complicated. The <a href="https://mathjs.org">math.js</a> library is surprisingly complete, and it even includes a <a href="https://mathjs.org/docs/reference/functions/derivative.html">function derivative method</a>. The only true adaptation that had to be made was the way we get all the variables in the expression, as there was no built-in support back then (<a href="https://github.com/MIBismuth/error-propagation-calculator/blob/2b94738a865733d5af341aa6760b3c50af1629c8/src/lib/ErrorPropagation.js#L218-L230C1">source code</a>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#e0def4;background-color:#191724;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JavaScript" data-lang="JavaScript"><span style="display:flex;"><span><span style="color:#31748f">export</span> <span style="color:#31748f">function</span> <span style="color:#ebbcba">get_variables</span><span style="color:#908caa">(</span><span style="color:#ebbcba">exp_string</span><span style="color:#908caa">)</span> <span style="color:#908caa">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#908caa">.</span> <span style="color:#908caa">.</span> <span style="color:#908caa">.</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#31748f">const</span> <span style="color:#ebbcba">node</span> <span style="color:#908caa">=</span> <span style="color:#ebbcba">parse</span><span style="color:#908caa">(</span><span style="color:#ebbcba">exp_string</span><span style="color:#908caa">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#31748f">let</span> <span style="color:#ebbcba">variables</span> <span style="color:#908caa">=</span> <span style="color:#ebbcba">node</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#908caa">.</span><span style="color:#ebbcba">filter</span><span style="color:#908caa">(</span><span style="color:#31748f">function</span> <span style="color:#908caa">(</span><span style="color:#ebbcba">node</span><span style="color:#908caa">)</span> <span style="color:#908caa">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#31748f">return</span> <span style="color:#ebbcba">node</span><span style="color:#908caa">.</span><span style="color:#ebbcba">isSymbolNode</span> <span style="color:#908caa">&amp;&amp;</span> <span style="color:#908caa">!</span><span style="color:#ebbcba">trigFunctions</span><span style="color:#908caa">.</span><span style="color:#ebbcba">includes</span><span style="color:#908caa">(</span><span style="color:#ebbcba">node</span><span style="color:#908caa">.</span><span style="color:#ebbcba">name</span><span style="color:#908caa">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#908caa">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#908caa">.</span><span style="color:#ebbcba">map</span><span style="color:#908caa">(</span><span style="color:#31748f">function</span> <span style="color:#908caa">(</span><span style="color:#ebbcba">node</span><span style="color:#908caa">)</span> <span style="color:#908caa">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#31748f">return</span> <span style="color:#ebbcba">node</span><span style="color:#908caa">.</span><span style="color:#ebbcba">name</span><span style="color:#908caa">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#908caa">});</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#31748f">return</span> <span style="color:#ebbcba">variables</span><span style="color:#908caa">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#908caa">}</span>
+</span></span></code></pre></div><p>All this does is filter all the nodes in the tree like structure generated by <code>parse(exp_string)</code> and extracts the name of the nodes that are not operators or trigonometric functions, i.e. the variables.</p>
+<h3 id="pros-and-cons">Pros and Cons</h3>
+<p>We can compare the pros and cons of the new JavaScript implementation (vs the old Python one).</p>
+<table>
+  <thead>
+      <tr>
+          <th>Pros</th>
+          <th>Cons</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>+ Reduced complexity</td>
+          <td>- Loss in performance</td>
+      </tr>
+      <tr>
+          <td>+ Increased robustness</td>
+          <td>- Expression simplification not as good</td>
+      </tr>
+      <tr>
+          <td>+ No constraints on user input</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>+ Easy to host</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p>In the end, moving all the processing to the front-end was on overall a positive!</p>
+<p>We gave up speed (the js implementation was anywhere from 2 to 5x slower) and better expression simplifications for a simpler and a lot more robust alternative, with near infinite scaling. As an added bonus, the fact that it did not require a backend made it perfect to host on one of the many static website free hosting platforms!</p>
+</section>
+<section class="level1"><h2 id="on-web-technologies-and-youtube-brainrot">On Web technologies and YouTube brainrot</h2>
+<p>So far, this post has been mostly dedicated to the inner workings of the error propagation algorithm itself. However, I&rsquo;d like to also briefly highlight one of the main issues I faced as a first time web developer: there are (seemingly) way too many options!</p>
+<h3 id="decisions">Decisions</h3>
+<p>When starting out this project, the first thing I did was look up what tools I should use on YouTube. I probably clicked on one of the many &ldquo;top 10 web/tech stacks of 202*&rdquo; and, just like that, I was hooked. I must have spent days watching every single tier list, every review, every <em>pros and cons</em> and reading every single comment on all the YouTube, Reddit and Blog posts, agonizing over the apparently <strong>life changing</strong> decision that was choosing a front-end framework.</p>
+<p>In the process, I ended up adding a lot of technologies that were frankly useless for my use case, like TypeScript. A confession, fellow readers: even today I don&rsquo;t really know the difference between it and JavaScript! But I absolutely &ldquo;had to have it&rdquo; according to all the experts.</p>
+<p>It really isn&rsquo;t all that.</p>
+<p>I still think doing research is important, and don&rsquo;t regret (finally) choosing <a href="https://svelte.dev/">Svelte</a> (quite like the thing), but as a beginner that time was probably better spent learning the fundamentals of HTML, CSS and maybe JavaScript. After all, how can one really comprehend what a modern framework brings to the table if they never really <em>played with default settings</em>?</p>
+<h3 id="indecisions">Indecisions</h3>
+<p>This second problem came as a direct consequence of the first: I started second guessing the tools I chose.</p>
+<p>After investing so much time analysing all the possible options, everything had to be perfect. Every time I hit a small road block the immediate reaction was to blame the software and myself for choosing it, when in reality I should have just been blaming myself for being bad at programming.</p>
+<p>For example, when the CSS style sheets got &ldquo;messy&rdquo; (it wasn&rsquo;t even that bad), I introduced <a href="https://tailwindcss.com/">Tailwind CSS</a>, which is great, I like it, but now it&rsquo;s the middle of development and I&rsquo;m in a call with my partner being like &ldquo;no, no, you don&rsquo;t understand this is so much better, this is the future, totally worth learning trust me bro™&rdquo;</p>
+<h3 id="finding-peace-in-compromise">Finding peace in compromise</h3>
+<p>It can be quite easy to find yourself obsessing over everything that is new.</p>
+<p>When starting, it might be a good idea to focus on the basics first. Only by using something is it possible to understand it&rsquo;s strengths and pitfalls.</p>
+<p>Further, it is important to understand when to try a different approach, like when we had to rewrite the Python backend and move it to the frontend. But perhaps equally as important is to realize when it is not worth the time to do it.</p>
+<p>In the end, you might end up finding that the defaults are all you need.</p>
+</section>
+<section class="level1"><h2 id="the-good-ending">The good ending</h2>
+<p>Doing this project was <em>really cool</em>. I learned a lot and it&rsquo;s great to see the website still in use by my fellow colleagues to this day. We even won an award for it!</p>
+<p>Most of all I learned that I had what it took to find problems and offer a solution for the betterment of the community.</p>
+<p>&mdash; José Duarte Lopes</p>
+</section>
+
+        <footer class="footer">
+    <p>Thank you for visiting my website! ❤️</p>
+
+    <p>Feel free to reach out if you have any questions or just want to connect.</p>
+    <p>Created by José Duarte Lopes - 2024</p>
+</footer>
+
+    </body>
+
+
+</html>
+
+
