@@ -19,9 +19,7 @@ title = "José Lopes' Cool Website"
     lineNoStart = 1
     lineNos = false
     lineNumbersInTable = false
-    noClasses = true
+    noClasses = false
     noHl = false
-    style = 'rose-pine'
+    style = 'gruvbox'
     tabWidth = 4
-
-

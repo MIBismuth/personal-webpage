@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/background.css">
     <link rel="stylesheet" href="/css/postcard.css">
     <link rel="stylesheet" href="/css/post-styles.css">
+    <link rel="stylesheet" href="/css/syntax.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/resources/icon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/resources/icon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/resources/icon/favicon-16x16.png">
@@ -38,25 +39,46 @@
 
        <body>
         <nav class="navbar" id="navbar">
-            <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-            <label for="openSidebarMenu" class="sidebarIconToggle">
-                <div class="spinner diagonal part-1"></div>
-                <div class="spinner horizontal"></div>
-                <div class="spinner diagonal part-2"></div>
-            </label>
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner diagonal part-1"></div>
+        <div class="spinner horizontal"></div>
+        <div class="spinner diagonal part-2"></div>
+    </label>
 
-            <div id="sidebarMenu">
-                <ul class="sidebarMenuInner">
-                    <a href="/">
-                        <li>Home</li></a> 
-                    <a href="/about-me">
-                        <li>José Duarte Lopes<span>About me, the author</span></li></a> 
-                </ul>
-            </div>
+    <div id="sidebarMenu">
+        <ul class="sidebarMenuInner">
+            <a href="/">
+                <li>Home</li>
+            </a>
+            <a href="/about-me">
+                <li>José Duarte Lopes<span>About me, the author</span></li>
+            </a>
+            
+            <li>
+                <details>
+                    <summary><a href="/posts">Posts</a></summary>
+                    <ul class="dropdown-content">
+                        
+                        
+                        <a href="http://localhost:1313/posts/error-propagation/">
+                            <li>Error Propagation Calculator</li>
+                        </a>
+                        
+                        <a href="http://localhost:1313/posts/self-hosting/">
+                            <li>Self Hosting on a Budget</li>
+                        </a>
+                        
+                    </ul>
+                </details>
+            </li>
+
+        </ul>
+    </div>
 
     <div class="window-title">About me</div>
-            <button class="nightmode-button" onclick="toggleTheme()">🌙</button>
-        </nav>      
+    <button class="nightmode-button" onclick="toggleTheme()">🌙</button>
+</nav>
 
         <ul class="circles">
     <li></li>

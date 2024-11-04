@@ -1,20 +1,37 @@
 <nav class="navbar" id="navbar">
-            <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-            <label for="openSidebarMenu" class="sidebarIconToggle">
-                <div class="spinner diagonal part-1"></div>
-                <div class="spinner horizontal"></div>
-                <div class="spinner diagonal part-2"></div>
-            </label>
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner diagonal part-1"></div>
+        <div class="spinner horizontal"></div>
+        <div class="spinner diagonal part-2"></div>
+    </label>
 
-            <div id="sidebarMenu">
-                <ul class="sidebarMenuInner">
-                    <a href="/">
-                        <li>Home</li></a> 
-                    <a href="/about-me">
-                        <li>José Duarte Lopes<span>About me, the author</span></li></a> 
-                </ul>
-            </div>
+    <div id="sidebarMenu">
+        <ul class="sidebarMenuInner">
+            <a href="/">
+                <li>Home</li>
+            </a>
+            <a href="/about-me">
+                <li>José Duarte Lopes<span>About me, the author</span></li>
+            </a>
+            <!-- Posts section with <details> for dropdown -->
+            <li>
+                <details>
+                    <summary><a href="/posts">Posts</a></summary>
+                    <ul class="dropdown-content">
+                        <!-- Auto-added blog posts from /posts/ -->
+                        {{ range where .Site.RegularPages "Type" "posts" }}
+                        <a href="{{ .Permalink }}">
+                            <li>{{ .Title }}</li>
+                        </a>
+                        {{ end }}
+                    </ul>
+                </details>
+            </li>
 
-    <div class="window-title">{{.Title}}</div>
-            <button class="nightmode-button" onclick="toggleTheme()">🌙</button>
-        </nav>      
+        </ul>
+    </div>
+
+    <div class="window-title">{{ .Title }}</div>
+    <button class="nightmode-button" onclick="toggleTheme()">🌙</button>
+</nav>

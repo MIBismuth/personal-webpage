@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" class="rosePine">
+        {{partial "head"}}
+
+
+    <body>
+
+        {{partial "circles" }}
+
+        {{partial "navbar" .}}         
+        <div class="content">
+
+            <!-- <h2>Posts:</h2> -->
+            {{.Content}}
+            {{range .Pages}}
+                {{ partial "post-card.html" . }}
+            {{ end }}
+
+        </div>
+
+        {{partial "footer"}}
+    </body>
+</html>

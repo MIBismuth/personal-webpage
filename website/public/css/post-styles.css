@@ -9,7 +9,7 @@
 }
 
 /* Style for h1 elements inside sections with class 'level1' */
-.level1 h1 {
+.level1 h2 {
     font-size: 2em; /* Reduced font size */
     color: var(--text); /* Use the text color variable */
     font-weight: bold; /* Make the text bold for emphasis */
@@ -20,7 +20,7 @@
 }
 
 /* Style for h2 elements inside sections with class 'level2' */
-.level2 h2 {
+.level1 h3 {
     font-size: 1.75em; /* Slightly smaller than h1 */
     color: var(--text); /* Use the text color variable */
     font-weight: semi-bold; /* Semi-bold for a balanced look */
