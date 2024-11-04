@@ -24,7 +24,7 @@
     text-transform: uppercase;
     font-weight: bold;
     padding: 1.5em; /* Changed from 20px to 1.5em */
-    cursor: pointer;
+    /* cursor: pointer; */
     border-bottom: 1px solid var(--text);
 }
 
@@ -32,6 +32,10 @@
     color:var(--love);
     background:var(--highlight-low);
     opacity: 1;
+}
+
+.sidebarMenuInner a:hover{
+    color:var(--love);
 }
 
 .sidebarMenuInner li span{
@@ -136,3 +140,40 @@ input[type="checkbox"]:checked ~ .sidebarIconToggle {
     align-content: center;
 }
 
+/* Styling for the dropdown */
+.dropdown-content {
+    padding-left: 0;
+    margin: 0;
+    /* background-color: #333; */
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 8px 12px;
+    color: white;
+    text-decoration: none;
+}Posts
+
+.dropdown-content a:hover {
+    background-color: #575757;
+}
+
+.dropdown-content summary {
+    font-size: .75em;
+    cursor: pointer;
+    color: white;
+    padding: 10px 0;
+}
+
+.dropdown-content li {
+    list-style-type: disc;
+    font-size: .75em;
+    padding: 0.5em 0;
+    border-bottom: none;
+}
+
+/* Optional style for making the summary more visually prominent */
+details[open] summary {
+    font-weight: bold;
+}
