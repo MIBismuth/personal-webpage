@@ -174,7 +174,7 @@
 <p>While I&rsquo;m sure flashing a true native Linux OS is possible, that skill transcends me yet.</p>
 <p>I went for the easy approach and installed <a href="https://termux.dev/en/">Termux</a>: &ldquo;an Android terminal emulator and Linux environment app&rdquo;.</p>
 <p>It comes with it&rsquo;s own package manager which provides tons of packages for useful software. The ones I used can be installed by running the following:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ssh client</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ssh server</span>
 </span></span><span class="line"><span class="cl">pkg install dropbear
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># server</span>
@@ -188,7 +188,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># with default port 22</span>
 </span></span><span class="line"><span class="cl">dropbear
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># defining a custum port</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># defining a custom port</span>
 </span></span><span class="line"><span class="cl">dropbear -p <span class="s1">&#39;port&#39;</span>
 </span></span></code></pre></div><p>And on the client side (i.e. my laptop), we can connect to it:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># connect to the ssh server from the local network</span>
@@ -196,25 +196,25 @@
 </span></span></code></pre></div><p>Great, now we don&rsquo;t need to touch the <del>phone</del> server anymore!</p>
 <h4 id="nginx">NGINX</h4>
 <p>I&rsquo;m not gonna delve too deep on how to configure nginx, but basically all the setup is done on a config file, usually in <code>/etc/nginx/nginx.conf</code>. It will look something like this:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">http <span class="o">{</span>
-</span></span><span class="line"><span class="cl">   . . .
-</span></span><span class="line"><span class="cl">    server <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        listen       PORT<span class="p">;</span> <span class="c1">#ssl if https certificate is needed</span>
-</span></span><span class="line"><span class="cl">        server_name  www.example.com<span class="p">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">http</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+</span></span><span class="line"><span class="cl">    <span class="n">server</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">listen</span>       <span class="n">PORT</span><span class="p">;</span> <span class="c1">#ssl if https certificate is needed</span>
+</span></span><span class="line"><span class="cl">        <span class="n">server_name</span>  <span class="n">www</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        ssl_certificate /path/to/certificate/location<span class="p">;</span>
-</span></span><span class="line"><span class="cl">        ssl_certificate_key  /path/to/certificate/key/location<span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ssl_certificate</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">certificate</span><span class="o">/</span><span class="n">location</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ssl_certificate_key</span>  <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">certificate</span><span class="o">/</span><span class="n">key</span><span class="o">/</span><span class="n">location</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        ssl_protocols TLSv1.2 TLSv1.3<span class="p">;</span>
-</span></span><span class="line"><span class="cl">        ssl_ciphers HIGH:!aNULL:!MD5<span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ssl_protocols</span> <span class="n">TLSv1</span><span class="mf">.2</span> <span class="n">TLSv1</span><span class="mf">.3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ssl_ciphers</span> <span class="n">HIGH</span><span class="p">:</span><span class="err">!</span><span class="n">aNULL</span><span class="p">:</span><span class="err">!</span><span class="n">MD5</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        location / <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            root  /path/to/website/root<span class="p">;</span>
-</span></span><span class="line"><span class="cl">            index  index.html index.htm<span class="p">;</span> <span class="c1">#nginx will look for these files on the root</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">        . . .
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">location</span> <span class="o">/</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">root</span>  <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">website</span><span class="o">/</span><span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">index</span>  <span class="n">index</span><span class="o">.</span><span class="n">html</span> <span class="n">index</span><span class="o">.</span><span class="n">htm</span><span class="p">;</span> <span class="c1">#nginx will look for these files on the root</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>For now, the important things to take care of are: the PORT, which is conventionally 80 for HTTP requests (443 for HTTPS, but I&rsquo;ll get there in a bit); and the root location with the path to our website directory.</p>
 <p>After that we can start the server with:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># start the nginx server</span>

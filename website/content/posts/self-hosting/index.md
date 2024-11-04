@@ -66,7 +66,7 @@ I went for the easy approach and installed [Termux](https://termux.dev/en/): "an
 It comes with it's own package manager which provides tons of packages for useful software. The ones I used can be installed by running the following:
 
 ```bash
-# ssh client
+# ssh server
 pkg install dropbear
 
 # server
@@ -86,7 +86,7 @@ We can use *dropbear* to start the SSH server on the server side (i.e., the phon
 # with default port 22
 dropbear
 
-# defining a custum port
+# defining a custom port
 dropbear -p 'port'
 ```
 
@@ -103,7 +103,7 @@ Great, now we don't need to touch the ~~phone~~ server anymore!
 
 I'm not gonna delve too deep on how to configure nginx, but basically all the setup is done on a config file, usually in `/etc/nginx/nginx.conf`. It will look something like this:
 
-```bash
+```python
 http {
    . . .
     server {
