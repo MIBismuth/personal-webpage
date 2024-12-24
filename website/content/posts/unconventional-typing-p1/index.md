@@ -14,7 +14,7 @@ post_summary: |
 toc_on: true
 numbering: true
 credits: true
-draft: true
+draft: false
 ---
 
 ## Prologue: My Colemak Origin Story
