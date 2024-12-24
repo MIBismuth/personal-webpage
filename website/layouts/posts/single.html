@@ -32,6 +32,20 @@
         <!-- Output the final processed content -->
         {{ $content | safeHTML }}
 
+        <!-- Previous and Next Navigation -->
+        <div class="pagination">
+            {{ if and .Page.Prev (eq .Page.Prev.Section "posts") }}
+                <a class="prev-post" href="{{ .Page.Prev.Permalink }}">
+                <p>⬅️</p>
+                    Previous: {{ .Page.Prev.Title }}</a>
+            {{ end }}
+            {{ if and .Page.Next (eq .Page.Next.Section "posts") }}
+                <a class="next-post" href="{{ .Page.Next.Permalink }}">
+                <p>➡️</p>
+                    Next: {{ .Page.Next.Title }} 
+                </a>
+            {{ end }}
+        </div>
         {{partial "footer"}}
     </body>
 
