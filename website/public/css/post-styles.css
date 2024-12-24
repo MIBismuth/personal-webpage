@@ -238,3 +238,32 @@ tbody tr:hover {
 tbody td:last-child {
     text-align: left;
 }
+
+.pagination {
+    display: flex;
+    gap: 1rem; /* Adds space between the links */
+    justify-content: space-between;
+    margin-top: 2em;
+}
+
+.prev-post, .next-post {
+    font-size: 1rem;
+    color: #333;
+    text-decoration: none;
+    flex: 1; /* Ensures equal space is given to both links */
+    text-align: center; /* Centers text within each link */
+}
+
+.prev-post:hover, .next-post:hover {
+    text-decoration: underline;
+}
+
+/* Align links when only one is present */
+.pagination .prev-post {
+    justify-self: flex-start; /* Keeps "Previous" on the left */
+}
+
+.pagination .next-post {
+    justify-self: flex-end; /* Keeps "Next" on the right */
+}
+
