@@ -2,7 +2,7 @@
 .chroma {
     color: var(--text);
     background-color: var(--base);
-    font-size: 1.25em; /* Slightly larger font size for readability */
+    font-size: 1.0em; 
     line-height: 1.25;
     font-family: "Fira Code", "Source Code Pro", monospace; /* A popular monospace font */
 }
