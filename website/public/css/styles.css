@@ -130,18 +130,19 @@ p {
     width: min(100%, 600px);
     /*! position: ; */
     margin: 0 auto;
-    padding: 2em 0;
+    padding: 1.25em 0 0 0;
+    flex-wrap: wrap;
 }
 
 /* Button styles using theme colors */
 .button {
-    padding: 10px 20px;
+    padding: 20px 20px;
     background-color: #0077b5;/* Default button color, e.g., LinkedIn */
     color: #e0def4;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-    flex: 1;
+    /* flex: 1; */
     /*! justify-content: center; */
     text-align: center;
     /*! margin: 0 auto; */
@@ -153,6 +154,8 @@ a.button:visited{
     color: rgb(224, 222, 244);
 
 }a.button{
+    width: clamp(5em, 20%, 15em);
+    margin-bottom: 7%;
     color: rgb(224, 222, 244);
 }
 

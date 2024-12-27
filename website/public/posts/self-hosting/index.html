@@ -1,41 +1,307 @@
-<!doctype html><html lang=en class=rosePine><!doctype html><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>José Lopes' Cool Website</title>
-<link rel=stylesheet href=/css/styles.css><link rel=stylesheet href=/css/themes.css><link rel=stylesheet href=/css/sidebar.css><link rel=stylesheet href=/css/background.css><link rel=stylesheet href=/css/postcard.css><link rel=stylesheet href=/css/post-styles.css><link rel=stylesheet href=/css/syntax.css><link rel=apple-touch-icon sizes=180x180 href=/resources/icon/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/resources/icon/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/resources/icon/favicon-16x16.png><link rel=manifest href=/resources/icon/site.webmanifest><link rel=mask-icon href=/resources/icon/safari-pinned-tab.svg color=#5bbad5><link rel="shortcut icon" href=/resources/icon/favicon.ico><meta name=msapplication-TileColor content="#00aba9"><meta name=msapplication-config content="/resources/icon/browserconfig.xml"><meta name=theme-color content="#ffffff"><script src=/js/utils.js></script></head><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js></script><script>MathJax={tex:{displayMath:[["\\[","\\]"],["$$","$$"]],inlineMath:[["$","$"]]}}</script><body><nav class=navbar id=navbar><input type=checkbox class=openSidebarMenu id=openSidebarMenu>
-<label for=openSidebarMenu class=sidebarIconToggle><div class="spinner diagonal part-1"></div><div class="spinner horizontal"></div><div class="spinner diagonal part-2"></div></label><div id=sidebarMenu><ul class=sidebarMenuInner><a href=/><li>Home</li></a><a href=/about-me><li>José Duarte Lopes<span>About me, the author</span></li></a><li><details><summary><a href=/posts>Posts</a></summary><ul class=dropdown-content><a href=https://joselopes.dev/posts/unconventional-typing-p1/><li>Unconventional typing: part 1 - Colemak</li></a><a href=https://joselopes.dev/posts/error-propagation/><li>Error Propagation Calculator</li></a><a href=https://joselopes.dev/posts/self-hosting/><li>Self Hosting on a Budget</li></a></ul></details></li></ul></div><div class=window-title>Self Hosting on a Budget</div><button class=nightmode-button onclick=toggleTheme()>🌙</button></nav><ul class=circles><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul><div class=content><h1>Self Hosting on a Budget</h1><h2>This is the story of the development and deployment of this website. You can find the whole website project on <a href=https://github.com/MIBismuth/personal-webpage>GitHub</a>.</h2><div class=author-info><p>Author: José Duarte Lopes</p><p>Date: Jul 24, 2024</p></div><div id=toc><h2>Table of Contents:</h2><nav id=TableOfContents><ul><li><a href=#the-idea-but-only-on-my-self-imposed-terms>The Idea, but only on my self-imposed terms</a></li><li><a href=#setting-up-the-server>Setting up the Server</a><ul><li><a href=#you-cant-be-serious>You can&rsquo;t be serious</a></li><li><a href=#setting-up-termux>Setting up Termux</a></li><li><a href=#connecting-to-the-internet>Connecting to the Internet</a></li></ul></li><li><a href=#building-the-website>Building the Website</a><ul><li><a href=#workflow-and-devops>Workflow and DevOps</a></li><li><a href=#the-frontend-deserved-credits>The frontend: deserved credits</a></li><li><a href=#writing-in-markdown>Writing in Markdown</a></li></ul></li><li><a href=#final-remarks>Final Remarks</a></li></ul></nav></div><section class=level1><h2 id=the-idea-but-only-on-my-self-imposed-terms>The Idea, but only on my self-imposed terms</h2><p>I&rsquo;ve wanted to host my own website for a while now.</p><p>It looked like a very fun project and the idea of actually <strong>building</strong> my own creative outlet seemed very rewarding. But mostly because I&rsquo;m a nerd and having a website sounds cool and all the cool kids do it (I want to be a cool kid).</p><figure><img src=/posts/self-hosting/coolkids.svg><figcaption><h4>Me and the cool kids - abstract by José Lopes © 2024</h4></figcaption></figure><p>Before we start, as a <em>FOSS enjoyer</em> that has once fallen into the trap of using all the latest web-frameworks and technologies on a previous project, I devised the following <em>guidelines</em>:</p><ol><li>The server needs to be self-hosted</li><li>All the code and software fully open-source (apart from <a href="https://www.youtube.com/watch?v=Lp4C-x96XIo">GitHub</a>)</li><li>Using vanilla HTML and CSS, with as little JS as possible</li></ol><p>Alright, with that out of the way, let&rsquo;s get into it!</p></section><section class=level1><h2 id=setting-up-the-server>Setting up the Server</h2><p>My initial plan was to repurpose my old laptop as a server. However, as fate would have it, it ended up passing away (R.I.P. Asus x550jk - gone too soon after 10 years of daily use).</p><p>Now, I was left looking at other <em>cheap</em> alternatives such as an old Raspberry Pi. This got me thinking: &ldquo;hey, aren&rsquo;t smartphones small, compact and use Arm chips anyway?&rdquo;.</p><h3 id=you-cant-be-serious>You can&rsquo;t be serious</h3><p>No, no, just hear me out. So I had this Android phone laying around and it just makes perfect sense for this use case:</p><ul><li>Cheap: it wasn&rsquo;t being used, which makes it free</li><li>Low Power: the thing draws like 2.5W, that&rsquo;s 0.25€ a month</li><li>Has an internet connection</li><li>Can run Linux: sort of, not quite, but close enough</li><li>Built-in backup battery: the router would not be on in that scenario, but still</li></ul><p>Now, I can hear you loud and clear: &ldquo;What about security?&rdquo;, &ldquo;How cheap can you be?&rdquo;, &ldquo;Isn&rsquo;t that thing a fire hazard?&rdquo;. Yes. All of that will be discussed in the 1 year anniversary post when I find out.</p><h3 id=setting-up-termux>Setting up Termux</h3><p>While I&rsquo;m sure flashing a true native Linux OS is possible, that skill transcends me yet.</p><p>I went for the easy approach and installed <a href=https://termux.dev/en/>Termux</a>: &ldquo;an Android terminal emulator and Linux environment app&rdquo;.</p><p>It comes with it&rsquo;s own package manager which provides tons of packages for useful software. The ones I used can be installed by running the following:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># ssh server</span>
-</span></span><span class=line><span class=cl>pkg install dropbear
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># server</span>
-</span></span><span class=line><span class=cl>pkg install nginx
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># for pulling the code from a GitHub reporitory</span>
-</span></span><span class=line><span class=cl>pkg install git
-</span></span></code></pre></div><h4 id=ssh>SSH</h4><p>The first thing I did was to get ssh up and running. After that, the rest of the setup could be done from the comfort of my computer.</p><p>We can use <em>dropbear</em> to start the SSH server on the server side (i.e., the phone):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># with default port 22</span>
-</span></span><span class=line><span class=cl>dropbear
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># defining a custom port</span>
-</span></span><span class=line><span class=cl>dropbear -p <span class=s1>&#39;port&#39;</span>
-</span></span></code></pre></div><p>And on the client side (i.e. my laptop), we can connect to it:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># connect to the ssh server from the local network</span>
-</span></span><span class=line><span class=cl>ssh user@server-local-ip -p <span class=s1>&#39;port&#39;</span>
-</span></span></code></pre></div><p>Great, now we don&rsquo;t need to touch the <del>phone</del> server anymore!</p><h4 id=nginx>NGINX</h4><p>I&rsquo;m not gonna delve too deep on how to configure nginx, but basically all the setup is done on a config file, usually in <code>/etc/nginx/nginx.conf</code>. It will look something like this:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>http</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>   <span class=o>.</span> <span class=o>.</span> <span class=o>.</span>
-</span></span><span class=line><span class=cl>    <span class=n>server</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=n>listen</span>       <span class=n>PORT</span><span class=p>;</span> <span class=c1>#ssl if https certificate is needed</span>
-</span></span><span class=line><span class=cl>        <span class=n>server_name</span>  <span class=n>www</span><span class=o>.</span><span class=n>example</span><span class=o>.</span><span class=n>com</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=n>ssl_certificate</span> <span class=o>/</span><span class=n>path</span><span class=o>/</span><span class=n>to</span><span class=o>/</span><span class=n>certificate</span><span class=o>/</span><span class=n>location</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>        <span class=n>ssl_certificate_key</span>  <span class=o>/</span><span class=n>path</span><span class=o>/</span><span class=n>to</span><span class=o>/</span><span class=n>certificate</span><span class=o>/</span><span class=n>key</span><span class=o>/</span><span class=n>location</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=n>ssl_protocols</span> <span class=n>TLSv1</span><span class=mf>.2</span> <span class=n>TLSv1</span><span class=mf>.3</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>        <span class=n>ssl_ciphers</span> <span class=n>HIGH</span><span class=p>:</span><span class=err>!</span><span class=n>aNULL</span><span class=p>:</span><span class=err>!</span><span class=n>MD5</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>        <span class=n>location</span> <span class=o>/</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>            <span class=n>root</span>  <span class=o>/</span><span class=n>path</span><span class=o>/</span><span class=n>to</span><span class=o>/</span><span class=n>website</span><span class=o>/</span><span class=n>root</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>            <span class=n>index</span>  <span class=n>index</span><span class=o>.</span><span class=n>html</span> <span class=n>index</span><span class=o>.</span><span class=n>htm</span><span class=p>;</span> <span class=c1>#nginx will look for these files on the root</span>
-</span></span><span class=line><span class=cl>        <span class=p>}</span>
-</span></span><span class=line><span class=cl>        <span class=o>.</span> <span class=o>.</span> <span class=o>.</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></div><p>For now, the important things to take care of are: the PORT, which is conventionally 80 for HTTP requests (443 for HTTPS, but I&rsquo;ll get there in a bit); and the root location with the path to our website directory.</p><p>After that we can start the server with:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># start the nginx server</span>
-</span></span><span class=line><span class=cl>nginx
-</span></span></code></pre></div><p>Great, now the website should be accessible at <code>server-local-ip:port</code> on the browser!</p><h3 id=connecting-to-the-internet>Connecting to the Internet</h3><h4 id=port-forwarding>Port Forwarding</h4><p>Up until now I&rsquo;d only been using the local network. However, since I wanted to access my server by ssh and for my site to be accessible from anywhere in the world I needed to configure port forwarding on my router.</p><p>This means <em>connecting</em> our internal ip address (what I&rsquo;ve been referring to as <code>server-local-ip</code>) and port number, which are only accessible on the local network, with an external ip and port number, connected to the whole internet. This can usually be done on the router config page, and every router&rsquo;s page is special and unique in it&rsquo;s own way, so it&rsquo;s no use trying to show the process.</p><p>Now the ssh server is available globally by:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># connect to the ssh server from the local network</span>
-</span></span><span class=line><span class=cl>ssh user@router-external-ip -p <span class=s1>&#39;port&#39;</span>
-</span></span></code></pre></div><p>And the website can be viewed at <code>router-external-ip:port</code> on the browser!</p><h4 id=getting-a-domain-name>Getting a Domain Name</h4><p>Choosing a domain name took twice as long as all previous steps combined. I wanted something with my name, but short and with no initials. Unfortunately, joselopes.com was already taken and they wanted 8888$ for it (lmao).</p><p>As you can see, ended up on <a href=https://joselopes.dev>joselopes.dev</a> as it was pretty hip and pretty cheap.</p><h4 id=https-with-nginx>HTTPS with Nginx</h4><p>One of the quirks of the .dev domains is that it <a href=https://get.dev/>requires https</a>. Luckily, my domain name broker provides free SSL certificates, all that is required is to download them and change the appropriate fields on the nginx.conf file.</p><p>Also worth noting, the default port for https is 433, so it is recommended to forward that port in the router settings.</p></section><section class=level1><h2 id=building-the-website>Building the Website</h2><p>It&rsquo;s finally time to build the website!</p><h3 id=workflow-and-devops>Workflow and DevOps</h3><p>It is a very simple workflow: make changes -> upload to GitHub -> pull from GitHub on the server -> reload server.</p><p>I tried my best to make a visual diagram:</p><figure><img src=/posts/self-hosting/workflowdiagram.svg><figcaption><h4>Workflow Diagram</h4></figcaption></figure><p>I&rsquo;d love to automate this process further by integrating <a href=https://docs.github.com/en/actions>GitHub actions</a> but couldn&rsquo;t get it to work on Termux :|</p><h4 id=managing-development-and-production-nginx-configs>Managing Development and Production nginx configs</h4><p>A problem I encountered came down to managing the nginx.conf files.</p><p>I wanted to be able to modify my config file on my development environment and for those changes to be carried over to the server automatically (or within my current workflow).</p><p>However, this wasn&rsquo;t so simple because the config files on both ends were fundamentally different on: ports used, server name, https configuration.</p><p>My solution came down to a template system where I inject the variables I need using a script and <a href=https://man.archlinux.org/man/core/gettext/envsubst.1.en#DESCRIPTION>envsubst</a>.</p><p>This way, I can just change the template and it will work on both development and production sides! It also takes care of handling any secrets I don&rsquo;t want in my public GitHub repository.</p><h3 id=the-frontend-deserved-credits>The frontend: deserved credits</h3><p>As mentioned previously, I wanted something as simple and as portable as possible, with standard HTML and CSS.</p><p>This allowed me to take a lot of inspiration from other developers to build components for this website.</p><ul><li><a href=https://rosepinetheme.com/>The theme: Rosé Pine</a> (my personal favourite, use it on everything)</li><li><a href=https://codepen.io/tokyoweb/pen/ZjdYVj>Floating Squares Background by TokioWeb</a></li><li><a href=https://codepen.io/plavookac/pen/qomrMw>Sidebar Menu by Jelena Jovanovic</a></li></ul><h3 id=writing-in-markdown>Writing in Markdown</h3><p>Finally, html can be quite cumbersome for writing these long, article style types of posts.</p><p>I&rsquo;ve been using a combination of markdown and <a href=https://pandoc.org/>pandoc</a> for note taking during my University lectures and found it to be quite an elegant way to quickly produce clean and consistently styled documents.</p><p>Inspired by this, I decided to adapt it to the context of this website and I think works great! I keep all my common elements like the header, side-bar, background and footer on an HTML template file and write all of the content in markdown.</p><p>This allows me flexibility when changing the overall style of my website (since I only need to modify one file) while keeping the content in purely a text-based, human friendly format.</p></section><section class=level1><h2 id=final-remarks>Final Remarks</h2><hr><p>This whole process has been incredibly rewarding.</p><p>I&rsquo;ve learned quite a bit about Web-dev and for sure honed in on my development skills. I&rsquo;m honestly looking forward to keep my little self-hosting journey going. Make sure to checkout the whole website project on <a href=https://github.com/MIBismuth/personal-webpage>GitHub</a>.</p><p>It has been great being able to share my small (yet frequent) updates with friends and family.</p><p>And if feels even greater coming now to the end of my first post realizing I have so much more to share.</p><p>Thank you for reading,</p><p>&mdash; José Duarte Lopes</p><hr></section><div class=pagination><a class=next-post href=https://joselopes.dev/posts/error-propagation/><p>➡️</p>Next: Error Propagation Calculator</a></div><footer class=footer><p>Thank you for visiting my website! ❤️</p><p>Feel free to reach out if you have any questions or just want to connect.</p><p>Created by José Duarte Lopes - 2024</p></footer></body></html>
+<!DOCTYPE html>
+<html lang="en" class="rosePine">
+    <script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José Lopes' Cool Website</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/themes.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/background.css">
+    <link rel="stylesheet" href="/css/postcard.css">
+    <link rel="stylesheet" href="/css/post-styles.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/resources/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/resources/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/resources/icon/favicon-16x16.png">
+    <link rel="manifest" href="/resources/icon/site.webmanifest">
+    <link rel="mask-icon" href="/resources/icon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/resources/icon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="msapplication-config" content="/resources/icon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <script src="/js/utils.js"></script>
+</head>
+
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],  
+      inlineMath: [['$', '$']]                  
+    }
+  };
+</script>
+
+
+
+       <body>
+        <nav class="navbar" id="navbar">
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+        <div class="spinner diagonal part-1"></div>
+        <div class="spinner horizontal"></div>
+        <div class="spinner diagonal part-2"></div>
+    </label>
+
+    <div id="sidebarMenu">
+        <ul class="sidebarMenuInner">
+            <a href="/">
+                <li>Home</li>
+            </a>
+            <a href="/about-me">
+                <li>José Duarte Lopes<span>About me, the author</span></li>
+            </a>
+            
+            <li>
+                <details>
+                    <summary><a href="/posts">Posts</a></summary>
+                    <ul class="dropdown-content">
+                        
+                        
+                        <a href="http://localhost:1313/posts/unconventional-typing-p1/">
+                            <li>Unconventional typing: part 1 - Colemak</li>
+                        </a>
+                        
+                        <a href="http://localhost:1313/posts/error-propagation/">
+                            <li>Error Propagation Calculator</li>
+                        </a>
+                        
+                        <a href="http://localhost:1313/posts/self-hosting/">
+                            <li>Self Hosting on a Budget</li>
+                        </a>
+                        
+                    </ul>
+                </details>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="window-title">Self Hosting on a Budget</div>
+    <button class="nightmode-button" onclick="toggleTheme()">🌙</button>
+</nav>
+
+        <ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+
+        <div class="content">
+            <h1>Self Hosting on a Budget</h1>
+            <h2>
+                This is the story of the development and deployment of this website. You can find the whole website project on <a href="https://github.com/MIBismuth/personal-webpage">GitHub</a>.
+            </h2>
+            
+            <div class="author-info">
+                <p>Author: José Duarte Lopes</p>
+                <p>Date: Jul 24, 2024</p>
+            </div>
+            
+
+            
+            <div id="toc">
+                <h2>Table of Contents:</h2>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-idea-but-only-on-my-self-imposed-terms">The Idea, but only on my self-imposed terms</a></li>
+    <li><a href="#setting-up-the-server">Setting up the Server</a>
+      <ul>
+        <li><a href="#you-cant-be-serious">You can&rsquo;t be serious</a></li>
+        <li><a href="#setting-up-termux">Setting up Termux</a></li>
+        <li><a href="#connecting-to-the-internet">Connecting to the Internet</a></li>
+      </ul>
+    </li>
+    <li><a href="#building-the-website">Building the Website</a>
+      <ul>
+        <li><a href="#workflow-and-devops">Workflow and DevOps</a></li>
+        <li><a href="#the-frontend-deserved-credits">The frontend: deserved credits</a></li>
+        <li><a href="#writing-in-markdown">Writing in Markdown</a></li>
+      </ul>
+    </li>
+    <li><a href="#final-remarks">Final Remarks</a></li>
+  </ul>
+</nav>
+            </div>
+            
+             
+          
+
+        
+        
+
+        
+        
+
+<section class="level1"><h2 id="the-idea-but-only-on-my-self-imposed-terms">The Idea, but only on my self-imposed terms</h2>
+<p>I&rsquo;ve wanted to host my own website for a while now.</p>
+<p>It looked like a very fun project and the idea of actually <strong>building</strong> my own creative outlet seemed very rewarding. But mostly because I&rsquo;m a nerd and having a website sounds cool and all the cool kids do it (I want to be a cool kid).</p>
+<figure><img src="/posts/self-hosting/coolkids.svg"><figcaption>
+      <h4>Me and the cool kids - abstract by José Lopes © 2024</h4>
+    </figcaption>
+</figure>
+
+<p>Before we start, as a <em>FOSS enjoyer</em> that has once fallen into the trap of using all the latest web-frameworks and technologies on a previous project, I devised the following <em>guidelines</em>:</p>
+<ol>
+<li>The server needs to be self-hosted</li>
+<li>All the code and software fully open-source (apart from <a href="https://www.youtube.com/watch?v=Lp4C-x96XIo">GitHub</a>)</li>
+<li>Using vanilla HTML and CSS, with as little JS as possible</li>
+</ol>
+<p>Alright, with that out of the way, let&rsquo;s get into it!</p>
+</section>
+<section class="level1"><h2 id="setting-up-the-server">Setting up the Server</h2>
+<p>My initial plan was to repurpose my old laptop as a server. However, as fate would have it, it ended up passing away (R.I.P. Asus x550jk - gone too soon after 10 years of daily use).</p>
+<p>Now, I was left looking at other <em>cheap</em> alternatives such as an old Raspberry Pi. This got me thinking: &ldquo;hey, aren&rsquo;t smartphones small, compact and use Arm chips anyway?&rdquo;.</p>
+<h3 id="you-cant-be-serious">You can&rsquo;t be serious</h3>
+<p>No, no, just hear me out. So I had this Android phone laying around and it just makes perfect sense for this use case:</p>
+<ul>
+<li>Cheap: it wasn&rsquo;t being used, which makes it free</li>
+<li>Low Power: the thing draws like 2.5W, that&rsquo;s 0.25€ a month</li>
+<li>Has an internet connection</li>
+<li>Can run Linux: sort of, not quite, but close enough</li>
+<li>Built-in backup battery: the router would not be on in that scenario, but still</li>
+</ul>
+<p>Now, I can hear you loud and clear: &ldquo;What about security?&rdquo;, &ldquo;How cheap can you be?&rdquo;, &ldquo;Isn&rsquo;t that thing a fire hazard?&rdquo;. Yes. All of that will be discussed in the 1 year anniversary post when I find out.</p>
+<h3 id="setting-up-termux">Setting up Termux</h3>
+<p>While I&rsquo;m sure flashing a true native Linux OS is possible, that skill transcends me yet.</p>
+<p>I went for the easy approach and installed <a href="https://termux.dev/en/">Termux</a>: &ldquo;an Android terminal emulator and Linux environment app&rdquo;.</p>
+<p>It comes with it&rsquo;s own package manager which provides tons of packages for useful software. The ones I used can be installed by running the following:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ssh server</span>
+</span></span><span class="line"><span class="cl">pkg install dropbear
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># server</span>
+</span></span><span class="line"><span class="cl">pkg install nginx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># for pulling the code from a GitHub reporitory</span>
+</span></span><span class="line"><span class="cl">pkg install git
+</span></span></code></pre></div><h4 id="ssh">SSH</h4>
+<p>The first thing I did was to get ssh up and running. After that, the rest of the setup could be done from the comfort of my computer.</p>
+<p>We can use <em>dropbear</em> to start the SSH server on the server side (i.e., the phone):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># with default port 22</span>
+</span></span><span class="line"><span class="cl">dropbear
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># defining a custom port</span>
+</span></span><span class="line"><span class="cl">dropbear -p <span class="s1">&#39;port&#39;</span>
+</span></span></code></pre></div><p>And on the client side (i.e. my laptop), we can connect to it:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># connect to the ssh server from the local network</span>
+</span></span><span class="line"><span class="cl">ssh user@server-local-ip -p <span class="s1">&#39;port&#39;</span>
+</span></span></code></pre></div><p>Great, now we don&rsquo;t need to touch the <del>phone</del> server anymore!</p>
+<h4 id="nginx">NGINX</h4>
+<p>I&rsquo;m not gonna delve too deep on how to configure nginx, but basically all the setup is done on a config file, usually in <code>/etc/nginx/nginx.conf</code>. It will look something like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">http</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+</span></span><span class="line"><span class="cl">    <span class="n">server</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">listen</span>       <span class="n">PORT</span><span class="p">;</span> <span class="c1">#ssl if https certificate is needed</span>
+</span></span><span class="line"><span class="cl">        <span class="n">server_name</span>  <span class="n">www</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">ssl_certificate</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">certificate</span><span class="o">/</span><span class="n">location</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ssl_certificate_key</span>  <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">certificate</span><span class="o">/</span><span class="n">key</span><span class="o">/</span><span class="n">location</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">ssl_protocols</span> <span class="n">TLSv1</span><span class="mf">.2</span> <span class="n">TLSv1</span><span class="mf">.3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ssl_ciphers</span> <span class="n">HIGH</span><span class="p">:</span><span class="err">!</span><span class="n">aNULL</span><span class="p">:</span><span class="err">!</span><span class="n">MD5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">location</span> <span class="o">/</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">root</span>  <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">website</span><span class="o">/</span><span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">index</span>  <span class="n">index</span><span class="o">.</span><span class="n">html</span> <span class="n">index</span><span class="o">.</span><span class="n">htm</span><span class="p">;</span> <span class="c1">#nginx will look for these files on the root</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>For now, the important things to take care of are: the PORT, which is conventionally 80 for HTTP requests (443 for HTTPS, but I&rsquo;ll get there in a bit); and the root location with the path to our website directory.</p>
+<p>After that we can start the server with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># start the nginx server</span>
+</span></span><span class="line"><span class="cl">nginx
+</span></span></code></pre></div><p>Great, now the website should be accessible at <code>server-local-ip:port</code> on the browser!</p>
+<h3 id="connecting-to-the-internet">Connecting to the Internet</h3>
+<h4 id="port-forwarding">Port Forwarding</h4>
+<p>Up until now I&rsquo;d only been using the local network. However, since I wanted to access my server by ssh and for my site to be accessible from anywhere in the world I needed to configure port forwarding on my router.</p>
+<p>This means <em>connecting</em> our internal ip address (what I&rsquo;ve been referring to as <code>server-local-ip</code>) and port number, which are only accessible on the local network, with an external ip and port number, connected to the whole internet. This can usually be done on the router config page, and every router&rsquo;s page is special and unique in it&rsquo;s own way, so it&rsquo;s no use trying to show the process.</p>
+<p>Now the ssh server is available globally by:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># connect to the ssh server from the local network</span>
+</span></span><span class="line"><span class="cl">ssh user@router-external-ip -p <span class="s1">&#39;port&#39;</span>
+</span></span></code></pre></div><p>And the website can be viewed at <code>router-external-ip:port</code> on the browser!</p>
+<h4 id="getting-a-domain-name">Getting a Domain Name</h4>
+<p>Choosing a domain name took twice as long as all previous steps combined. I wanted something with my name, but short and with no initials. Unfortunately, joselopes.com was already taken and they wanted 8888$ for it (lmao).</p>
+<p>As you can see, ended up on <a href="https://joselopes.dev">joselopes.dev</a> as it was pretty hip and pretty cheap.</p>
+<h4 id="https-with-nginx">HTTPS with Nginx</h4>
+<p>One of the quirks of the .dev domains is that it <a href="https://get.dev/">requires https</a>. Luckily, my domain name broker provides free SSL certificates, all that is required is to download them and change the appropriate fields on the nginx.conf file.</p>
+<p>Also worth noting, the default port for https is 433, so it is recommended to forward that port in the router settings.</p>
+</section>
+<section class="level1"><h2 id="building-the-website">Building the Website</h2>
+<p>It&rsquo;s finally time to build the website!</p>
+<h3 id="workflow-and-devops">Workflow and DevOps</h3>
+<p>It is a very simple workflow: make changes -&gt; upload to GitHub -&gt; pull from GitHub on the server -&gt; reload server.</p>
+<p>I tried my best to make a visual diagram:</p>
+<!-- raw HTML omitted -->
+<figure><img src="/posts/self-hosting/workflowdiagram.svg"><figcaption>
+      <h4>Workflow Diagram</h4>
+    </figcaption>
+</figure>
+
+<p>I&rsquo;d love to automate this process further by integrating <a href="https://docs.github.com/en/actions">GitHub actions</a> but couldn&rsquo;t get it to work on Termux :|</p>
+<h4 id="managing-development-and-production-nginx-configs">Managing Development and Production nginx configs</h4>
+<p>A problem I encountered came down to managing the nginx.conf files.</p>
+<p>I wanted to be able to modify my config file on my development environment and for those changes to be carried over to the server automatically (or within my current workflow).</p>
+<p>However, this wasn&rsquo;t so simple because the config files on both ends were fundamentally different on: ports used, server name, https configuration.</p>
+<p>My solution came down to a template system where I inject the variables I need using a script and <a href="https://man.archlinux.org/man/core/gettext/envsubst.1.en#DESCRIPTION">envsubst</a>.</p>
+<p>This way, I can just change the template and it will work on both development and production sides! It also takes care of handling any secrets I don&rsquo;t want in my public GitHub repository.</p>
+<h3 id="the-frontend-deserved-credits">The frontend: deserved credits</h3>
+<p>As mentioned previously, I wanted something as simple and as portable as possible, with standard HTML and CSS.</p>
+<p>This allowed me to take a lot of inspiration from other developers to build components for this website.</p>
+<ul>
+<li><a href="https://rosepinetheme.com/">The theme: Rosé Pine</a> (my personal favourite, use it on everything)</li>
+<li><a href="https://codepen.io/tokyoweb/pen/ZjdYVj">Floating Squares Background by TokioWeb</a></li>
+<li><a href="https://codepen.io/plavookac/pen/qomrMw">Sidebar Menu by Jelena Jovanovic</a></li>
+</ul>
+<h3 id="writing-in-markdown">Writing in Markdown</h3>
+<p>Finally, html can be quite cumbersome for writing these long, article style types of posts.</p>
+<p>I&rsquo;ve been using a combination of markdown and <a href="https://pandoc.org/">pandoc</a> for note taking during my University lectures and found it to be quite an elegant way to quickly produce clean and consistently styled documents.</p>
+<p>Inspired by this, I decided to adapt it to the context of this website and I think works great! I keep all my common elements like the header, side-bar, background and footer on an HTML template file and write all of the content in markdown.</p>
+<p>This allows me flexibility when changing the overall style of my website (since I only need to modify one file) while keeping the content in purely a text-based, human friendly format.</p>
+</section>
+<section class="level1"><h2 id="final-remarks">Final Remarks</h2>
+<hr>
+<p>This whole process has been incredibly rewarding.</p>
+<p>I&rsquo;ve learned quite a bit about Web-dev and for sure honed in on my development skills. I&rsquo;m honestly looking forward to keep my little self-hosting journey going. Make sure to checkout the whole website project on <a href="https://github.com/MIBismuth/personal-webpage">GitHub</a>.</p>
+<p>It has been great being able to share my small (yet frequent) updates with friends and family.</p>
+<p>And if feels even greater coming now to the end of my first post realizing I have so much more to share.</p>
+<p>Thank you for reading,</p>
+<p>&mdash; José Duarte Lopes</p>
+<hr>
+</section>
+
+        
+        <div class="pagination">
+            
+            
+                <a class="next-post" href="http://localhost:1313/posts/error-propagation/">
+                <p>➡️</p>
+                    Next: Error Propagation Calculator 
+                </a>
+            
+        </div>
+        <footer class="footer">
+    <p>Thank you for visiting my website! ❤️</p>
+
+    <p>Feel free to reach out if you have any questions or just want to connect.</p>
+    <p>Created by José Duarte Lopes - 2024</p>
+</footer>
+
+    </body>
+
+
+</html>
+
+
