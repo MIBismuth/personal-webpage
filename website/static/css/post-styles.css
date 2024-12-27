@@ -249,7 +249,7 @@ tbody td:last-child {
 
 .prev-post, .next-post {
     font-size: 1rem;
-    color: #333;
+    /* color: #333; */
     text-decoration: none;
     flex: 1; /* Ensures equal space is given to both links */
     text-align: center; /* Centers text within each link */
