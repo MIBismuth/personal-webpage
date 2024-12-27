@@ -72,7 +72,7 @@ If it is perfectly fine for everyone else, why change the standard? One word: **
 
 ### Why Colemak-DH
 
-Standard Colemak is supposedly more friendly to people wanting to switch than other popular options such as Dvorak, as it keeps most of QWERTY's letters, particularly the bottom left ones ( `Z X C V` ) often used for shortcuts. The key improvement lies in repositioning the most frequently typed letters to the home row, making them more comfortable to type, along with a design that emphasizes rolling motions, where fingers move smoothly in quick, adjacent sequences across keys.
+Standard Colemak is supposedly more friendly to people wanting to switch than other popular options such as Dvorak, as it keeps most of QWERTY's letters, particularly the bottom left ones ( `Z` `X` `C` `V` ) often used for shortcuts. The key improvement lies in repositioning the most frequently typed letters to the home row, making them more comfortable to type, along with a design that emphasizes rolling motions, where fingers move smoothly in quick, adjacent sequences across keys.
 
 While I did try it for a bit, I ended up feeling the `D` and `H` keys were not really optimal, requiring stretching the index finger. I was not alone, and soon found Colemak-DH which fixes this issue. Perfect!
 
@@ -163,10 +163,10 @@ I ended up settling for the *GACS* order. In layout agnostic terms, that means:
 
 | Position       | Hold Behavior    |
 |----------------|------------------|
-| Pinky Finger   | Super (Modifier) |
-| Ring Finger    | Alt (Modifier)   |
-| Middle Finger  | Ctrl (Modifier)  |
-| Index Finger   | Shift (Modifier) |
+| Pinky Finger   | `Super` (Modifier) |
+| Ring Finger    | `Alt` (Modifier)   |
+| Middle Finger  | `Ctrl` (Modifier)  |
+| Index Finger   | `Shift` (Modifier) |
 
 **Note:** This layout is mirrored for both hands, with the left-hand modifiers corresponding to `Left Super`, `Left Alt`, `Left Ctrl`, and `Left Shift`, and the right-hand modifiers corresponding to `Right Super`, `Right Alt`, `Right Ctrl`, and `Right Shift`.
 
@@ -185,16 +185,16 @@ So, I made my `Caps-Lock` key a tap-hold:
 
 | Key               | Tap Behavior  | Hold Behavior          |
 |--------------------|---------------|-------------------------|
-| `Caps-Lock`        | Escape        | Activates custom layer |
+| `Caps-Lock`        | `Escape`        | Activates custom layer |
 
 | Position (QWERTY) | Custom Layer Behavior |
 |--------------------|-----------------------|
-| `F`               | Backspace            |
-| `Space`           | Enter                |
-| `I`               | Up Arrow             |
-| `J`               | Left Arrow           |
-| `K`               | Down Arrow           |
-| `L`               | Right Arrow          |
+| `F`               | `Backspace`            |
+| `Space`           | `Enter`                |
+| `I`               | `Up Arrow`             |
+| `J`               |   `Left Arrow`          |
+| `K`               |  `Down Arrow`          |
+| `L`               |  `Right Arrow`         |
 
 
 ### Finally, control over my own keyboard!
