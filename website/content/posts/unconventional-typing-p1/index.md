@@ -72,13 +72,13 @@ If it is perfectly fine for everyone else, why change the standard? One word: **
 
 ### Why Colemak-DH
 
-Standard Colemak is supposedly more friendly to people wanting to switch than other popular options such as Dvorak, as it keeps most of QWERTY's letters, particularly the bottom left ones ( Z X C V ) often used for shortcuts. The key improvement lies in repositioning the most frequently typed letters to the home row, making them more comfortable to type, along with a design that emphasizes rolling motions, where fingers move smoothly in quick, adjacent sequences across keys.
+Standard Colemak is supposedly more friendly to people wanting to switch than other popular options such as Dvorak, as it keeps most of QWERTY's letters, particularly the bottom left ones ( `Z X C V` ) often used for shortcuts. The key improvement lies in repositioning the most frequently typed letters to the home row, making them more comfortable to type, along with a design that emphasizes rolling motions, where fingers move smoothly in quick, adjacent sequences across keys.
 
-While I did try it for a bit, I ended up feeling the D and H keys were not really optimal, requiring stretching the index finger. I was not alone, and soon found Colemak-DH which fixes this issue. Perfect!
+While I did try it for a bit, I ended up feeling the `D` and `H` keys were not really optimal, requiring stretching the index finger. I was not alone, and soon found Colemak-DH which fixes this issue. Perfect!
 
 ## Muscle Memory: Learning not to think
 
-If I was going to do this, it had to be done right: I was fixated on learning to type *proper way*. I had dabbled on touch typing back in high school and gotten pretty good at it, but over time I found myself becoming lazy with it and adopting a *mixed* typing style, where sometimes I would just hit a key with whatever finger I felt in that moment. That was not going to be an option moving forward. Switching layouts was the perfect excuse to also learn touch-typing once and for all.
+If I was going to do this, it had to be done right: I was fixated on learning to type the *proper way*. I had dabbled on touch typing back in high school and gotten pretty good at it, but over time I found myself becoming lazy with it and adopting a *mixed* typing style, where sometimes I would just hit a key with whatever finger I felt in that moment. That was not going to be an option moving forward. Switching layouts was the perfect excuse to also learn touch-typing once and for all.
 
 I used [keybr.com](https://keybr.com) during the first week or two to get the layout under my fingers. You can choose the layout you want to learn and the tool gradually introduces new letters after it feels you are up to it. I really liked it, very useful to learn touch-typing in general!
 
@@ -122,7 +122,7 @@ As my speed and accuracy improved, I began to appreciate the thought that went i
 
 - Most common letters in the home-row
 - Vowels on the right hand all feel nice and accessible.
-- Uncomfortable letters in QWERTY like 'T', 'Y', 'P' and 'B' move to more sensible positions.
+- Uncomfortable letters in QWERTY like `T`, `Y`, `P` and `B` move to more sensible positions.
 - The rolls (oh my the rolls!)
 
 Around the three month mark I once again became as fast as I was originally with QWERTY.
@@ -203,6 +203,8 @@ These mods were a huge improvement! They made all my standard modifier keys usel
 
 ## Conclusion: was it worth it?
 
+---
+
 In all honesty, regarding Colemak (and others), I think that the learning pain is way too high for the benefits. While it is undoubtedly a *better* layout, it won’t significantly improve typing speed beyond what can already be achieved by learning touch typing, with the added downside of not being translatable into random keyboards.
 
 However, if you have a lot of time to spare, go for it! *Reject mindless tradition, embrace ergonomics!* Most of all, it is an incredible flex in the right spaces ([source](./source.txt)). 
@@ -214,3 +216,5 @@ Typing is our prime interface with all that is digital. Why should we want to st
 This is just the beginning,
 
 --- José Duarte Lopes
+
+---

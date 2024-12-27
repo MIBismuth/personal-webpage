@@ -238,8 +238,12 @@ In the end, you might end up finding that the defaults are all you need.
 
 ## The good ending
 
+---
+
 Doing this project was *really cool*. I learned a lot and it's great to see the website still in use by my fellow colleagues to this day. We even won an award for it!
 
 Most of all I learned that I had what it took to find problems and offer a solution for the betterment of the community.
 
 --- José Duarte Lopes
+
+---
