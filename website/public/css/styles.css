@@ -208,13 +208,14 @@ a.button:visited{
     position: relative;
     border: 5px solid var(--highlight-high); /* Use the rose color for the border */
     box-shadow: 0 4px 10px var(--highlight-med); /* Subtle shadow with love color */
-    transition: all 0.3s ease, box-shadow 0.3s ease; /* Add smooth transition for border and shadow */
+    transition: all 0.2s ease, box-shadow 0.2s ease; /* Add smooth transition for border and shadow */
 }
 
 /* Hover and active state */
 .profile-pic-figure:hover,
 .profile-pic-figure:active {
     width: clamp(12em, 30%, 15em); /* Slightly increase size on hover/tap */
+    box-shadow: 0px 0px 30px var(--subtle); /* Subtle shadow with love color */
 }
 
 .profile-pic {
@@ -224,7 +225,7 @@ a.button:visited{
     transform: scale(1.7); /* Slight zoom */
     border: 2px solid #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease, box-shadow 0.3s ease; /* Add smooth transition for border and shadow */
+    transition: all 0.2s ease, box-shadow 0.2s ease; /* Add smooth transition for border and shadow */
 }
 
 /* Apply the zoom effect on hover or tap */

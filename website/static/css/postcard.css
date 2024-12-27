@@ -67,7 +67,6 @@ summary::after {
     position: absolute;
     top: calc(50% - .1em);
     right: 0;
-    transform: translateY(-50%);
 }
 summary::after {
     transform: rotate(90deg);
