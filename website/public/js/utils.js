@@ -3,16 +3,19 @@ function toggleTheme() {
     const root = document.documentElement;
     const nightModeButton = document.querySelector('.nightmode-button');
 
+    // Check current theme and toggle
     if (root.classList.contains('rosePine')) {
-        root.classList.remove('rosePine');
-        root.classList.add('rosePineDawn');
+        root.classList.remove('rosePine'); // Remove the existing theme
+        root.classList.add('rosePineDawn'); // Add the new theme
         nightModeButton.textContent = '☀️'; // Sun emoji for rosePineDawn
         localStorage.setItem('theme', 'rosePineDawn');
+        console.log('yoo');
     } else {
-        root.classList.remove('rosePineDawn');
-        root.classList.add('rosePine');
+        root.classList.remove('rosePineDawn'); // Remove the existing theme
+        root.classList.add('rosePine'); // Add the new theme
         nightModeButton.textContent = '🌙'; // Moon emoji for rosePine
         localStorage.setItem('theme', 'rosePine');
+        console.log('hey');
     }
 }
 
@@ -22,34 +25,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const root = document.documentElement;
     const nightModeButton = document.querySelector('.nightmode-button');
 
-    root.classList.add(savedTheme);
-    nightModeButton.textContent = savedTheme === 'rosePine' ? '🌙' : '☀️';
-});
-
-// Hide Navbar on Scroll
-let prevScrollpos = window.pageYOffset;
-
-const handleScroll = () => {
-    const currentScrollPos = window.pageYOffset;
-    const navbar = document.getElementById('navbar');
-
-    if (prevScrollpos > currentScrollPos) {
-        navbar.style.top = '0';
+    // First, remove both theme classes, then add the saved theme class
+    root.classList.remove('rosePine', 'rosePineDawn');
+    root.classList.add(savedTheme); // Add the saved theme class
+    
+    // Set the correct button text based on the saved theme
+    if (savedTheme === 'rosePine') {
+        nightModeButton.textContent = '🌙'; // Set moon icon for night theme
     } else {
-        navbar.style.top = '-200px';
-    }
-    prevScrollpos = currentScrollPos;
-};
-
-// Add debounced scroll event listener
-let isScrolling = false;
-
-window.addEventListener('scroll', () => {
-    if (!isScrolling) {
-        isScrolling = true;
-        setTimeout(() => {
-            handleScroll();
-            isScrolling = false;
-        }, 100); // Adjust debounce delay as needed
+        nightModeButton.textContent = '☀️'; // Set sun icon for dawn theme
     }
 });
+
+/* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-200px";
+  }
+  prevScrollpos = currentScrollPos;
+}
