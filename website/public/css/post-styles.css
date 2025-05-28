@@ -245,7 +245,7 @@ mjx-container {
 
 /* Table Styles */
 table {
-    width: 80%;
+    width: min(800px, 100%);
     margin: 20px auto;
     border-collapse: collapse;
     font-size: 18px;
