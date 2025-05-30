@@ -122,7 +122,15 @@
   <ul>
     <li><a href="#a-splitting-decision">A splitting decision</a></li>
     <li><a href="#choosing-the-right-keyboard">Choosing the right keyboard</a></li>
-    <li><a href="#ordering-parts">Ordering parts</a></li>
+    <li><a href="#ordering-parts">Ordering parts</a>
+      <ul>
+        <li><a href="#pcbs">PCB&rsquo;s</a></li>
+        <li><a href="#microcontrollers">Microcontrollers</a></li>
+        <li><a href="#swithes-and-keycaps">Swithes and keycaps</a></li>
+        <li><a href="#other-optional-components">Other optional components</a></li>
+        <li><a href="#breaking-down-my-costs">Breaking down my costs</a></li>
+      </ul>
+    </li>
     <li><a href="#assembly">Assembly</a></li>
     <li><a href="#learning-curve">Learning Curve</a></li>
     <li><a href="#conclusion">Conclusion</a></li>
@@ -143,12 +151,120 @@
 <section class="level1"><h2 id="a-splitting-decision">A splitting decision</h2>
 <p><a href="/posts/unconventional-typing-p1">Last post</a> I left of with a banger software based typing setup. I got my Colemak-dh, my homerow mods (which I extensively praised) and my layers all neatly integrated into my workflow, it was great! However, lingering around was still an unease, a general feeling of disquiet. And this feeling was one I could quite literally get my hands on. My issue wasn&rsquo;t with the way I typed, you see, it was but with the keyboard itself! It bothered me: there was still further optimization to be done.</p>
 <p>Allow me explain. What if I told you&rsquo;ve been lied to? What if I told you the standard keyboard <strong>shape</strong>, i.e. the way the keys are positioned, is not really designed with ergonomics in mind? Ever wondered why the keys don&rsquo;t align with each other into a neat little grid? Ever considered the possibility that the strongest and most agile finger, the thumb, could be used to hit more that the space bar?</p>
-<p>Peaked your interest? Let me introduce you to the world of split-ergonomic keyboards. Yet again down another rabbit hole.</p>
+<p>Peaked your interest? Let me introduce you to the world of split ergonomic keyboards. Yet again down another rabbit hole.</p>
 </section>
 <section class="level1"><h2 id="choosing-the-right-keyboard">Choosing the right keyboard</h2>
-<p>To be completely honest, I just wanted a chance to play around with electronics and build a custom mechanical keyboard.</p>
+<p>With all that said, there are pretty valid concerns with the way standard keyboards are designed, how it affects your typing posture and how it can spiral into other health issues. I&rsquo;m not an expert, and as such I&rsquo;m not gonna delve too much into them. To be completely honest, I just wanted a chance to play around with electronics and build a really cool custom mechanical keyboard.</p>
+<p>I like to think of keybards as being categorized along 4 axis:</p>
+<ul>
+<li>Split / Non Split</li>
+<li>Row Staggered / Collumn Staggered / Ortholinear layout</li>
+<li>Number of keys</li>
+<li>Flat / Tenting / Weird Madness</li>
+</ul>
+<p>Here&rsquo;s a collection of popular keyboards I looked into while doing my research, complete whith their respective distribution among the categories.</p>
+<p>HERE I HAVE TO FACT CHECK THESE NUMBERS, LIKE SOME ARE PER HAND, OTHERS PER WHOLE KEYBOARD!</p>
+<table>
+  <thead>
+      <tr>
+          <th>Keyboard</th>
+          <th>Split / Non Split</th>
+          <th>Layout Type</th>
+          <th>Number of Keys</th>
+          <th>Form Factor</th>
+          <th>Open Source Hardware</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><a href="https://en.wikipedia.org/wiki/Keyboard_layout">Standard 104-Key</a></td>
+          <td>Non-Split</td>
+          <td>Row Staggered</td>
+          <td>104</td>
+          <td>Flat</td>
+          <td>❌</td>
+      </tr>
+      <tr>
+          <td><a href="https://kinesis-ergo.com/shop/advantage2/">Kinesis Advantage2</a></td>
+          <td>Split*</td>
+          <td>Column Staggered</td>
+          <td>~76</td>
+          <td>Sculpted / Tented</td>
+          <td>❌</td>
+      </tr>
+      <tr>
+          <td><a href="https://moergo.com/">Glove80</a></td>
+          <td>Split</td>
+          <td>Column Staggered</td>
+          <td>80</td>
+          <td>Tenting / Wireless</td>
+          <td>❌</td>
+      </tr>
+      <tr>
+          <td><a href="https://ergodox-ez.com/">ErgoDox EZ</a></td>
+          <td>Split</td>
+          <td>Column Staggered</td>
+          <td>76</td>
+          <td>Tenting / Adjustable</td>
+          <td>❌ (Based on open design)</td>
+      </tr>
+      <tr>
+          <td><a href="https://www.zsa.io/moonlander/">Moonlander</a></td>
+          <td>Split</td>
+          <td>Column Staggered</td>
+          <td>78</td>
+          <td>Tenting / Adjustable</td>
+          <td>❌</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/kata0510/Lily58">Lily58</a></td>
+          <td>Split</td>
+          <td>Column Staggered</td>
+          <td>~58</td>
+          <td>Flat / Tenting (kit)</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/foostan/crkbd">Corne (CRKBD)</a></td>
+          <td>Split</td>
+          <td>Column Staggered</td>
+          <td>42</td>
+          <td>Flat / Tenting (kit)</td>
+          <td>✅</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/adereth/dactyl-keyboard">Dactyl Manuform</a></td>
+          <td>Split</td>
+          <td>Column Staggered</td>
+          <td>50–70 (varies)</td>
+          <td>Sculpted / &ldquo;Madness&rdquo;</td>
+          <td>✅</td>
+      </tr>
+  </tbody>
+</table>
+<p>In the end, I chose to go with the Lily58. I felt like it was a fairly conservative choice at the time and that proved to be right. It was split and column staggered, the main things I wanted to try, while keeping a <em>sane</em> number of keys, which allowed me to keep the number row. Further, since the design was open hardware, that gave me the chance to order my own parts and assemble it all by myself, which would make it a significantly cheaper than the pre-built options (I was not about to drop 300€ on a keyboard I didn&rsquo;t even know I&rsquo;d like).</p>
 </section>
 <section class="level1"><h2 id="ordering-parts">Ordering parts</h2>
+<p>When choosing the parts for your keyboard, the main components you need to worry about are:</p>
+<h3 id="pcbs">PCB&rsquo;s</h3>
+<p>This ultimately comes down to choosing (or designing) the keyboard, as discussed on the last section. Some things to look for are switch compatibility and hot-swap compatibility. Optionally, you might also want a board with support for LEDs, OLED display or encoders.</p>
+<h3 id="microcontrollers">Microcontrollers</h3>
+<p>Pro-micro (and other compatible types like rp2040)
+Nice!nano</p>
+<h3 id="swithes-and-keycaps">Swithes and keycaps</h3>
+<p>Here talk about MX vs choc style swithes. Also mention the different types, like tactile, linear, mixed.</p>
+<h3 id="other-optional-components">Other optional components</h3>
+<ol>
+<li>Diodes</li>
+<li>Hot-swap sockets</li>
+<li>TRS cable and sockets</li>
+<li>Batterys (if wireless)</li>
+<li>LED&rsquo;s (if RGB)</li>
+<li>OLED displays</li>
+<li>Reset buttons</li>
+<li>Encoders</li>
+</ol>
+<h3 id="breaking-down-my-costs">Breaking down my costs</h3>
 </section>
 <section class="level1"><h2 id="assembly">Assembly</h2>
 </section>

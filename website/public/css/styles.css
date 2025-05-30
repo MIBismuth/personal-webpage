@@ -233,3 +233,36 @@ a.button:visited{
 .profile-pic-figure:active .profile-pic {
     transform: scale(1.2); /* Slight zoom on hover/tap */
 }
+
+
+blockquote {
+  font-style: italic;
+  color: var(--subtle);
+  background: var(--highlight-low);
+  border-left: 4px solid var(--iris);
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+  position: relative;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
+}
+
+blockquote::before {
+  content: "“";
+  font-size: 3em;
+  color: var(--iris);
+  position: absolute;
+  left: 10px;
+  top: -10px;
+  font-family: serif;
+  line-height: 1;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 0.75em;
+  font-size: 0.9em;
+  color: var(--muted);
+  text-align: right;
+  font-style: normal;
+}
