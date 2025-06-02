@@ -128,11 +128,17 @@
         <li><a href="#microcontrollers">Microcontrollers</a></li>
         <li><a href="#swithes-and-keycaps">Swithes and keycaps</a></li>
         <li><a href="#other-optional-components">Other optional components</a></li>
-        <li><a href="#breaking-down-my-costs">Breaking down my costs</a></li>
+        <li><a href="#breaking-down-costs">Breaking down costs</a></li>
       </ul>
     </li>
-    <li><a href="#assembly">Assembly</a></li>
-    <li><a href="#learning-curve">Learning Curve</a></li>
+    <li><a href="#assembly">Assembly</a>
+      <ul>
+        <li><a href="#soldering">Soldering</a></li>
+        <li><a href="#low-profile-socket-shenanigans">Low-profile socket shenanigans</a></li>
+        <li><a href="#finishing-touches">Finishing Touches</a></li>
+      </ul>
+    </li>
+    <li><a href="#daily-driving">Daily Driving</a></li>
     <li><a href="#conclusion">Conclusion</a></li>
     <li><a href="#epilogue">Epilogue</a></li>
   </ul>
@@ -154,15 +160,15 @@
 <p>Peaked your interest? Let me introduce you to the world of split ergonomic keyboards. Yet again down another rabbit hole.</p>
 </section>
 <section class="level1"><h2 id="choosing-the-right-keyboard">Choosing the right keyboard</h2>
-<p>With all that said, there are pretty valid concerns with the way standard keyboards are designed, how it affects your typing posture and how it can spiral into other health issues. I&rsquo;m not an expert, and as such I&rsquo;m not gonna delve too much into them. To be completely honest, I just wanted a chance to play around with electronics and build a really cool custom mechanical keyboard.</p>
-<p>I like to think of keybards as being categorized along 4 axis:</p>
+<p>With all that said, there are pretty valid concerns with the way standard keyboards are designed, how it affects your typing posture and how it can spiral into other health issues. I&rsquo;m not an expert, and as such I&rsquo;m not gonna delve too much into them. To be completely honest, I just wanted a chance to play around with electronics and build a really cool custom mechanical keyboard. In this post I hope to share some of what I learned building my own.</p>
+<p>I like to think of keyboards as being categorized along 4 axis:</p>
 <ul>
 <li>Split / Non Split</li>
-<li>Row Staggered / Collumn Staggered / Ortholinear layout</li>
+<li>Row Staggered / Column Staggered / Ortholinear layout</li>
 <li>Number of keys</li>
 <li>Flat / Tenting / Weird Madness</li>
 </ul>
-<p>Here&rsquo;s a collection of popular keyboards I looked into while doing my research, complete whith their respective distribution among the categories.</p>
+<p>Here&rsquo;s a collection of popular keyboards I looked into while doing my research, complete with their respective distribution among the categories.</p>
 <p>HERE I HAVE TO FACT CHECK THESE NUMBERS, LIKE SOME ARE PER HAND, OTHERS PER WHOLE KEYBOARD!</p>
 <table>
   <thead>
@@ -182,7 +188,7 @@
           <td>Row Staggered</td>
           <td>104</td>
           <td>Flat</td>
-          <td>❌</td>
+          <td></td>
       </tr>
       <tr>
           <td><a href="https://kinesis-ergo.com/shop/advantage2/">Kinesis Advantage2</a></td>
@@ -242,17 +248,17 @@
       </tr>
   </tbody>
 </table>
-<p>In the end, I chose to go with the Lily58. I felt like it was a fairly conservative choice at the time and that proved to be right. It was split and column staggered, the main things I wanted to try, while keeping a <em>sane</em> number of keys, which allowed me to keep the number row. Further, since the design was open hardware, that gave me the chance to order my own parts and assemble it all by myself, which would make it a significantly cheaper than the pre-built options (I was not about to drop 300€ on a keyboard I didn&rsquo;t even know I&rsquo;d like).</p>
+<p>In the end, I went with the <a href="https://github.com/kata0510/Lily58">Lily58</a>. I felt like it was a fairly conservative choice at the time and that proved to be right. It was split and column staggered, the main things I wanted to try, while maintaining a <em>sane</em> number of keys, which allowed me to keep the number row. Further, since the design was open hardware, that gave me the chance to source my own parts and assemble it all by myself, which would make it a significantly cheaper than the pre-built options (I was not about to drop 300€ on a keyboard I didn&rsquo;t even know I&rsquo;d like).</p>
 </section>
 <section class="level1"><h2 id="ordering-parts">Ordering parts</h2>
 <p>When choosing the parts for your keyboard, the main components you need to worry about are:</p>
 <h3 id="pcbs">PCB&rsquo;s</h3>
 <p>This ultimately comes down to choosing (or designing) the keyboard, as discussed on the last section. Some things to look for are switch compatibility and hot-swap compatibility. Optionally, you might also want a board with support for LEDs, OLED display or encoders.</p>
 <h3 id="microcontrollers">Microcontrollers</h3>
-<p>Pro-micro (and other compatible types like rp2040)
-Nice!nano</p>
+<p>The microcontroller is what, well, controls the whole keyboard. It detects the keypresses and sends the information to the computer via USB. The most common form factor for these is the <a href="https://www.sparkfun.com/pro-micro-5v-16mhz.html">pro-micro</a> and there are a ton of compatible clones out there! Some come with more p swerful chips, like the <a href="https://www.raspberrypi.com/products/rp2040/">rp2040</a> instead of the classic <a href="https://www.microchip.com/en-us/product/ATmega32U4">ATmega32U4</a>, so thats something to look out for if you want a fancy animated display. If you want Bluetooth keyboard, you&rsquo;ll want something like a <a href="https://nicekeyboards.com/nice-nano/">nice!nano</a>.</p>
+<p>As for firmware, you got <a href="https://qmk.fm/">QMK</a> for wired and <a href="https://zmk.dev/">ZMK</a> for wireless setups. They are extensively customizable, with all the cool features like layers, tap-mod keys, key-combos, etc. And if that&rsquo;s not enough you could always rock your own firmware!</p>
 <h3 id="swithes-and-keycaps">Swithes and keycaps</h3>
-<p>Here talk about MX vs choc style swithes. Also mention the different types, like tactile, linear, mixed.</p>
+<p>Alright, keyboard switches really are an entire world. They really come down to personal preference. I&rsquo;d just double check that the switch type you choose is supported by the PCB. There are two main designs that came up during my research: MX style and Choc style. I ended up with Kailh Choc Pro-Reds and really like them.</p>
 <h3 id="other-optional-components">Other optional components</h3>
 <ol>
 <li>Diodes</li>
@@ -264,11 +270,111 @@ Nice!nano</p>
 <li>Reset buttons</li>
 <li>Encoders</li>
 </ol>
-<h3 id="breaking-down-my-costs">Breaking down my costs</h3>
+<h3 id="breaking-down-costs">Breaking down costs</h3>
+<p>Ok, now for the most important part, how much did this all cost? Let me break it down for you:</p>
+<p><strong>Disclaimer</strong>: the following links are in no way affiliate. I don&rsquo;t get anything from sharing this, this is legit just what I bought. Also, some of the deals might not be in place anymore, so the pricing may vary (especially for AliExpress, I feel like the prices change every refresh).</p>
+<table>
+  <thead>
+      <tr>
+          <th>Source</th>
+          <th>Item</th>
+          <th>Qty</th>
+          <th>Price (€)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>SplitKB</strong></td>
+          <td><a href="https://splitkb.com/products/aurora-lily58?variant=43553010123011">Aurora Lily58 PCB Kit (incl. PCBs, diodes, etc.)</a></td>
+          <td>1</td>
+          <td>31,36</td>
+      </tr>
+      <tr>
+          <td><strong>SplitKB</strong></td>
+          <td><a href="https://splitkb.com/products/blank-mbk-choc-low-profile-keycaps">Blank MBK Choc Keycaps (1.5u, black, 5 pcs)</a></td>
+          <td>1 set</td>
+          <td>3,68</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><strong>SplitKB Subtotal</strong></td>
+          <td></td>
+          <td><strong>35,04</strong></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>Shipping</td>
+          <td></td>
+          <td>11,04</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>VAT (PT)</td>
+          <td></td>
+          <td>10,60</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><strong>SplitKB Total</strong></td>
+          <td></td>
+          <td><strong>56,68</strong></td>
+      </tr>
+      <tr>
+          <td><strong>AliExpress</strong></td>
+          <td><a href="https://pt.aliexpress.com/item/1005006734545486.html">PBT Low Profile Keycaps (white, 50 pcs)</a></td>
+          <td>1 set</td>
+          <td>28,51</td>
+      </tr>
+      <tr>
+          <td><strong>AliExpress</strong></td>
+          <td><a href="https://pt.aliexpress.com/item/1005005446722280.html">Choc V1 Red Pro Switches (70 pcs)</a></td>
+          <td>1 pack</td>
+          <td>20,49</td>
+      </tr>
+      <tr>
+          <td><strong>AliExpress</strong></td>
+          <td><a href="https://pt.aliexpress.com/item/1576902211.html?">Type-C Pro Micro Clone (5V 16MHz)</a></td>
+          <td>2</td>
+          <td>9,62</td>
+      </tr>
+      <tr>
+          <td><strong>AliExpress</strong></td>
+          <td><a href="https://pt.aliexpress.com/item/1005005902080016.html">Low Profile Keycaps (black, 6 pcs each)</a></td>
+          <td>2 sets</td>
+          <td>6,82</td>
+      </tr>
+      <tr>
+          <td><strong>AliExpress</strong></td>
+          <td><a href="https://pt.aliexpress.com/item/1005006177816125.html">Coiled TRRS Audio Cable (1m, 4-pole)</a></td>
+          <td>1</td>
+          <td>2,87</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><strong>AliExpress Total</strong></td>
+          <td></td>
+          <td><strong>68,31</strong></td>
+      </tr>
+      <tr>
+          <td><strong>Total</strong></td>
+          <td></td>
+          <td></td>
+          <td><strong>124,99</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p>Ok, so as you can see it was not cheap, unfortunately :(</p>
+<p>I really played it safe by ordering the kit from SplitKB. Since it was my first build I really just wanted it to work, so paid a little more for the convenience of having the PCB&rsquo;s and all the other small components (diodes, hot-swap sockets, resistors, jacks) in a nice package from a reputable source that I had guarantee would work.</p>
+<p>Also, holy shit are switches and keycaps ever expensive! Especially for the Choc style switches, the pricing really caught me off guard, even buying from AliExpress. The good thing is that I was smart enough to get hot-swaps instead of soldering the switches to the board, that way if I want to do another build in the future I can just use these existing switches and keycaps.</p>
+<p>If I were to do it again, I&rsquo;d definitely be a little less scared of sourcing all of the components individually. Perhaps even looking into getting the PCB&rsquo;s from a PCB manufacturing service, since its an open design. Further, if budget was my key concern, I&rsquo;d 3d print the keycaps.</p>
+<p>All in all, I&rsquo;d say I didn&rsquo;t do that bad. I was conservative, yes, but also got a working keyboard with really solid parts (the PBT keycaps are really nice) and still beat the price of a pre-assembled keyboard by some margin. When it comes down to it, I guess these things are just niche and expensive.</p>
 </section>
 <section class="level1"><h2 id="assembly">Assembly</h2>
+<h3 id="soldering">Soldering</h3>
+<h3 id="low-profile-socket-shenanigans">Low-profile socket shenanigans</h3>
+<h3 id="finishing-touches">Finishing Touches</h3>
 </section>
-<section class="level1"><h2 id="learning-curve">Learning Curve</h2>
+<section class="level1"><h2 id="daily-driving">Daily Driving</h2>
 </section>
 <section class="level1"><h2 id="conclusion">Conclusion</h2>
 </section>
