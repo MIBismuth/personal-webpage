@@ -104,12 +104,13 @@ figure {
     padding: 20px;
 }
 
-figure img {
-    width: min(100%, 799px);
-    /* Make the image take up the full width of the figure */
-    /* max-height: 60vh; /* Maintain the aspect ratio of the image */
-    */ height: auto;
-    align: center;
+figure img,
+video {
+  display: block;
+  max-width: 100%;
+  width: min(100%, 799px);
+  height: auto;
+  margin: 0 auto;
 }
 
 
@@ -245,11 +246,15 @@ mjx-container {
 
 /* Table Styles */
 table {
-    width: min(800px, 100%);
-    margin: 20px auto;
-    border-collapse: collapse;
-    font-size: 18px;
-    text-align: left;
+  display: block;               /* allow overflow */
+  overflow-x: auto;             /* enable horizontal scroll */
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+
+  width: min(800px, 100%);      /* your existing constraint */
+  margin: 20px auto;
+  border-collapse: collapse;
+  font-size: 18px;
+  text-align: left;
 }
 
 /* Column Widths */
