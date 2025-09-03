@@ -105,7 +105,7 @@ figure {
 }
 
 figure img,
-video {
+video ,figcaption{
   display: block;
   max-width: 100%;
   width: min(100%, 799px);

@@ -133,7 +133,7 @@ Or had it?
 
 ## Home-row Mods
 
-Truth was, while typing words was indeed more comfortable, everything else still didn't feel quite right. All the modifiers, special symbols, Enter and Backspace keys still required significant stretching. 
+Truth was, while typing words was indeed more comfortable, everything else still didn't feel quite right. All the modifiers, special symbols, `Enter` and `Backspace` keys still required significant stretching. 
 
 In fact, it was so much so that at around the year mark, after a particularly long and last minute report typing session, I got a terrible pain in my right wrist. After close inspection, I figured it was due to repetitively rotating my hand to hit the Backspace and Enter key, to the point the whole joint cracked when doing said motion.
 

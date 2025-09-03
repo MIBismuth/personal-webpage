@@ -1,10 +1,13 @@
-  <video controls width="{{ .Get "width" | default "640" }}">
+<video controls width="{{ .Get "width" | default "640" }}">
     <source src="{{ .Get "src" }}" type="video/mp4">
     Your browser does not support the video tag.
-  </video>
+</video>
 
-  {{ with .Get "desc" }}
-    <p >
-      {{ . }}
-    </p>
-  {{ end }}
+{{ with .Get "desc" }}
+<figcaption>
+    <h4>
+        {{ . }}
+    </h4>
+</figcaption> 
+{{ end }}
+

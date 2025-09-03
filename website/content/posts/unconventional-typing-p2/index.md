@@ -19,9 +19,11 @@ draft: false
 
 [On my last post](/posts/unconventional-typing-p1) I left of with a banger software based typing setup. I got my Colemak-dh, my homerow mods (which I extensively praised) and my layers all neatly integrated into my workflow, it was great! However, lingering around was still an unease, a general feeling of disquiet. And this feeling was one I could quite literally get my hands on. My issue wasn't with the way I typed, you see, it was but with the keyboard itself! It bothered me: there was still further optimization to be done.
 
-Allow me explain. What if I told you've been lied to? What if I told you the standard keyboard **shape**, i.e. the way the keys are positioned, is not really designed with ergonomics in mind? Ever wondered why the keys don't align with each other into a neat little grid? Ever considered the possibility that the strongest and most agile finger, the thumb, could be used to hit more that the space bar?
+Allow me to explain. What if I told you've been lied to? What if I told you the standard keyboard **shape**, i.e. the way the keys are positioned, is not really designed with ergonomics in mind? Ever wondered why the keys don't align with each other into a neat little grid? Ever considered the possibility that the strongest and most agile finger, the thumb, could be used to hit more that the space bar?
 
-Peaked your interest? Let me introduce you to the world of split ergonomic keyboards.
+Piqued your interest? Let me introduce you to the world of split ergonomic keyboards.
+
+{{< video src="videos/intro-blog.mp4" desc="POV: you're filming yourself typing (that's what you do for fun)" width="720" >}}
 
 Down another rabbit hole yet again.
 
@@ -38,18 +40,17 @@ I like to think of keyboards as being categorized along 4 axis:
 
 Here's a collection of popular keyboards I looked into while doing my research, complete with their respective distribution among the categories.
 
-HERE I HAVE TO FACT CHECK THESE NUMBERS, LIKE SOME ARE PER HAND, OTHERS PER WHOLE KEYBOARD!
 
-| Keyboard                                                          | Split / Non Split | Layout Type      | Number of Keys | Form Factor          | Open Source Hardware      |
-| ----------------------------------------------------------------- | ----------------- | ---------------- | -------------- | -------------------- | ------------------------- |
-| [Standard 104-Key](https://en.wikipedia.org/wiki/Keyboard_layout) | Non-Split         | Row Staggered    | 104            | Flat                 |                           |
-| [Kinesis Advantage2](https://kinesis-ergo.com/shop/advantage2/)   | Split\*           | Column Staggered | ~76            | Sculpted / Tented    | ❌                        |
-| [Glove80](https://moergo.com/)                                    | Split             | Column Staggered | 80             | Tenting / Wireless   | ❌                        |
-| [ErgoDox EZ](https://ergodox-ez.com/)                             | Split             | Column Staggered | 76             | Tenting / Adjustable | ❌ (Based on open design) |
-| [Moonlander](https://www.zsa.io/moonlander/)                      | Split             | Column Staggered | 78             | Tenting / Adjustable | ❌                        |
-| [Lily58](https://github.com/kata0510/Lily58)                      | Split             | Column Staggered | ~58            | Flat / Tenting (kit) | ✅                        |
-| [Corne (CRKBD)](https://github.com/foostan/crkbd)                 | Split             | Column Staggered | 42             | Flat / Tenting (kit) | ✅                        |
-| [Dactyl Manuform](https://github.com/adereth/dactyl-keyboard)     | Split             | Column Staggered | 50–70 (varies) | Sculpted / "Madness" | ✅                        |
+| Keyboard                                                          | Split / Non Split | Layout Type      | Number of Keys | Form Factor          | Open Source Hardware |
+| ----------------------------------------------------------------- | ----------------- | ---------------- | -------------- | -------------------- | -------------------- |
+| [Standard 104-Key](https://en.wikipedia.org/wiki/Keyboard_layout) | Non-Split         | Row Staggered    | 104            | Flat                 | (not aplicable)      |
+| [Kinesis Advantage2](https://kinesis-ergo.com/shop/advantage2/)   | Split\*           | Column Staggered | ~76            | Sculpted / Tented    | ❌                   |
+| [Glove80](https://moergo.com/)                                    | Split             | Column Staggered | 80             | Sculpted / Tented    | ❌                   |
+| [ErgoDox EZ](https://ergodox-ez.com/)                             | Split             | Column Staggered | 76             | Tenting / Adjustable | ❌                   |
+| [Moonlander](https://www.zsa.io/moonlander/)                      | Split             | Column Staggered | 78             | Tenting / Adjustable | ❌                   |
+| [Lily58](https://github.com/kata0510/Lily58)                      | Split             | Column Staggered | ~58            | Flat / Tenting (kit) | ✅                   |
+| [Corne (CRKBD)](https://github.com/foostan/crkbd)                 | Split             | Column Staggered | 42             | Flat / Tenting (kit) | ✅                   |
+| [Dactyl Manuform](https://github.com/adereth/dactyl-keyboard)     | Split             | Column Staggered | 50–70 (varies) | Sculpted / "Madness" | ✅                   |
 
 In the end, I went with the [Lily58](https://github.com/kata0510/Lily58). I felt like it was a fairly conservative choice at the time and that proved to be right. It was split and column staggered, the main things I wanted to try, while maintaining a _sane_ number of keys, which allowed me to keep the number row. Further, since the design was open hardware, that gave me the chance to source my own parts and assemble it all by myself, which would make it a significantly cheaper than the pre-built options (I was not about to drop 300€ on a keyboard I didn't even know I'd like).
 
@@ -63,7 +64,7 @@ This ultimately comes down to choosing (or designing) the keyboard, as discussed
 
 ### Microcontrollers
 
-The microcontroller is what, well, controls the whole keyboard. It detects the keypresses and sends the information to the computer via USB. The most common form factor for these is the [`pro-micro`](https://www.sparkfun.com/pro-micro-5v-16mhz.html) and there are a ton of compatible clones out there! Some come with more powerful chips, like the [`rp2040`](https://www.raspberrypi.com/products/rp2040/) instead of the classic [`ATmega32U4`](https://www.microchip.com/en-us/product/ATmega32U4), so thats something to look out for if you want a fancy animated display. If you want Bluetooth keyboard, you'll want something like a [`nice!nano`](https://nicekeyboards.com/nice-nano/).
+The microcontroller is what, well, controls the whole keyboard. It detects the keypresses and sends the information to the computer via USB. The most common form factor for these is the [`pro-micro`](https://www.sparkfun.com/pro-micro-5v-16mhz.html) and there are a ton of compatible clones out there! Some come with more powerful chips, like the [`rp2040`](https://www.raspberrypi.com/products/rp2040/) instead of the classic [`ATmega32U4`](https://www.microchip.com/en-us/product/ATmega32U4), so that's something to look out for if you want a fancy animated display. If you want Bluetooth keyboard, you'll want something like a [`nice!nano`](https://nicekeyboards.com/nice-nano/).
 
 As for firmware, you got [`QMK`](https://qmk.fm/) for wired and [`ZMK`](https://zmk.dev/) for wireless setups. They are extensively customizable, with all the cool features like layers, tap-mod keys, key-combos, etc. And if that's not enough you could always write your own firmware!
 
@@ -71,16 +72,18 @@ As for firmware, you got [`QMK`](https://qmk.fm/) for wired and [`ZMK`](https://
 
 Alright, keyboard switches really are an entire world. They really come down to personal preference. I'd just double check that the switch type you choose is supported by the PCB. There are two main designs that came up during my research: MX style and Choc style. I ended up with Kailh Choc Pro-Reds and really like them.
 
-### Other optional components
+### Other components
 
-1. Diodes
-1. Hot-swap sockets
-1. TRS cable and sockets
-1. Batteries (if wireless)
-1. LED's (if RGB)
-1. OLED displays
-1. Reset buttons
-1. Encoders
+| Component             | Quantity              | Optional          |
+| --------------------- | --------------------- | ----------------- |
+| Diodes                | 1 per key             | No                |
+| Hot-swap sockets      | 1 per key             | Yes               |
+| TRS cable and sockets | 1 per keyboard        | No                |
+| Reset buttons         | 1 per microcontroller | No                |
+| Batteries             | 1~2 per keyboard      | Yes (if wireless) |
+| LEDs                  | 1 per key (if RGB)    | Yes               |
+| OLED displays         | 1~2 per keyboard      | Yes               |
+| Encoders              | go wild with it       | Yes               |
 
 ### Breaking down costs
 
@@ -114,6 +117,8 @@ If I were to do it again, I'd definitely be a little less scared of sourcing all
 
 All in all, I'd say I didn't do that bad. I was conservative, yes, but also got a working keyboard with really solid parts (the low profile switches and PBT keycaps are really nice!) and still beat the price of a pre-assembled keyboard by some margin. When it comes down to it, I guess these things are just niche and expensive.
 
+{{<figure src="images/cope.jpg" title="On Coping with Overspending on Electronics, digital, 2025, Jusé Lopz">}}
+
 ## Assembly
 
 The assembly was a fairly straight forward process, no doubt thanks to the quality of the Lily58's PCB design. Having access to [HackerSchool](https://hackerschool.tecnico.ulisboa.pt/)'s awesome soldering setup also helped, many thanks for letting me borrow it!
@@ -124,22 +129,30 @@ The first step was soldering all the components onto the PCB. This includes the 
 
 Since this was my first time soldering [SMD](https://en.wikipedia.org/wiki/Surface-mount_technology) components, I was a bit nervous going into it. As it turns out, it's not complicated once you get the technique down, and after a couple of [YouTube Tutorials](https://www.youtube.com/watch?v=EW9Y8rDm4kE&t=280s) I was blazing.
 
-{{<figure src="images/soldering.jpeg" title="Lily58 - Midway through the soldering process">}}
+Here's the steps:
 
-The hardest part was for sure the sheer amount of components that needed soldering, particularly diodes and hot-swap sockets (1 per key), 116 in total! For me this part of the process was about 2~3 hours of manual labour, but I believe it could be done much faster by someone more experienced. I believe I could do it much faster now.
+1. Pre-place a bit of solder on one of the pads
+2. Solder one end of the SMD diode
+3. Solder the other end of the diode
+4. Adjust first solder if necessary
+
+{{<figure src="images/soldering-schematic.svg" title="How to solder an SMD Diode, a schematic.">}}
+
+The hardest part was for sure the sheer amount of components that needed soldering, particularly diodes and hot-swap sockets (1 per key), 58 in total! For me this part of the process was about 2~3 hours of manual labour, but I believe it could be done much faster by someone more experienced. I believe I could do it much faster now.
+
+{{<figure src="images/soldering.jpeg" title="Lily58 - Midway through the soldering process">}}
 
 #### Low-profile socket shenanigans
 
 The last component that needed soldering was the micro-controllers.
 
-I wanted to avoid soldering them directly to the PCB in case I wanted to upgrade to a wireless setup in the future (I never did). I also wanted to use low-profile sockets for the cool looks. This last part turned out to be a problem, since I did not take into account that the included pin headers were the standard square ones and did not fit the low profile sockets I had available.
+I wanted to avoid soldering them directly to the PCB in case I wanted to upgrade to a wireless setup in the future (I never did). I also wanted to use low-profile sockets for the cool looks. This last part turned out to be a problem, since I did not take into account that the included pin headers were the standard square ones and did not fit the sockets I had available.
 
 Some hacking was in order.
 
 As it turns out, I found that resistor legs made for the perfect fit on my low-profile sockets. I figured that I could take those legs and repurpose them as my headers (see picture below) (sorry for bad quality) (not sorry for what I did to those resistors).
 
 {{<figure src="images/hero-donors.jpg" title="Lily58 - Hero resistors, their sacrifice shall not be forgotten">}}
-
 
 The process goes like this:
 
@@ -152,26 +165,25 @@ The image below shows the donor legs already inserted and ready to be soldered.
 
 {{<figure src="images/scuffed-soldering.jpg" title="Lily58 - Scuffed soldering of the micro-controller with the forbidden Donor Resistor Leg Technique">}}
 
-
 And that's it, all the soldering was done! All that was left was inserting all the keys and keycaps and the assembly was complete.
 
 ### Uploading the Firmware
 
-Finally, the last missing step to get a functional keyboard was to upload the [`QMK`](https://qmk.fm/) firmware.
+Finally, the last missing step to get a _functional_ keyboard was to upload the [`QMK`](https://qmk.fm/) firmware.
 
-[`QMK`](https://qmk.fm/) offers an amazing [online configurator](https://config.qmk.fm) that supports a lot of popular keyboards. After configuring, you download the JSON and compile and upload the firmware with the command:
+[`QMK`](https://qmk.fm/) offers an amazing [online configurator](https://config.qmk.fm) that supports a lot of popular keyboards. After configuring, you download the JSON and compile and upload the firmware with the following command, assuming [`QMK`](https://qmk.fm/) is installed:
 
 ```bash
  qmk flash -bl avrdude config.json
 ```
 
-Assuming [`QMK`](https://qmk.fm/) is installed. After the compilation step there is a prompt to put the device in bootmode (double tap the reset button on the Lily58) and the firmware is uploaded. 
+After the compilation step there is a prompt to put the device in bootmode (double tap the reset button on the Lily58) and the firmware is uploaded.
 
-The keyboard was now ready for use!
+The keyboard is now ready for use!
 
 ### Finishing Touches
 
-Well, not quite ready yet. As it was, it remained an exposed, wobbly board with keys. A *key-board*, indeed.
+Well, not quite ready yet. As it was, it remained an exposed, wobbly board with keys. A _key-board_, indeed.
 
 #### Tape mod
 
@@ -181,95 +193,135 @@ First, I used some painters tape on the backside of the PCB, my goal being to pr
 
 #### 3D Printed Case
 
-Since pre-made cases available to purchase were too expensive I went with 3D printing! Plus, it was a good excuse to put my good ol' Anet-A8 to use. 
+Since pre-made cases available to purchase were too expensive I went with 3D printing! Plus, it was a good excuse to put my good ol' [Anet-A8](https://www.reddit.com/r/3Dprinting/comments/8ah96r/anet_a8_burns_down_half_the_house/) to use.
 
 I looked through printables and found [this case model](https://www.printables.com/model/909621-aurora-lily58-choc-low-profile-case-version-2) I really liked made by [Gabbajoe](https://www.printables.com/@Gabbajoe), and modified the back cover a tiny bit by adding supporting holes where I could mount tenting screws. Here's the [STL file](models/lily58-case-tilting.stl).
 
-
 {{<figure src="images/back-cover.png" title="Lily58 - Modified back case with tenting holes.">}}
-
 
 I chose to print in clear PETG because I wanted something more durable and more flexible than PLA, allowing me to bend it a little bit on the account of potential sizing issues. Luckily, it was also the only filament I had laying around.
 
 After printing all the parts, I assembled the switches onto the front plate and pressure fitted the back cover.
 
-
 {{<figure src="images/case-assembly.jpg" title="Lily58 - Mounting switches onto front cover.">}}
 
-
-I truly had low expectations but case really came out amazing! It provides a lot of protection to the PCB and the front cover in particular securely keeps the switches in place, fixing the wobbling. Plus, the tenting makes such a huge difference when typing, definitely more ergonomic experience for my hands. 
-
-
+I truly had low expectations but the case really came out amazing! It provides a lot of protection to the PCB and the front cover in particular securely keeps the switches in place, fixing the wobbling. Plus, the tenting makes such a huge difference when typing, definitely more ergonomic experience for my hands.
 
 {{<figure src="images/final.jpg" title="Lily58 - Final keyboard, with 3D printed tenting case.">}}
 
-
-I'm so glad it only took me 5 months to finally stop being lazy and print the thing.
-
-
+I'm so glad it only took me 5 months to finally stop being lazy and print the case.
 
 ## Thoughts after 10+ months of use
 
+### The Feels
 
+I love this thing.
 
+Typing on this keyboard feels buttery-smooth. I really like the feel of the low profile mechanical switches and the PBT keycaps feel very solid and provide a nice clicking sound. The column staggered layout also feels very natural and was surprisingly easy to adapt to.
 
+The ~rubber~ [Blu Tack](https://en.wikipedia.org/wiki/Blu_Tack) feet make it impervious to external side forces, i.e. it does not slide around, while keeping it easy to pick up and adjust the position. The tenting was also a very good addition, I found a small angle of about 15~20º to be my ideal.
+
+Further, because it is split I can carry it in a small pouch and throw it in my backpack without much hassle. **However**, using it on the go with a laptop carries some issues.
+
+1. **You need a lot of desk space to use it effectively** - the laptop has to be significantly in front of the keyboard. This makes using it on small library/coffee shop desks a problem, I can really only use it at dedicated study rooms at my UNI.
+2. While carrying it is no big deal, **there is definitely some friction when the time comes to take it out and use it**. Feels like I have to perform this elaborate ritual every time I want to use it: take the pouch, open it, remove the two halves, plug in the TRS connector, plug in the USB-C cable to my laptop, find the perfect position on the table, do some work, repeat all the steps in reverse when packing. If I know I'm just going to be working for less than 20min I sometimes don't bother with my hacker setup. Maybe I'm just lazy.
+3. Depending on the switches **it can be fairly loud**.
+
+Because of these reasons, I would not recommend getting a split keyboard if you're the type of person that is always on the move and does most of the work in odd / tight places along the way. That being said, if you have a dedicated work space with plenty of room this could be a very good investment!
+
+### The Layers
+
+This keyboard really integrates perfectly into my keyboard heavy workflow. That is no doubt in great part due to layers.
+
+I've talked about layers and home-row mods in my [last post](/posts/unconventional-typing-p1/#home-row-mods) and I've carried most of those ideas into the split zone. You can check out my JSON config [here](models/qmk_config.json) and load it on the [QMK configurator](https://config.qmk.fm).
+
+As it is, I've settled on 4 layers:
+
+#### Layer 1
+
+This is my default `Colemak-DH` layer. It has the home-row mods, numbers on the top row, `Esc`, `Space`, `Backspace` and `Enter` on the thumb keys.
+
+{{<figure src="images/layout-1.png" title="Layer 1 - Default Colemak-DK">}}
+
+#### Layer 2
+
+This layer is accessed by tap-holding either `Esc` or `Enter`. It has a `numpad` on my left hand and `arrows` and media controls on my right hand, with `Fn` keys uptop.
+
+{{<figure src="images/layout-2.png" title="Layer 2 - Default Colemak-DK">}}
+
+#### Layer 3
+
+This layer is accessed by tal-holding either `Backspace` or `Space`. It is my special symbols layer. I use it mostly for quick access to all the brackets `()` `{}` `[]` `<>` needed for programming on my left hand, as well as the math operation symbols on my right `+` `-` `/` `*` `=` `%` `\` `#`.
+
+{{<figure src="images/layout-3.png" title="Layer 3 - Special Symbols">}}
+
+I had to do some shenanigans to get the `[]` `<>` and `{}` to work with the PT keyboard language, that's why those look weird.
+
+#### Layer 4
+
+I can toggle into this layer by tapping the furthest thumb key. It is a `QWERTY` layer that I use while playing games or if a friend wants to try my keyboard.
+
+{{<figure src="images/layout-4.png" title="Layer 4 - QWERTY">}}
+
+It took a couple of weeks to get used to this setup, but now I feel quite agile even typing numbers or special symbols. It is quite nice having dedicated layers for those.
+
+### The Looks
+
+Definitely an unusual sight. A lot of people have asked me about it throughout my usage. Most were confused (rightly so). The reactions usually go something like this:
+
+"What the hell is that?"
+
+"Can you even type without the letters?"
+
+"Can I try?"
+
+The custom keyboard folks will also add "Meh, the feel is not my cup of tea". Understandable.
+
+Finally, if it's someone over 40y they'll inevitably ask:
+
+"Are you planning on selling those?"
+
+The over 40 thing was a joke but why is it that some people can not fathom having a passion project without some monetary compensation in mind? Maybe I'm just overthinking, perhaps most even come from a place of good faith and wonder if this is an innovative (it's not), useful (debatable) product. But then, when you answer that "it's not really a business venture" they give you **_the look_**, and if you have ever sunk time into any side project you know exactly what I'm talking about.
+
+Feels oddly sad, I know one day I'll find myself looking on the other side.
+
+Okay, rant over. TLDR; It's an interesting conversation starter, if nothing else.
 
 ## Conclusion
 
+Typing is still our primary interface with all that is digital, and digital is becoming the primary interface between us.
+
+Therefore, in my opinion, it makes a lot of sense to really break out and explore all the options available when it comes to typing, be it software or custom hardware. If you, the reader, decide to pursue building your own split keyboard, here's what I would do differently now:
+
+1. Source all parts individually (saves money).
+1. Source the PCBs from an on demand PCB manufacturer (saves money, you can even split / gift the extras to a friend).
+1. Get a keyboard with less keys. The number row became useless for me, around 40 would be my sweet spot.
+1. Print yourself a case with tenting as soon as possible.
+
+All in all, this was an interesting project, definitely the most useful gadget I've built. It feels great materializing a piece of hardware that you can infinitely customize to perfectly play into your workflow.
+
+This is not the end.
+
+I'm curious as to where the future of digital input will lie. Perhaps I'll find it at the bottom of the next rabbit hole.
+
+Until then,
+
+--- José Duarte Lopes
+
 ## Epilogue
 
-<!-- https://splitkb.com/products/aurora-lily58?variant=43553010123011 -->
-<!-- Aurora Lily58 PCB Kit × 1  - this includes: -->
-<!-- €31,36 -->
-<!---->
-<!--     1 × Left PCB; -->%);
-<!--     1 × Right PCB; -->
-<!--     65 × 1N4148 axial signal diode; -->
-<!--     5 × 4k7 Ohm axial resistor; -->
-<!--     2 × PJ-3200B-4A TRRS Jack, black, and; -->
-<!--     2 × Reset button. -->
-<!---->
-<!-- Choc Hotswap -->
-<!-- 	Blank MBK Choc Low Profile Keycaps × 1 -->
-<!-- 5 × 1.5u / Black -->
-<!-- €3,68 -->
-<!---->
-<!-- Subtotal -->
-<!-- 	€35,04 -->
-<!---->
-<!-- Shipping -->
-<!-- 	€11,04 -->
-<!---->
-<!-- PT VAT -->
-<!-- 	€10,60 -->
-<!---->
-<!-- Total -->
-<!-- 	€56,68 EUR -->
-<!---->
-<!---->
-<!-- ok, now from aliexpress: -->
-<!---->
-<!-- Choc Red Pro S, X70 PCS -->
-<!-- 20,49€ -->
-<!-- x1 -->
-<!---->
-<!-- Low Profile Keycaps para Teclado Gaming Mecânica, Keycaps DIY, 1350 Interruptor Chocolate, Branco e Preto Cor, 6PCs -->
-<!-- black, China -->
-<!-- 3,41€ -->
-<!-- x2 -->
-<!---->
-<!-- Rallonge-Primavera enrolado espiral cabo, macho para fêmea, fone de ouvido, Áudio estéreo, Aux Jack, 3.5mm, 4 Pole, 3 Pole -->
-<!-- (4 Pole) M-M, 1m -->
-<!-- 2,87€ -->
-<!-- x1 -->
-<!---->
-<!-- Micro USB Pro para Arduino, Módulo com 2 pinos de linha para Leonardo, em estoque, melhor qualidade, ATmega32U4, MINI, TYPE-C, 5V, 16MHz -->
-<!-- TYPE-C USB 5V16MHz -->
-<!-- 4,81€ -->
-<!-- x2 -->
-<!---->
-<!-- PBT Keycaps para teclado mecânico, Low Profile Choc Keycaps, Ultra fino, preto, branco, transparente, Kailh 1350, 50pcs -->
-<!-- White -->
-<!-- 28,51€ -->
-<!-- x1 -->
-<!---->
+It was light out. The time was such that most people were still working.
+
+Naturally, _he_ remained.
+
+Sitting by himself on a dim-lit corner of the room, the strange man worked away. His weapon of choice? You can't really tell... a keyboard of some sort? His focus was so diligent one could mistake it for some sort of trance. As it often does, it intrigues, so they approach.
+
+"Hey, what the hell is that thing?"
+
+Not for a second taking his eyes off the screen, he answered. Something to do with wrist pain and custom keyboards. They do not listen, for in that moment something terrible, hidden yet so blatantly out of place catches their eye.
+
+"Why are your keycaps blank?"
+
+I smile.
+
+"I made them that way, for you see I have no need for them."
