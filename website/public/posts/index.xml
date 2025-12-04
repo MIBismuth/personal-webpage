@@ -1,38 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on José Lopes' Cool Website</title><link>https://joselopes.dev/posts/</link><description>Recent content in Posts on José Lopes' Cool Website</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 06 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://joselopes.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Unconventional typing: part 2</title><link>https://joselopes.dev/posts/unconventional-typing-p2/</link><pubDate>Tue, 06 May 2025 00:00:00 +0000</pubDate><guid>https://joselopes.dev/posts/unconventional-typing-p2/</guid><description>&lt;h2 id="a-splitting-decision"&gt;A splitting decision&lt;/h2&gt;
-&lt;p&gt;&lt;a
-
-	
-	
-		href = "/posts/unconventional-typing-p1"
-
-		
-
-	
-
-	
- href = "/posts/unconventional-typing-p1"
-	&gt;
-
-	
-	&lt;span&gt;
-		On my last post
-	&lt;/span&gt;
-
-&lt;/a&gt;
- I left of with a banger software based typing setup. I got my Colemak-dh, my homerow mods (which I extensively praised) and my layers all neatly integrated into my workflow, it was great! However, lingering around was still an unease, a general feeling of disquiet. And this feeling was one I could quite literally get my hands on. My issue wasn&amp;rsquo;t with the way I typed, you see, it was but with the keyboard itself! It bothered me: there was still further optimization to be done.&lt;/p&gt;</description></item><item><title>Unconventional typing: part 1 - Colemak</title><link>https://joselopes.dev/posts/unconventional-typing-p1/</link><pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate><guid>https://joselopes.dev/posts/unconventional-typing-p1/</guid><description>&lt;h2 id="prologue-my-colemak-origin-story"&gt;Prologue: My Colemak Origin Story&lt;/h2&gt;
-&lt;p&gt;It was dark out. The time was such that most people had already left.&lt;/p&gt;
-&lt;p&gt;Yet, &lt;em&gt;he&lt;/em&gt; remained.&lt;/p&gt;
-&lt;p&gt;Sitting by himself on a dim-lit corner of the room, the strange man worked away. His weapon of choice? An old ThinkPad. His focus was so diligent one could mistake it for some sort of trance. As it often does, it intrigued me, so I approached.&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;Hey, what are you doing here so late?&amp;rdquo; I asked.&lt;/p&gt;</description></item><item><title>Error Propagation Calculator</title><link>https://joselopes.dev/posts/error-propagation/</link><pubDate>Thu, 29 Aug 2024 00:00:00 +0000</pubDate><guid>https://joselopes.dev/posts/error-propagation/</guid><description>&lt;h2 id="it-starts-with-why-not"&gt;It starts with: &lt;em&gt;why not?&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;This whole project came about during one of the many &amp;ldquo;dude, we need to get rich&amp;rdquo; conversations between me and my good friend João Rei.&lt;/p&gt;
-&lt;p&gt;We knew we had to solve a &lt;em&gt;real world&lt;/em&gt; problem. Here&amp;rsquo;s why &lt;strong&gt;calculating error propagations&lt;/strong&gt; was one of the first things that popped up.&lt;/p&gt;
-&lt;h3 id="understanding-the-problem-why-it-sucks"&gt;Understanding the problem: why it sucks&lt;/h3&gt;
-&lt;p&gt;For context, calculating error propagations was a very common task on our bachelor&amp;rsquo;s physics laboratories.&lt;/p&gt;</description></item><item><title>Self Hosting on a Budget</title><link>https://joselopes.dev/posts/self-hosting/</link><pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate><guid>https://joselopes.dev/posts/self-hosting/</guid><description>&lt;h2 id="the-idea-but-only-on-my-self-imposed-terms"&gt;The Idea, but only on my self-imposed terms&lt;/h2&gt;
-&lt;p&gt;I&amp;rsquo;ve wanted to host my own website for a while now.&lt;/p&gt;
-&lt;p&gt;It looked like a very fun project and the idea of actually &lt;strong&gt;building&lt;/strong&gt; my own creative outlet seemed very rewarding. But mostly because I&amp;rsquo;m a nerd and having a website sounds cool and all the cool kids do it (I want to be a cool kid).&lt;/p&gt;
-&lt;figure&gt;&lt;img src="https://joselopes.dev/posts/self-hosting/coolkids.svg"&gt;&lt;figcaption&gt;
- &lt;h4&gt;Me and the cool kids - abstract by José Lopes © 2024&lt;/h4&gt;
- &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Before we start, as a &lt;em&gt;FOSS enjoyer&lt;/em&gt; that has once fallen into the trap of using all the latest web-frameworks and technologies on a previous project, I devised the following &lt;em&gt;guidelines&lt;/em&gt;:&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on José Lopes&#39; Cool Website</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on José Lopes&#39; Cool Website</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unconventional typing: part 2</title>
+      <link>http://localhost:1313/posts/unconventional-typing-p2/</link>
+      <pubDate>Tue, 06 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/unconventional-typing-p2/</guid>
+      <description>&lt;h2 id=&#34;a-splitting-decision&#34;&gt;A splitting decision&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a&#xA;&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;&#x9;href = &#34;/posts/unconventional-typing-p1&#34;&#xA;&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;&#xA;&#xA;&#x9;&#xA;        href = &#34;/posts/unconventional-typing-p1&#34;&#xA;&#x9;&gt;&#xA;&#xA;&#x9;&#xA;&#x9;&lt;span&gt;&#xA;&#x9;&#x9;On my last post&#xA;&#x9;&lt;/span&gt;&#xA;&#xA;&lt;/a&gt;&#xA; I left of with a banger software based typing setup. I got my Colemak-dh, my homerow mods (which I extensively praised) and my layers all neatly integrated into my workflow, it was great! However, lingering around was still an unease, a general feeling of disquiet. And this feeling was one I could quite literally get my hands on. My issue wasn&amp;rsquo;t with the way I typed, you see, it was but with the keyboard itself! It bothered me: there was still further optimization to be done.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Unconventional typing: part 1 - Colemak</title>
+      <link>http://localhost:1313/posts/unconventional-typing-p1/</link>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/unconventional-typing-p1/</guid>
+      <description>&lt;h2 id=&#34;prologue-my-colemak-origin-story&#34;&gt;Prologue: My Colemak Origin Story&lt;/h2&gt;&#xA;&lt;p&gt;It was dark out. The time was such that most people had already left.&lt;/p&gt;&#xA;&lt;p&gt;Yet, &lt;em&gt;he&lt;/em&gt; remained.&lt;/p&gt;&#xA;&lt;p&gt;Sitting by himself on a dim-lit corner of the room, the strange man worked away. His weapon of choice? An old ThinkPad. His focus was so diligent one could mistake it for some sort of trance. As it often does, it intrigued me, so I approached.&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;Hey, what are you doing here so late?&amp;rdquo; I asked.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Error Propagation Calculator</title>
+      <link>http://localhost:1313/posts/error-propagation/</link>
+      <pubDate>Thu, 29 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/error-propagation/</guid>
+      <description>&lt;h2 id=&#34;it-starts-with-why-not&#34;&gt;It starts with: &lt;em&gt;why not?&lt;/em&gt;&lt;/h2&gt;&#xA;&lt;p&gt;This whole project came about during one of the many &amp;ldquo;dude, we need to get rich&amp;rdquo; conversations between me and my good friend João Rei.&lt;/p&gt;&#xA;&lt;p&gt;We knew we had to solve a &lt;em&gt;real world&lt;/em&gt; problem. Here&amp;rsquo;s why &lt;strong&gt;calculating error propagations&lt;/strong&gt; was one of the first things that popped up.&lt;/p&gt;&#xA;&lt;h3 id=&#34;understanding-the-problem-why-it-sucks&#34;&gt;Understanding the problem: why it sucks&lt;/h3&gt;&#xA;&lt;p&gt;For context, calculating error propagations was a very common task on our bachelor&amp;rsquo;s physics laboratories.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Self Hosting on a Budget</title>
+      <link>http://localhost:1313/posts/self-hosting/</link>
+      <pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/self-hosting/</guid>
+      <description>&lt;h2 id=&#34;the-idea-but-only-on-my-self-imposed-terms&#34;&gt;The Idea, but only on my self-imposed terms&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve wanted to host my own website for a while now.&lt;/p&gt;&#xA;&lt;p&gt;It looked like a very fun project and the idea of actually &lt;strong&gt;building&lt;/strong&gt; my own creative outlet seemed very rewarding. But mostly because I&amp;rsquo;m a nerd and having a website sounds cool and all the cool kids do it (I want to be a cool kid).&lt;/p&gt;&#xA;&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/posts/self-hosting/coolkids.svg&#34;&gt;&lt;figcaption&gt;&#xA;      &lt;h4&gt;Me and the cool kids - abstract by José Lopes © 2024&lt;/h4&gt;&#xA;    &lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;Before we start, as a &lt;em&gt;FOSS enjoyer&lt;/em&gt; that has once fallen into the trap of using all the latest web-frameworks and technologies on a previous project, I devised the following &lt;em&gt;guidelines&lt;/em&gt;:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
